@@ -153,7 +153,6 @@ cd frontend
 ```sh
 npm install
 npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
-npm install react-leaflet leaflet
 ```
 
 #### 3.2. Ejecutar el frontend
