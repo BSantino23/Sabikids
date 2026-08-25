@@ -1,0 +1,92 @@
+# =========================
+# FRONTEND / REACT
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/build/
+
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+frontend/*.local
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+
+# =========================
+# BACKEND / PYTHON / FLASK
+# =========================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+backend/.venv/
+backend/venv/
+backend/env/
+
+backend/.env
+backend/.env.*
+!backend/.env.example
+backend/.flaskenv
+
+backend/instance/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.coverage
+backend/htmlcov/
+
+backend/build/
+backend/dist/
+backend/*.egg-info/
+
+backend/*.db
+backend/*.sqlite3
+
+backend/*.log
+backend/tmp/
+backend/cache/
+
+
+# =========================
+# EDITOR / SISTEMA
+# =========================
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# =========================
+# Python
+# =========================
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =========================
+# Node
+# =========================
+frontend/.npm/
+frontend/.cache/
+
+# =========================
+# Testing / coverage frontend
+# =========================
+frontend/coverage/
+
+# =========================
+# Vite
+# =========================
+frontend/.vite/
