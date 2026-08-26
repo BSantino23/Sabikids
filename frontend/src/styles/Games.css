@@ -1,0 +1,70 @@
+.games-page {
+  min-height: calc(100vh - 64px);
+
+  background-image: url('/juegos/fondo-juegos.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 50px 0;
+
+  overflow: hidden;
+}
+
+.games-container {
+  text-align: center;
+}
+
+.games-title {
+  color: #163b84;
+  font-weight: 900 !important;
+
+  text-shadow:
+    2px 2px 0 rgba(255, 255, 255, 0.8);
+
+  margin-bottom: 8px !important;
+}
+
+.games-subtitle {
+  color: #163b84;
+  font-weight: 600 !important;
+
+  margin-bottom: 45px !important;
+}
+
+.islands-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  align-items: center;
+
+  gap: 45px;
+}
+
+@media (max-width: 900px) {
+  .islands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .games-page {
+    padding: 35px 0;
+  }
+
+  .games-title {
+    font-size: 2.2rem !important;
+  }
+
+  .games-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 30px !important;
+  }
+
+  .islands-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
