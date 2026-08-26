@@ -1,0 +1,991 @@
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.word-search-page {
+  min-height: 100vh;
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 18px 22px 30px;
+
+  background-image:
+    linear-gradient(
+      rgba(39, 34, 69, 0.05),
+      rgba(39, 34, 69, 0.05)
+    ),
+    url("/juegos/lengua/fondo-sopa-letras.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.word-search-topbar {
+  width: min(96%, 1500px);
+
+  margin: 0 auto 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    minmax(340px, 2fr)
+    minmax(220px, 1fr);
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   VOLVER
+========================================================= */
+
+.word-search-back {
+  justify-self: start;
+
+  border-radius: 16px !important;
+
+  padding: 9px 18px !important;
+
+  text-transform: none !important;
+
+  font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.word-search-heading {
+  padding: 9px 18px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+
+  box-shadow:
+    0 7px 18px
+      rgba(0, 0, 0, 0.14);
+
+  backdrop-filter: blur(5px);
+}
+
+
+.word-search-title {
+  color: #55417c;
+
+  font-size:
+    clamp(
+      1.6rem,
+      2.8vw,
+      2.7rem
+    ) !important;
+
+  font-weight: 900 !important;
+}
+
+
+.word-search-rule {
+  margin-top: 2px !important;
+
+  color: #64566d;
+
+  font-size:
+    clamp(
+      0.75rem,
+      1.1vw,
+      0.95rem
+    ) !important;
+
+  font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   CONTROLES DERECHA
+========================================================= */
+
+.word-search-controls {
+  justify-self: end;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 5px;
+}
+
+
+.difficulty-label {
+  color: #ffffff;
+
+  font-size: 0.78rem;
+
+  font-weight: 900;
+
+  text-shadow:
+    0 2px 5px
+      rgba(0, 0, 0, 0.45);
+}
+
+
+.difficulty-select {
+  min-width: 190px;
+
+  padding: 9px 14px;
+
+  border: 3px solid #ffffff;
+
+  border-radius: 15px;
+
+  outline: none;
+
+  background:
+    linear-gradient(
+      145deg,
+      #795bb0,
+      #5e438f
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 0.9rem;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 12px
+      rgba(0, 0, 0, 0.2);
+}
+
+
+.difficulty-select option {
+  background: #ffffff;
+
+  color: #55417c;
+}
+
+
+.word-search-score {
+  padding: 7px 16px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.94
+    );
+
+  color: #55417c;
+
+  font-size: 0.9rem;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 4px 10px
+      rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   REGLAS ACTIVAS
+========================================================= */
+
+.word-search-active-rules {
+  width: min(92%, 900px);
+
+  margin:
+    0 auto
+    14px;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+
+.word-search-rule-card {
+  max-width: 390px;
+
+  padding: 8px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(
+      255,
+      250,
+      220,
+      0.93
+    );
+
+  color: #574765;
+
+  font-size: 0.78rem;
+
+  box-shadow:
+    0 4px 10px
+      rgba(0, 0, 0, 0.14);
+}
+
+
+.word-search-rule-card strong {
+  color: #734e9e;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ESCENA
+========================================================= */
+
+.word-search-scene {
+  flex: 1;
+
+  width:
+    min(
+      96%,
+      1450px
+    );
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(500px, 1.7fr)
+    minmax(270px, 0.75fr);
+
+  align-items: center;
+
+  gap:
+    clamp(
+      24px,
+      4vw,
+      65px
+    );
+}
+
+
+/* =========================================================
+   PANEL GRILLA
+========================================================= */
+
+.word-search-game-panel {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   GRILLA
+========================================================= */
+
+.word-search-grid {
+  /*
+    El tamaño físico es estable.
+
+    La cantidad de letras cambia
+    según dificultad.
+  */
+
+  width:
+    min(
+      44vw,
+      650px
+    );
+
+  aspect-ratio: 1 / 1;
+
+  box-sizing: border-box;
+
+  padding:
+    clamp(
+      9px,
+      1.3vw,
+      18px
+    );
+
+  display: grid;
+
+  gap:
+    clamp(
+      1px,
+      0.25vw,
+      4px
+    );
+
+  border:
+    clamp(
+      5px,
+      0.55vw,
+      8px
+    )
+    solid
+    #805935;
+
+  border-radius: 24px;
+
+  background:
+    rgba(
+      255,
+      250,
+      224,
+      0.88
+    );
+
+  box-shadow:
+    0 11px 0
+      rgba(
+        79,
+        53,
+        31,
+        0.32
+      ),
+    0 18px 30px
+      rgba(
+        0,
+        0,
+        0,
+        0.24
+      );
+
+  backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   CASILLERO
+========================================================= */
+
+.word-search-cell {
+  min-width: 0;
+
+  min-height: 0;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius:
+    clamp(
+      2px,
+      0.35vw,
+      7px
+    );
+
+  background: #fffaf0;
+
+  color: #514264;
+
+  font-size:
+    clamp(
+      0.48rem,
+      1.08vw,
+      1.08rem
+    );
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 1px 0
+      rgba(
+        113,
+        83,
+        55,
+        0.28
+      );
+
+  transition:
+    transform 0.14s ease,
+    background 0.14s ease,
+    color 0.14s ease,
+    box-shadow 0.14s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.word-search-cell:hover {
+  position: relative;
+
+  z-index: 3;
+
+  transform:
+    scale(1.1);
+
+  background: #fff1a8;
+}
+
+
+/* =========================================================
+   SELECCIÓN ACTUAL
+
+   Las letras que el usuario está marcando
+   quedan celestes hasta presionar Comprobar.
+========================================================= */
+
+.word-search-cell.selected {
+  position: relative;
+
+  z-index: 4;
+
+  transform: scale(1.06);
+
+  background:
+    linear-gradient(
+      145deg,
+      #b9e8ff,
+      #69bced
+    );
+
+  color: #21485f;
+
+  box-shadow:
+    inset 0 0 0 2px #ffffff,
+    0 0 11px rgba(
+      72,
+      180,
+      238,
+      0.9
+    );
+
+  animation:
+    selectedPulse
+    0.2s
+    ease;
+}
+
+
+/* =========================================================
+   PALABRA ENCONTRADA
+
+   Una vez comprobada correctamente,
+   queda DORADA permanentemente.
+========================================================= */
+
+.word-search-cell.found-cell {
+  position: relative;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe276,
+      #e8a927
+    );
+
+  color: #58400b;
+
+  box-shadow:
+    inset 0 0 0 2px #fff6bd,
+    0 0 8px rgba(
+      226,
+      163,
+      35,
+      0.75
+    );
+}
+
+
+/*
+   Si una letra que ya forma parte
+   de una palabra encontrada vuelve
+   a ser seleccionada porque otra
+   palabra la cruza, mostramos
+   temporalmente el celeste.
+*/
+
+.word-search-cell.found-cell.selected {
+  position: relative;
+
+  z-index: 5;
+
+  background:
+    linear-gradient(
+      145deg,
+      #b9e8ff,
+      #69bced
+    );
+
+  color: #21485f;
+
+  box-shadow:
+    inset 0 0 0 3px #ffffff,
+    0 0 14px rgba(
+      72,
+      180,
+      238,
+      1
+    );
+}
+
+
+@keyframes selectedPulse {
+  0% {
+    transform: scale(0.92);
+  }
+
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+
+/* =========================================================
+   PANEL DERECHO
+========================================================= */
+
+.word-search-side-panel {
+  max-height: 74vh;
+
+  padding:
+    clamp(
+      15px,
+      1.8vw,
+      25px
+    );
+
+  overflow-y: auto;
+
+  border-radius: 25px;
+
+  background:
+    rgba(
+      255,
+      251,
+      235,
+      0.93
+    );
+
+  box-shadow:
+    0 9px 0
+      rgba(
+        106,
+        73,
+        44,
+        0.22
+      ),
+    0 15px 26px
+      rgba(
+        0,
+        0,
+        0,
+        0.19
+      );
+
+  backdrop-filter: blur(5px);
+}
+
+
+.word-search-side-title {
+  margin-bottom:
+    14px !important;
+
+  text-align: center;
+
+  color: #55417c;
+
+  font-size:
+    clamp(
+      1.1rem,
+      1.8vw,
+      1.55rem
+    ) !important;
+
+  font-weight: 900 !important;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.word-search-word-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        120px,
+        1fr
+      )
+    );
+
+  gap: 7px;
+}
+
+
+.word-search-word {
+  padding: 8px 9px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #5d5266;
+
+  font-size:
+    clamp(
+      0.7rem,
+      1vw,
+      0.88rem
+    );
+
+  font-weight: 800;
+
+  text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.word-search-word.found {
+  transform:
+    scale(1.02);
+
+  background:
+    #ffed9a;
+
+  color:
+    #7a5a12;
+
+  text-decoration:
+    line-through;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.word-search-message {
+  min-height: 45px;
+
+  margin-top: 14px;
+
+  padding: 10px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 13px;
+
+  background: #f4eaff;
+
+  color: #5b4175;
+
+  font-size: 0.85rem;
+
+  font-weight: 800;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.word-search-actions {
+  margin-top: 14px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+
+.word-search-check,
+.word-search-clear,
+.word-search-new {
+  border-radius:
+    14px !important;
+
+  padding:
+    7px 13px !important;
+
+  text-transform:
+    none !important;
+
+  font-size:
+    0.78rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.word-search-check {
+  background:
+    #7f63b7 !important;
+}
+
+
+.word-search-clear,
+.word-search-new {
+  color:
+    #735b96 !important;
+
+  border-color:
+    #735b96 !important;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    ) !important;
+}
+
+
+/* =========================================================
+   NIVEL COMPLETADO
+========================================================= */
+
+.word-search-complete {
+  margin-top: 16px;
+
+  padding: 12px;
+
+  border-radius: 17px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff4a8,
+      #ffd45c
+    );
+
+  color: #73561c;
+
+  font-weight: 900;
+
+  animation:
+    completedPop
+    0.45s
+    ease;
+}
+
+
+.word-search-complete-title {
+  font-size:
+    1.65rem !important;
+}
+
+
+.word-search-complete-text {
+  font-size:
+    1rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.word-search-complete-subtitle {
+  font-size:
+    0.8rem !important;
+}
+
+
+@keyframes completedPop {
+  0% {
+    transform:
+      scale(0.85);
+
+    opacity: 0;
+  }
+
+  70% {
+    transform:
+      scale(1.05);
+  }
+
+  100% {
+    transform:
+      scale(1);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 1000px
+) {
+  .word-search-topbar {
+    grid-template-columns: 1fr;
+
+    justify-items: center;
+  }
+
+
+  .word-search-back,
+  .word-search-controls {
+    justify-self: center;
+  }
+
+
+  .word-search-controls {
+    align-items: center;
+  }
+
+
+  .word-search-scene {
+    grid-template-columns: 1fr;
+  }
+
+
+  .word-search-grid {
+    width:
+      min(
+        82vw,
+        620px
+      );
+  }
+
+
+  .word-search-side-panel {
+    width:
+      min(
+        82vw,
+        570px
+      );
+
+    box-sizing: border-box;
+
+    justify-self: center;
+
+    max-height: none;
+  }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+  .word-search-page {
+    padding:
+      10px
+      5px
+      20px;
+  }
+
+
+  .word-search-grid {
+    width: 94vw;
+
+    padding: 6px;
+
+    gap: 1px;
+  }
+
+
+  .word-search-cell {
+    font-size:
+      clamp(
+        0.38rem,
+        2.2vw,
+        0.7rem
+      );
+  }
+
+
+  .word-search-side-panel {
+    width: 94vw;
+  }
+
+
+  .word-search-active-rules {
+    width: 96%;
+  }
+
+
+  .word-search-rule-card {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    text-align: center;
+  }
+}

@@ -1,0 +1,311 @@
+/* =========================
+   PÁGINA PRINCIPAL
+========================= */
+
+.language-page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 24px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    180deg,
+    #87ceeb 0%,
+    #bde8f7 55%,
+    #e8f8ff 100%
+  );
+
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.language-header {
+  width: 100%;
+  max-width: 1400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  margin-bottom: 20px;
+}
+
+
+.back-subjects-button {
+  position: absolute !important;
+  left: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 18px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+
+
+.language-heading {
+  text-align: center;
+}
+
+
+.language-title {
+  font-weight: 900 !important;
+  color: #ffffff;
+
+  text-shadow:
+    0 3px 0 rgba(48, 74, 123, 0.4),
+    0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.language-subtitle {
+  color: #ffffff;
+  font-weight: 700 !important;
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   CONTENEDOR DEL MAPA
+========================= */
+
+.language-map-wrapper {
+  position: relative;
+
+  width: min(92vw, 1200px);
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Imagen principal */
+
+.language-map-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+
+  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.2));
+}
+
+
+/* =========================
+   CAPA DE NIVELES
+========================= */
+
+.language-levels-layer {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   BOTÓN GENERAL DE NIVEL
+========================= */
+
+.language-level {
+  position: absolute;
+
+  transform: translate(-50%, -50%);
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+
+.language-level:hover {
+  transform:
+    translate(-50%, -50%)
+    translateY(-8px)
+    scale(1.08);
+
+  filter:
+    brightness(1.1)
+    drop-shadow(0 8px 8px rgba(255, 221, 72, 0.55));
+}
+
+
+/* Círculo numerado */
+
+.language-level-number {
+  width: clamp(46px, 5vw, 72px);
+  height: clamp(46px, 5vw, 72px);
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    145deg,
+    #ffd84d,
+    #ff9f1c
+  );
+
+  border: clamp(3px, 0.35vw, 5px) solid #ffffff;
+
+  box-shadow:
+    0 6px 0 #c97800,
+    0 9px 14px rgba(0, 0, 0, 0.25);
+
+  color: white;
+
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  font-weight: 900;
+}
+
+
+/* Nombre del juego */
+
+.language-level-title {
+  margin-top: 10px;
+
+  padding: 6px 12px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #42416d;
+
+  font-size: clamp(0.65rem, 1.2vw, 1rem) !important;
+  font-weight: 800 !important;
+
+  white-space: nowrap;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   POSICIÓN DE LOS 5 NIVELES
+   SOBRE EL MAPA
+========================= */
+
+/*
+   Estas posiciones están en PORCENTAJE.
+
+   Eso hace que se adapten automáticamente
+   cuando el mapa aumenta o disminuye.
+*/
+
+.level-1 {
+  left: 36.9%;
+  top: 79.5%;
+}
+
+.level-2 {
+  left: 38.5%;
+  top: 57.7%;
+}
+
+.level-3 {
+  left: 55.6%;
+  top: 49.5%;
+}
+
+.level-4 {
+  left: 49.5%;
+  top: 30.5%;
+}
+
+.level-5 {
+  left: 62.9%;
+  top: 28.3%;
+}
+
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 900px) {
+
+  .language-page {
+    padding: 16px;
+  }
+
+  .language-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .back-subjects-button {
+    position: static !important;
+    transform: none;
+
+    align-self: flex-start;
+  }
+
+  .language-map-wrapper {
+    width: 98vw;
+  }
+
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+
+  .language-page {
+    padding: 10px 4px;
+  }
+
+  .language-title {
+    font-size: 2.1rem !important;
+  }
+
+  .language-subtitle {
+    font-size: 0.95rem !important;
+  }
+
+  .language-level-title {
+    display: none;
+  }
+
+}

@@ -26,6 +26,7 @@ import Sociales from './pages/subjects/Sociales';
 import Naturales from './pages/subjects/Naturales';
 import Ingles from './pages/subjects/Ingles';
 import Musica from './pages/subjects/Musica';
+import WordSearch from './pages/games/lengua/WordSearch';
 
 const theme = createTheme({
   palette: {
@@ -60,6 +61,11 @@ export default function App() {
           <Route
             path="/juegos/lengua"
             element={<Lengua />}
+          />
+
+          <Route
+            path="/juegos/lengua/sopa-letras"
+            element={<WordSearch />}
           />
 
           <Route
