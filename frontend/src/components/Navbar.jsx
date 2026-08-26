@@ -1,30 +1,50 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, IconButton } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton
+} from '@mui/material';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
 export default function Navbar() {
-  const handleGoHome = () => console.log("Navegar a Home");
-  const handleGoLogin = () => console.log("Navegar a Login");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { label: 'Juegos', icon: <SportsEsportsIcon /> },
-    { label: 'Recursos', icon: <MenuBookIcon /> },
+    {
+      label: 'Juegos',
+      icon: <SportsEsportsIcon />,
+      path: '/juegos'
+    },
+    {
+      label: 'Recursos',
+      icon: <MenuBookIcon />,
+      path: '/recursos'
+    },
   ];
 
   return (
     <AppBar position="sticky">
       <Toolbar sx={{ justifyContent: 'space-between' }}>
+
         {/* Logo e Identidad Sabikids */}
-        <Box 
-          onClick={handleGoHome}
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: 1.5, 
+        <Box
+          onClick={() => navigate('/')}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1.5,
             cursor: 'pointer',
             userSelect: 'none',
+
             '&:hover .logo-frame': {
               transform: 'scale(1.08)',
               boxShadow: '0 4px 14px rgba(0, 0, 0, 0.3)',
@@ -51,7 +71,7 @@ export default function Navbar() {
           >
             <Box
               component="img"
-              src="/inicio/logo.jpg.png"
+              src="/inicio/logo.png"
               alt="Logo Sabikids"
               sx={{
                 height: '100%',
@@ -62,60 +82,83 @@ export default function Navbar() {
             />
           </Box>
 
-          <Typography variant="h6" sx={{ fontWeight: 'bold', letterSpacing: '0.5px' }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 'bold',
+              letterSpacing: '0.5px'
+            }}
+          >
             Sabikids
           </Typography>
         </Box>
 
-        {/* Menú de Navegación Centrado */}
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            left: '50%', 
+        {/* Menú de navegación */}
+        <Box
+          sx={{
+            position: 'absolute',
+            left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',
             gap: 1
           }}
         >
-          {navItems.map((item) => (
-            <Button
-              key={item.label}
-              startIcon={item.icon}
-              onClick={() => console.log(`Navegar a ${item.label}`)}
-              sx={{
-                color: 'white',
-                fontWeight: 'bold',
-                textTransform: 'none',
-                fontSize: '0.95rem',
-                px: 2,
-                py: 0.8,
-                borderRadius: '12px',
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                  transform: 'translateY(-2px)'
-                }
-              }}
-            >
-              {item.label}
-            </Button>
-          ))}
+          {navItems.map((item) => {
+            const isActive = location.pathname.startsWith(item.path);
+
+            return (
+              <Button
+                key={item.label}
+                startIcon={item.icon}
+                onClick={() => navigate(item.path)}
+                sx={{
+                  color: 'white',
+                  fontWeight: 'bold',
+                  textTransform: 'none',
+                  fontSize: '0.95rem',
+                  px: 2,
+                  py: 0.8,
+                  borderRadius: '12px',
+                  transition: 'all 0.2s ease',
+
+                  backgroundColor: isActive
+                    ? 'rgba(255, 255, 255, 0.28)'
+                    : 'transparent',
+
+                  boxShadow: isActive
+                    ? '0 3px 10px rgba(0, 0, 0, 0.15)'
+                    : 'none',
+
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                    transform: 'translateY(-2px)'
+                  }
+                }}
+              >
+                {item.label}
+              </Button>
+            );
+          })}
         </Box>
 
         {/* Ícono Login */}
         <Box>
-          <IconButton 
-            color="inherit" 
-            onClick={handleGoLogin}
+          <IconButton
+            color="inherit"
             title="Ingresar"
-            sx={{ 
+            onClick={() => console.log('Ir a Login')}
+            sx={{
               transition: 'transform 0.2s ease',
-              '&:hover': { transform: 'scale(1.1)' } 
+
+              '&:hover': {
+                transform: 'scale(1.1)'
+              }
             }}
           >
             <AccountCircleIcon sx={{ fontSize: 32 }} />
           </IconButton>
         </Box>
+
       </Toolbar>
     </AppBar>
   );

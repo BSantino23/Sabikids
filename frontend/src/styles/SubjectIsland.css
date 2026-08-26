@@ -1,0 +1,101 @@
+.subject-island {
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  width: 100%;
+
+  font-family: inherit;
+
+  animation: floatIsland 4s ease-in-out infinite;
+}
+
+.island-image {
+  display: block;
+
+  width: 100%;
+
+  max-width: 350px;
+
+  height: auto;
+
+  margin: 0 auto;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+
+  filter:
+    drop-shadow(0 12px 12px rgba(0, 0, 0, 0.18));
+}
+
+.island-title {
+  color: #163b84;
+
+  font-weight: 900 !important;
+
+  margin-top: 10px !important;
+
+  transition:
+    transform 0.25s ease;
+
+  text-shadow:
+    1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.subject-island:hover .island-image {
+  transform: scale(1.08);
+
+  filter:
+    drop-shadow(0 16px 16px rgba(0, 0, 0, 0.25));
+}
+
+.subject-island:hover .island-title {
+  transform: translateY(-4px);
+}
+
+.subject-island:focus-visible {
+  outline: 4px solid #f4d92b;
+
+  outline-offset: 8px;
+
+  border-radius: 25px;
+}
+
+@keyframes floatIsland {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 900px) {
+  .island-image {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .island-image {
+    max-width: 290px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subject-island {
+    animation: none;
+  }
+
+  .island-image,
+  .island-title {
+    transition: none;
+  }
+}
