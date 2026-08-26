@@ -114,9 +114,11 @@ export default function Home() {
     <Box 
       className="home-container"
       sx={{ 
-        backgroundColor: 'background.default',
+        bgcolor: 'background.default',
         color: 'text.primary',
         minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
         transition: 'background-color 0.3s ease, color 0.3s ease'
       }}
     >
@@ -209,6 +211,68 @@ export default function Home() {
             ))}
           </Grid>
         </Container>
+      </Box>
+
+      {/* 4. PIE DE PÁGINA (FOOTER ADAPTATIVO REAL) */}
+      <Box 
+        component="footer" 
+        className="footer-container" 
+        sx={{ 
+          mt: 'auto',
+          backgroundColor: mode === 'dark' ? '#0f172a' : '#ffffff',
+          color: mode === 'dark' ? '#ffffff' : '#334155',
+          borderTop: mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid #e2e8f0',
+          py: 2.5,
+          px: 3,
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          transition: 'background-color 0.3s ease, color 0.3s ease'
+        }}
+      >
+        <Box 
+          className="footer-content"
+          sx={{
+            maxWidth: '1200px',
+            width: '100%',
+            mx: 'auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 2,
+            flexWrap: 'wrap',
+            textAlign: 'center'
+          }}
+        >
+          <Button 
+            className="footer-btn" 
+            onClick={() => navigate('/aviso-legal')} 
+            sx={{ color: mode === 'dark' ? '#ffffff !important' : '#334155 !important', textTransform: 'none', fontWeight: 600 }}
+          >
+            Aviso legal y condiciones de uso
+          </Button>
+          <Typography component="span" sx={{ opacity: 0.5, color: mode === 'dark' ? '#ffffff' : '#475569' }}>|</Typography>
+          <Button 
+            className="footer-btn" 
+            onClick={() => navigate('/cookies')} 
+            sx={{ color: mode === 'dark' ? '#ffffff !important' : '#334155 !important', textTransform: 'none', fontWeight: 600 }}
+          >
+            Política de cookies
+          </Button>
+          <Typography component="span" sx={{ opacity: 0.5, color: mode === 'dark' ? '#ffffff' : '#475569' }}>|</Typography>
+          <Button 
+            className="footer-btn" 
+            onClick={() => navigate('/privacidad')} 
+            sx={{ color: mode === 'dark' ? '#ffffff !important' : '#334155 !important', textTransform: 'none', fontWeight: 600 }}
+          >
+            Política de privacidad
+          </Button>
+          <Typography component="span" sx={{ opacity: 0.5, color: mode === 'dark' ? '#ffffff' : '#475569' }}>|</Typography>
+          <Typography component="span" sx={{ fontSize: '0.95rem', fontWeight: 600, opacity: 0.9, color: mode === 'dark' ? '#ffffff' : '#475569', px: 1 }}>
+            © Sabikids {new Date().getFullYear()}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
