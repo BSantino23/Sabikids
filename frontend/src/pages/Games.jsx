@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 import SubjectIsland from '../components/SubjectIsland';
 import '../styles/Games.css';
 
@@ -37,13 +39,16 @@ const subjects = [
 ];
 
 export default function Games() {
+  const navigate = useNavigate();
+
   const handleSubjectClick = (subject) => {
-    console.log(`Entrar a ${subject.name}`);
+    navigate(subject.path);
   };
 
   return (
     <Box className="games-page">
       <Container maxWidth="lg" className="games-container">
+
         <Typography
           variant="h2"
           component="h1"
@@ -69,6 +74,7 @@ export default function Games() {
             />
           ))}
         </Box>
+
       </Container>
     </Box>
   );
