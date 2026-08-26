@@ -1,16 +1,8 @@
 import React from 'react';
+import { CssBaseline } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import {
-  CssBaseline,
-  ThemeProvider,
-  createTheme
-} from '@mui/material';
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
+import { CustomThemeProvider } from './context/ThemeContext';
 
 import Navbar from './components/Navbar';
 
@@ -26,72 +18,28 @@ import Musica from './pages/subjects/Musica';
 
 import MemoryTables from './pages/games/matematica/MemoryTables';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2',
-    },
-  },
-});
-
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <CustomThemeProvider>
       <CssBaseline />
 
       <Router>
         <Navbar />
 
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/juegos" element={<Games />} />
 
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/juegos/matematica" element={<Matematica />} />
+          <Route path="/juegos/matematica/memotest" element={<MemoryTables />} />
 
-          <Route
-            path="/juegos"
-            element={<Games />}
-          />
-
-          <Route
-            path="/juegos/matematica"
-            element={<Matematica />}
-          />
-
-          <Route
-            path="/juegos/matematica/memotest"
-            element={<MemoryTables />}
-          />
-
-          <Route
-            path="/juegos/lengua"
-            element={<Lengua />}
-          />
-
-          <Route
-            path="/juegos/sociales"
-            element={<Sociales />}
-          />
-
-          <Route
-            path="/juegos/naturales"
-            element={<Naturales />}
-          />
-
-          <Route
-            path="/juegos/ingles"
-            element={<Ingles />}
-          />
-
-          <Route
-            path="/juegos/musica"
-            element={<Musica />}
-          />
-
+          <Route path="/juegos/lengua" element={<Lengua />} />
+          <Route path="/juegos/sociales" element={<Sociales />} />
+          <Route path="/juegos/naturales" element={<Naturales />} />
+          <Route path="/juegos/ingles" element={<Ingles />} />
+          <Route path="/juegos/musica" element={<Musica />} />
         </Routes>
-
       </Router>
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 }

@@ -121,9 +121,9 @@
   gap: 9px;
 
   background:
-    rgba(255, 255, 255, 0.94);
+    rgba(255, 255, 255, 0.95);
 
-  padding: 4px 9px;
+  padding: 4px 12px;
 
   border-radius: 15px;
 
@@ -132,17 +132,42 @@
 }
 
 .level-label {
-  color: #163b84;
+  color: #163b84 !important;
 
   font-weight: 900 !important;
+
+  white-space: nowrap;
 }
 
 .level-select {
   min-width: 190px;
 
-  background: white;
+  background: #ffffff !important;
 
   border-radius: 10px;
+}
+
+/* Reglas internas para evitar que Material-UI ponga el texto en blanco en modo oscuro */
+.level-select .MuiSelect-select {
+  color: #163b84 !important;
+
+  font-weight: 800 !important;
+
+  padding-top: 8px !important;
+
+  padding-bottom: 8px !important;
+}
+
+.level-select .MuiSvgIcon-root {
+  color: #163b84 !important;
+}
+
+.level-select .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(22, 59, 132, 0.3) !important;
+}
+
+.level-select:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #163b84 !important;
 }
 
 

@@ -170,13 +170,16 @@
 
   pointer-events: auto;
 
+  /* Centra el elemento exactamente en el punto top/left elegido */
+  transform: translate(-50%, -50%);
+
   transition:
     transform 0.25s ease;
 }
 
 .game-spot:hover {
   transform:
-    translateY(-6px)
+    translate(-50%, -55%)
     scale(1.05);
 }
 
@@ -217,7 +220,7 @@
 /* -------------------------------- */
 
 .game-spot-title {
-  margin-top: 0;
+  margin-top: -10px;
 
   padding: 7px 14px;
 
@@ -240,12 +243,12 @@
 
 
 /* -------------------------------- */
-/* POSICIÓN MEMOTEST */
+/* POSICIÓN MEMOTEST (Centrado en el círculo verde) */
 /* -------------------------------- */
 
 .memotest-spot {
-  top: 11%;
-  left: 7%;
+  top: 22%;
+  left: 23%;
 }
 
 
@@ -299,11 +302,13 @@
     font-size: 0.8rem;
 
     padding: 5px 9px;
+
+    margin-top: -6px;
   }
 
   .memotest-spot {
-    top: 11%;
-    left: 6%;
+    top: 22%;
+    left: 23%;
   }
 }
 
@@ -373,11 +378,13 @@
     font-size: 0.55rem;
 
     padding: 4px 6px;
+
+    margin-top: -4px;
   }
 
   .memotest-spot {
-    top: 9%;
-    left: 5%;
+    top: 22%;
+    left: 23%;
   }
 }
 
