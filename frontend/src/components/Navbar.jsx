@@ -146,7 +146,7 @@ export default function Navbar() {
           <IconButton
             color="inherit"
             title="Ingresar"
-            onClick={() => console.log('Ir a Login')}
+            onClick={() => navigate('/login')}
             sx={{
               transition: 'transform 0.2s ease',
 
