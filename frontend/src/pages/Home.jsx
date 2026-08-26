@@ -114,7 +114,7 @@ export default function Home() {
     <Box 
       className="home-container"
       sx={{ 
-        bgcolor: 'background.default',
+        backgroundColor: 'background.default',
         color: 'text.primary',
         minHeight: '100vh',
         display: 'flex',
@@ -213,7 +213,7 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* 4. PIE DE PÁGINA (FOOTER ADAPTATIVO REAL) */}
+      {/* 4. PIE DE PÁGINA (FOOTER ADAPTATIVO) */}
       <Box 
         component="footer" 
         className="footer-container" 
