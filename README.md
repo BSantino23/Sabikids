@@ -90,6 +90,7 @@ source <nombre_del_entorno>/bin/activate
 
 ```sh
 python -m pip install Flask Flask-SQLAlchemy PyMySQL python-dotenv flask-cors
+pip install flask-cors
 ```
 
 o
@@ -136,8 +137,7 @@ cd backend
 - Ejecutar:
 
 ```sh
-python -m utils.seed_estadios
-python -m utils.seed_hoteles
+
 ```
 
 ### 3. Instalación del frontend

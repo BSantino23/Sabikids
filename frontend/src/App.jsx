@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   CssBaseline,
   ThemeProvider,
@@ -15,6 +16,9 @@ import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
 import Games from './pages/Games';
+
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 import Matematica from './pages/subjects/Matematica';
 import Lengua from './pages/subjects/Lengua';
@@ -43,6 +47,10 @@ export default function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/juegos" element={<Games />} />
+
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/register" element={<Register />} />
 
           <Route
             path="/juegos/matematica"
