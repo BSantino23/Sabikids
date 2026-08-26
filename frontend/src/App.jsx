@@ -17,15 +17,14 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Games from './pages/Games';
 
-import Login from './pages/Login';
-import Register from './pages/Register';
-
 import Matematica from './pages/subjects/Matematica';
 import Lengua from './pages/subjects/Lengua';
 import Sociales from './pages/subjects/Sociales';
 import Naturales from './pages/subjects/Naturales';
 import Ingles from './pages/subjects/Ingles';
 import Musica from './pages/subjects/Musica';
+
+import MemoryTables from './pages/games/matematica/MemoryTables';
 
 const theme = createTheme({
   palette: {
@@ -44,17 +43,25 @@ export default function App() {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
 
-          <Route path="/juegos" element={<Games />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-          <Route path="/login" element={<Login />} />
-
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/juegos"
+            element={<Games />}
+          />
 
           <Route
             path="/juegos/matematica"
             element={<Matematica />}
+          />
+
+          <Route
+            path="/juegos/matematica/memotest"
+            element={<MemoryTables />}
           />
 
           <Route
@@ -81,7 +88,9 @@ export default function App() {
             path="/juegos/musica"
             element={<Musica />}
           />
+
         </Routes>
+
       </Router>
     </ThemeProvider>
   );
