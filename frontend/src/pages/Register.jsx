@@ -15,8 +15,11 @@ export default function Register() {
 
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
+  const [fechaNacimiento, setFechaNacimiento] = useState('');
+  const [colegio, setColegio] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState('');
@@ -27,8 +30,14 @@ export default function Register() {
     setMensaje('');
     setError('');
 
+    // Comprobar que las contraseñas coincidan
+    if (password !== confirmPassword) {
+      setError('Las contraseñas no coinciden');
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:5000/register', {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -36,6 +45,8 @@ export default function Register() {
         body: JSON.stringify({
           nombre,
           apellido,
+          fecha_nacimiento: fechaNacimiento,
+          colegio,
           email,
           password
         })
@@ -52,8 +63,11 @@ export default function Register() {
 
       setNombre('');
       setApellido('');
+      setFechaNacimiento('');
+      setColegio('');
       setEmail('');
       setPassword('');
+      setConfirmPassword('');
 
     } catch (error) {
       setError('No se pudo conectar con el servidor');
@@ -67,16 +81,28 @@ export default function Register() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        p: 2
+        p: 3,
+
+        backgroundImage: `
+          linear-gradient(
+            rgba(25, 118, 210, 0.12),
+            rgba(255, 255, 255, 0.85)
+          ),
+          url('/inicio/fondo-register.png')
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <Paper
-        elevation={4}
+        elevation={6}
         sx={{
           width: '100%',
-          maxWidth: 450,
+          maxWidth: 520,
           p: 4,
-          borderRadius: 3
+          borderRadius: 4,
+          backgroundColor: 'rgba(255, 255, 255, 0.95)'
         }}
       >
         <Typography
@@ -113,20 +139,49 @@ export default function Register() {
           component="form"
           onSubmit={handleRegister}
         >
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 2
+            }}
+          >
+            <TextField
+              fullWidth
+              label="Nombre"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              margin="normal"
+              required
+            />
+
+            <TextField
+              fullWidth
+              label="Apellido"
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
+              margin="normal"
+              required
+            />
+          </Box>
+
           <TextField
             fullWidth
-            label="Nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            label="Fecha de nacimiento"
+            type="date"
+            value={fechaNacimiento}
+            onChange={(e) => setFechaNacimiento(e.target.value)}
             margin="normal"
             required
+            InputLabelProps={{
+              shrink: true
+            }}
           />
 
           <TextField
             fullWidth
-            label="Apellido"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
+            label="Colegio"
+            value={colegio}
+            onChange={(e) => setColegio(e.target.value)}
             margin="normal"
             required
           />
@@ -147,6 +202,16 @@ export default function Register() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            margin="normal"
+            required
+          />
+
+          <TextField
+            fullWidth
+            label="Repetir contraseña"
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             margin="normal"
             required
           />

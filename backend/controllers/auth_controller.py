@@ -53,3 +53,31 @@ def register():
         "mensaje": "Usuario registrado correctamente",
         "usuario": nuevo_usuario.to_dict()
     }), 201
+
+def login():
+    data = request.get_json()
+
+    email = data.get("email")
+    password = data.get("password")
+
+    if not email or not password:
+        return jsonify({
+            "error": "El email y la contraseña son obligatorios"
+        }), 400
+
+    usuario = User.query.filter_by(email=email).first()
+
+    if not usuario:
+        return jsonify({
+            "error": "Email o contraseña incorrectos"
+        }), 401
+
+    if not usuario.check_password(password):
+        return jsonify({
+            "error": "Email o contraseña incorrectos"
+        }), 401
+
+    return jsonify({
+        "mensaje": "Inicio de sesión exitoso",
+        "usuario": usuario.to_dict()
+    }), 200

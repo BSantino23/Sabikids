@@ -4,7 +4,8 @@ import {
   TextField,
   Button,
   Typography,
-  Paper
+  Paper,
+  Alert
 } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
@@ -15,11 +16,55 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const [error, setError] = useState('');
+  const [mensaje, setMensaje] = useState('');
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    console.log('Email:', email);
-    console.log('Password:', password);
+    setError('');
+    setMensaje('');
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'No se pudo iniciar sesión');
+        return;
+      }
+
+      console.log('Usuario:', data.usuario);
+
+      // Guardar usuario
+      localStorage.setItem(
+        'usuario',
+        JSON.stringify(data.usuario)
+      );
+
+      // Avisar al Navbar que el usuario inició sesión
+      window.dispatchEvent(new Event('usuarioActualizado'));
+
+      setMensaje(data.mensaje);
+
+      // Ir a la página principal
+      setTimeout(() => {
+        navigate('/');
+      }, 500);
+
+    } catch (error) {
+      setError('No se pudo conectar con el servidor');
+    }
   };
 
   return (
@@ -29,16 +74,29 @@ export default function Login() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        p: 2
+        p: 3,
+
+        backgroundImage: `
+          linear-gradient(
+            rgba(25, 118, 210, 0.12),
+            rgba(255, 255, 255, 0.85)
+          ),
+          url('/inicio/fondo-login.png')
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <Paper
-        elevation={4}
+        elevation={6}
         sx={{
           width: '100%',
           maxWidth: 420,
           p: 4,
-          borderRadius: 3
+          borderRadius: 4,
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(6px)'
         }}
       >
         <Typography
@@ -58,6 +116,18 @@ export default function Login() {
         >
           Ingresá a tu cuenta de Sabikids
         </Typography>
+
+        {mensaje && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {mensaje}
+          </Alert>
+        )}
+
+        {error && (
+          <Alert severity="error" sx={{ mb: 2 }}>
+            {error}
+          </Alert>
+        )}
 
         <Box
           component="form"
@@ -102,6 +172,7 @@ export default function Login() {
           sx={{
             display: 'flex',
             justifyContent: 'center',
+            alignItems: 'center',
             mt: 3
           }}
         >
@@ -114,6 +185,8 @@ export default function Login() {
             onClick={() => navigate('/register')}
             sx={{
               ml: 0.5,
+              p: 0,
+              minWidth: 'auto',
               textTransform: 'none',
               fontWeight: 'bold'
             }}

@@ -1,4 +1,6 @@
 from flask import Flask
+from flask_cors import CORS
+
 from config.config import DATABASE_CONNECTION_URI
 from models.db import db
 from models.user import User
@@ -6,6 +8,7 @@ from routes.auth_routes import auth_routes
 
 
 app = Flask(__name__)
+CORS(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_CONNECTION_URI
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False

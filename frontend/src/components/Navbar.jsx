@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AppBar,
   Toolbar,
   Typography,
   Button,
   Box,
-  IconButton
+  IconButton,
+  Paper
 } from '@mui/material';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -17,6 +18,51 @@ import { useLocation, useNavigate } from 'react-router-dom';
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [usuario, setUsuario] = useState(() => {
+    const usuarioGuardado = localStorage.getItem('usuario');
+
+    if (!usuarioGuardado) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(usuarioGuardado);
+    } catch (error) {
+      return null;
+    }
+  });
+
+  const [menuUsuario, setMenuUsuario] = useState(false);
+
+  useEffect(() => {
+    const actualizarUsuario = () => {
+      const usuarioGuardado = localStorage.getItem('usuario');
+
+      if (!usuarioGuardado) {
+        setUsuario(null);
+        return;
+      }
+
+      try {
+        setUsuario(JSON.parse(usuarioGuardado));
+      } catch (error) {
+        setUsuario(null);
+      }
+    };
+
+    window.addEventListener(
+      'usuarioActualizado',
+      actualizarUsuario
+    );
+
+    return () => {
+      window.removeEventListener(
+        'usuarioActualizado',
+        actualizarUsuario
+      );
+    };
+  }, []);
 
   const navItems = [
     {
@@ -30,6 +76,26 @@ export default function Navbar() {
       path: '/recursos'
     },
   ];
+
+  const handleUsuarioClick = () => {
+    if (!usuario) {
+      navigate('/login');
+      return;
+    }
+
+    setMenuUsuario(!menuUsuario);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('usuario');
+
+    setUsuario(null);
+    setMenuUsuario(false);
+
+    window.dispatchEvent(new Event('usuarioActualizado'));
+
+    navigate('/');
+  };
 
   return (
     <AppBar position="sticky">
@@ -141,12 +207,35 @@ export default function Navbar() {
           })}
         </Box>
 
-        {/* Ícono Login */}
-        <Box>
+        {/* Usuario */}
+        <Box
+          sx={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 0.5
+          }}
+        >
+
+          {/* Nombre */}
+          {usuario && (
+            <Typography
+              sx={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: '0.95rem',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {usuario.nombre} {usuario.apellido}
+            </Typography>
+          )}
+
+          {/* Ícono */}
           <IconButton
             color="inherit"
-            title="Ingresar"
-            onClick={() => navigate('/login')}
+            title={usuario ? 'Mi cuenta' : 'Ingresar'}
+            onClick={handleUsuarioClick}
             sx={{
               transition: 'transform 0.2s ease',
 
@@ -157,6 +246,69 @@ export default function Navbar() {
           >
             <AccountCircleIcon sx={{ fontSize: 32 }} />
           </IconButton>
+
+          {/* Bloque de usuario */}
+          {usuario && menuUsuario && (
+            <Paper
+              elevation={8}
+              sx={{
+                position: 'absolute',
+                top: 'calc(100% + 10px)',
+                right: 0,
+                width: 190,
+                borderRadius: 3,
+                overflow: 'hidden',
+                zIndex: 1000
+              }}
+            >
+              <Box
+                sx={{
+                  px: 2,
+                  py: 1.5,
+                  borderBottom: '1px solid #eeeeee'
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                >
+                  Sesión iniciada como
+                </Typography>
+
+                <Typography
+                  fontWeight="bold"
+                  sx={{
+                    mt: 0.3,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}
+                >
+                  {usuario.nombre} {usuario.apellido}
+                </Typography>
+              </Box>
+
+              <Button
+                fullWidth
+                onClick={handleLogout}
+                sx={{
+                  justifyContent: 'flex-start',
+                  px: 2,
+                  py: 1.5,
+                  color: '#d32f2f',
+                  textTransform: 'none',
+                  fontWeight: 'bold',
+                  borderRadius: 0,
+
+                  '&:hover': {
+                    backgroundColor: '#ffebee'
+                  }
+                }}
+              >
+                Cerrar sesión
+              </Button>
+            </Paper>
+          )}
+
         </Box>
 
       </Toolbar>
