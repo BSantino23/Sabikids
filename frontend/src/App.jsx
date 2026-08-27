@@ -21,6 +21,7 @@ import Sociales from './pages/subjects/Sociales';
 import Naturales from './pages/subjects/Naturales';
 import Ingles from './pages/subjects/Ingles';
 import Musica from './pages/subjects/Musica';
+import WordSearch from './pages/games/lengua/WordSearch';
 
 import MemoryTables from './pages/games/matematica/MemoryTables';
 import PianoMagico from './pages/games/musica/PianoMagico';
@@ -62,6 +63,11 @@ export default function App() {
           <Route
             path="/juegos/lengua"
             element={<Lengua />}
+          />
+
+          <Route
+            path="/juegos/lengua/sopa-letras"
+            element={<WordSearch />}
           />
 
           <Route
