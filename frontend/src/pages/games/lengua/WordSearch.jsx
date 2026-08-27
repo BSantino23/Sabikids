@@ -1,4 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, {
+  useMemo,
+  useState,
+} from 'react';
+
 import {
   Box,
   Button,
@@ -13,12 +17,20 @@ import { useNavigate } from 'react-router-dom';
 import '../../../styles/lengua/WordSearch.css';
 
 
+/* =========================================================
+   BANCO DE PALABRAS
+========================================================= */
+
 const WORD_GROUPS = [
   {
     id: 'bilidad',
-    title: 'Terminación -bilidad',
+
+    title:
+      'Terminación -bilidad',
+
     rule:
       'Las palabras terminadas en -bilidad se escriben con B.',
+
     words: [
       'HABILIDAD',
       'AMABILIDAD',
@@ -35,9 +47,13 @@ const WORD_GROUPS = [
 
   {
     id: 'cion',
-    title: 'Terminación -ción',
+
+    title:
+      'Terminación -ción',
+
     rule:
       'Las palabras terminadas en -ción llevan tilde en la Ó.',
+
     words: [
       'CANCIÓN',
       'NACIÓN',
@@ -56,9 +72,13 @@ const WORD_GROUPS = [
 
   {
     id: 'sub',
-    title: 'Prefijo sub-',
+
+    title:
+      'Prefijo sub-',
+
     rule:
       'El prefijo sub- se escribe con B.',
+
     words: [
       'SUBMARINO',
       'SUBRAYAR',
@@ -74,12 +94,17 @@ const WORD_GROUPS = [
 ];
 
 
+/* =========================================================
+   DIFICULTADES
+========================================================= */
+
 const DIFFICULTIES = {
   easy: {
     label: 'Fácil',
     words: 3,
     gridSize: 12,
     distribution: [2, 1],
+    stars: 1,
   },
 
   medium: {
@@ -87,6 +112,7 @@ const DIFFICULTIES = {
     words: 6,
     gridSize: 15,
     distribution: [4, 2],
+    stars: 2,
   },
 
   hard: {
@@ -94,6 +120,7 @@ const DIFFICULTIES = {
     words: 9,
     gridSize: 18,
     distribution: [6, 3],
+    stars: 3,
   },
 };
 
@@ -117,18 +144,35 @@ const RANDOM_LETTERS =
   'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
 
 
+const PROGRESS_KEY =
+  'sadikids_lengua_progress';
+
+
 function randomNumber(max) {
-  return Math.floor(Math.random() * max);
+  return Math.floor(
+    Math.random() * max
+  );
 }
 
 
 function shuffle(array) {
   const copy = [...array];
 
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = randomNumber(i + 1);
+  for (
+    let i =
+      copy.length - 1;
+    i > 0;
+    i--
+  ) {
+    const j =
+      randomNumber(
+        i + 1
+      );
 
-    [copy[i], copy[j]] = [
+    [
+      copy[i],
+      copy[j],
+    ] = [
       copy[j],
       copy[i],
     ];
@@ -141,13 +185,59 @@ function shuffle(array) {
 function createEmptyGrid(size) {
   return Array.from(
     { length: size },
-    () => Array(size).fill('')
+    () =>
+      Array(size).fill('')
   );
 }
 
 
-function cellKey(row, col) {
+function cellKey(
+  row,
+  col
+) {
   return `${row}-${col}`;
+}
+
+
+function saveLevelProgress(
+  stars
+) {
+  const saved =
+    JSON.parse(
+      localStorage.getItem(
+        PROGRESS_KEY
+      )
+    ) || {};
+
+  const previousStars =
+    saved.level1?.stars || 0;
+
+  const bestStars =
+    Math.max(
+      previousStars,
+      stars
+    );
+
+  const updatedProgress = {
+    ...saved,
+
+    level1: {
+      completed: true,
+      stars: bestStars,
+    },
+
+    level2: {
+      ...saved.level2,
+      unlocked: true,
+    },
+  };
+
+  localStorage.setItem(
+    PROGRESS_KEY,
+    JSON.stringify(
+      updatedProgress
+    )
+  );
 }
 
 
@@ -159,14 +249,21 @@ function canPlaceWord(
   rowDirection,
   colDirection
 ) {
-  const size = grid.length;
+  const size =
+    grid.length;
 
-  for (let i = 0; i < word.length; i++) {
+  for (
+    let i = 0;
+    i < word.length;
+    i++
+  ) {
     const row =
-      startRow + i * rowDirection;
+      startRow +
+      i * rowDirection;
 
     const col =
-      startCol + i * colDirection;
+      startCol +
+      i * colDirection;
 
     if (
       row < 0 ||
@@ -202,14 +299,21 @@ function writeWord(
 ) {
   const cells = [];
 
-  for (let i = 0; i < word.length; i++) {
+  for (
+    let i = 0;
+    i < word.length;
+    i++
+  ) {
     const row =
-      startRow + i * rowDirection;
+      startRow +
+      i * rowDirection;
 
     const col =
-      startCol + i * colDirection;
+      startCol +
+      i * colDirection;
 
-    grid[row][col] = word[i];
+    grid[row][col] =
+      word[i];
 
     cells.push({
       row,
@@ -225,12 +329,22 @@ function tryPlaceWithIntersection(
   grid,
   word
 ) {
-  const size = grid.length;
+  const size =
+    grid.length;
 
-  const possibleCrossings = [];
+  const possibleCrossings =
+    [];
 
-  for (let row = 0; row < size; row++) {
-    for (let col = 0; col < size; col++) {
+  for (
+    let row = 0;
+    row < size;
+    row++
+  ) {
+    for (
+      let col = 0;
+      col < size;
+      col++
+    ) {
       const gridLetter =
         grid[row][col];
 
@@ -240,7 +354,8 @@ function tryPlaceWithIntersection(
 
       for (
         let wordIndex = 0;
-        wordIndex < word.length;
+        wordIndex <
+        word.length;
         wordIndex++
       ) {
         if (
@@ -258,16 +373,26 @@ function tryPlaceWithIntersection(
   }
 
   const crossings =
-    shuffle(possibleCrossings);
+    shuffle(
+      possibleCrossings
+    );
 
   const directions =
-    shuffle(DIRECTIONS);
+    shuffle(
+      DIRECTIONS
+    );
 
-  for (const crossing of crossings) {
-    for (const [
-      rowDirection,
-      colDirection,
-    ] of directions) {
+  for (
+    const crossing
+    of crossings
+  ) {
+    for (
+      const [
+        rowDirection,
+        colDirection,
+      ]
+      of directions
+    ) {
       const startRow =
         crossing.row -
         crossing.wordIndex *
@@ -308,7 +433,8 @@ function tryPlaceRandomly(
   grid,
   word
 ) {
-  const size = grid.length;
+  const size =
+    grid.length;
 
   for (
     let attempt = 0;
@@ -380,19 +506,25 @@ function placeWord(
 }
 
 
-function fillRandomLetters(grid) {
-  return grid.map((row) =>
-    row.map((cell) => {
-      if (cell !== '') {
-        return cell;
-      }
+function fillRandomLetters(
+  grid
+) {
+  return grid.map(
+    (row) =>
+      row.map(
+        (cell) => {
 
-      return RANDOM_LETTERS[
-        randomNumber(
-          RANDOM_LETTERS.length
-        )
-      ];
-    })
+          if (cell !== '') {
+            return cell;
+          }
+
+          return RANDOM_LETTERS[
+            randomNumber(
+              RANDOM_LETTERS.length
+            )
+          ];
+        }
+      )
   );
 }
 
@@ -401,18 +533,27 @@ function selectWordsForGame(
   difficulty
 ) {
   const config =
-    DIFFICULTIES[difficulty];
+    DIFFICULTIES[
+      difficulty
+    ];
 
   const groups =
-    shuffle(WORD_GROUPS).slice(
+    shuffle(
+      WORD_GROUPS
+    ).slice(
       0,
       2
     );
 
-  const selectedWords = [];
+  const selectedWords =
+    [];
 
   groups.forEach(
-    (group, groupIndex) => {
+    (
+      group,
+      groupIndex
+    ) => {
+
       const amount =
         config.distribution[
           groupIndex
@@ -428,20 +569,31 @@ function selectWordsForGame(
         );
 
       availableWords
-        .slice(0, amount)
-        .forEach((word) => {
-          selectedWords.push({
-            word,
-            groupId: group.id,
-          });
-        });
+        .slice(
+          0,
+          amount
+        )
+        .forEach(
+          (word) => {
+
+            selectedWords.push({
+              word,
+              groupId:
+                group.id,
+            });
+
+          }
+        );
     }
   );
 
   return {
     groups,
+
     selectedWords:
-      shuffle(selectedWords),
+      shuffle(
+        selectedWords
+      ),
   };
 }
 
@@ -450,13 +602,16 @@ function generatePuzzle(
   difficulty
 ) {
   const config =
-    DIFFICULTIES[difficulty];
+    DIFFICULTIES[
+      difficulty
+    ];
 
   for (
-    let generationAttempt = 0;
-    generationAttempt < 40;
-    generationAttempt++
+    let attempt = 0;
+    attempt < 40;
+    attempt++
   ) {
+
     const grid =
       createEmptyGrid(
         config.gridSize
@@ -470,7 +625,8 @@ function generatePuzzle(
         difficulty
       );
 
-    const placedWords = [];
+    const placedWords =
+      [];
 
     let successful = true;
 
@@ -480,6 +636,7 @@ function generatePuzzle(
       selectedWords.length;
       index++
     ) {
+
       const item =
         selectedWords[index];
 
@@ -504,7 +661,9 @@ function generatePuzzle(
     if (successful) {
       return {
         grid:
-          fillRandomLetters(grid),
+          fillRandomLetters(
+            grid
+          ),
 
         words:
           placedWords,
@@ -583,8 +742,11 @@ export default function WordSearch() {
     puzzle,
     setPuzzle,
   ] =
-    useState(() =>
-      generatePuzzle('easy')
+    useState(
+      () =>
+        generatePuzzle(
+          'easy'
+        )
     );
 
   const [
@@ -604,195 +766,275 @@ export default function WordSearch() {
     setMessage,
   ] =
     useState(
-      'Seleccioná las letras que forman una palabra. Tocá nuevamente una letra para desmarcarla.'
+      'Seleccioná las letras que forman una palabra.'
     );
+
+  const [
+    successAnimation,
+    setSuccessAnimation,
+  ] =
+    useState(false);
+
+  const [
+    showCompletion,
+    setShowCompletion,
+  ] =
+    useState(false);
 
 
   const foundCellKeys =
     useMemo(() => {
-      const keys = new Set();
+
+      const keys =
+        new Set();
 
       foundWords.forEach(
         (foundWord) => {
+
           foundWord.cells.forEach(
             (cell) => {
+
               keys.add(
                 cellKey(
                   cell.row,
                   cell.col
                 )
               );
+
             }
           );
+
         }
       );
 
       return keys;
-    }, [foundWords]);
+
+    }, [
+      foundWords,
+    ]);
 
 
-  const completed =
-    puzzle.words.length > 0 &&
-    foundWords.length ===
-      puzzle.words.length;
+  const stars =
+    DIFFICULTIES[
+      difficulty
+    ].stars;
 
 
-  const handleCellClick = (
-    row,
-    col
-  ) => {
-    const key =
-      cellKey(row, col);
+  const handleCellClick =
+    (
+      row,
+      col
+    ) => {
 
-    const alreadySelected =
-      selectedCells.some(
-        (cell) =>
-          cellKey(
-            cell.row,
-            cell.col
-          ) === key
-      );
+      const key =
+        cellKey(
+          row,
+          col
+        );
 
-    if (alreadySelected) {
-      setSelectedCells(
-        selectedCells.filter(
+      const alreadySelected =
+        selectedCells.some(
           (cell) =>
             cellKey(
               cell.row,
               cell.col
-            ) !== key
+            ) === key
+        );
+
+      if (alreadySelected) {
+
+        setSelectedCells(
+          selectedCells.filter(
+            (cell) =>
+              cellKey(
+                cell.row,
+                cell.col
+              ) !== key
+          )
+        );
+
+        return;
+      }
+
+      setSelectedCells([
+        ...selectedCells,
+
+        {
+          row,
+          col,
+        },
+      ]);
+    };
+
+
+  const handleCheck =
+    () => {
+
+      if (
+        selectedCells.length ===
+        0
+      ) {
+
+        setMessage(
+          'Primero seleccioná algunas letras.'
+        );
+
+        return;
+      }
+
+      const target =
+        puzzle.words.find(
+          (item) =>
+            sameCells(
+              selectedCells,
+              item.cells
+            )
+        );
+
+      if (!target) {
+
+        setMessage(
+          '❌ Esa selección no forma una palabra correcta.'
+        );
+
+        return;
+      }
+
+      const alreadyFound =
+        foundWords.some(
+          (item) =>
+            item.word ===
+            target.word
+        );
+
+      if (alreadyFound) {
+
+        setMessage(
+          'Esa palabra ya fue encontrada.'
+        );
+
+        return;
+      }
+
+      const updatedFoundWords = [
+        ...foundWords,
+
+        {
+          word:
+            target.word,
+
+          groupId:
+            target.groupId,
+
+          cells:
+            target.cells,
+        },
+      ];
+
+      setFoundWords(
+        updatedFoundWords
+      );
+
+      setSelectedCells(
+        []
+      );
+
+      setSuccessAnimation(
+        true
+      );
+
+      setTimeout(
+        () => {
+
+          setSuccessAnimation(
+            false
+          );
+
+        },
+        700
+      );
+
+
+      if (
+        updatedFoundWords.length ===
+        puzzle.words.length
+      ) {
+
+        setMessage(
+          '🎉 ¡Encontraste todas las palabras!'
+        );
+
+        saveLevelProgress(
+          stars
+        );
+
+        setTimeout(
+          () => {
+
+            setShowCompletion(
+              true
+            );
+
+          },
+          700
+        );
+
+      } else {
+
+        setMessage(
+          `✅ ¡Muy bien! Encontraste ${target.word}.`
+        );
+
+      }
+    };
+
+
+  const handleClear =
+    () => {
+
+      setSelectedCells(
+        []
+      );
+
+      setMessage(
+        'Selección borrada.'
+      );
+    };
+
+
+  const createNewPuzzle =
+    (
+      selectedDifficulty =
+        difficulty
+    ) => {
+
+      setPuzzle(
+        generatePuzzle(
+          selectedDifficulty
         )
       );
 
+      setFoundWords(
+        []
+      );
+
+      setSelectedCells(
+        []
+      );
+
+      setShowCompletion(
+        false
+      );
+
       setMessage(
-        'Letra desmarcada.'
+        'Seleccioná las letras que forman una palabra.'
       );
-
-      return;
-    }
-
-    setSelectedCells([
-      ...selectedCells,
-      {
-        row,
-        col,
-      },
-    ]);
-
-    setMessage(
-      'Letra seleccionada. Podés seguir marcando o presionar Comprobar.'
-    );
-  };
-
-
-  const handleCheck = () => {
-    if (
-      selectedCells.length === 0
-    ) {
-      setMessage(
-        'Primero seleccioná algunas letras.'
-      );
-
-      return;
-    }
-
-    const target =
-      puzzle.words.find(
-        (item) =>
-          sameCells(
-            selectedCells,
-            item.cells
-          )
-      );
-
-    if (!target) {
-      setMessage(
-        '❌ Esa selección no forma una palabra correcta. Revisá las letras marcadas.'
-      );
-
-      return;
-    }
-
-    const alreadyFound =
-      foundWords.some(
-        (item) =>
-          item.word ===
-          target.word
-      );
-
-    if (alreadyFound) {
-      setMessage(
-        'Esa palabra ya fue encontrada.'
-      );
-
-      return;
-    }
-
-    const updatedFoundWords = [
-      ...foundWords,
-      {
-        word:
-          target.word,
-
-        groupId:
-          target.groupId,
-
-        cells:
-          target.cells,
-      },
-    ];
-
-    setFoundWords(
-      updatedFoundWords
-    );
-
-    setSelectedCells([]);
-
-    if (
-      updatedFoundWords.length ===
-      puzzle.words.length
-    ) {
-      setMessage(
-        '🎉 ¡Excelente! Encontraste todas las palabras.'
-      );
-    } else {
-      setMessage(
-        `✅ ¡Muy bien! Encontraste ${target.word}.`
-      );
-    }
-  };
-
-
-  const handleClear = () => {
-    setSelectedCells([]);
-
-    setMessage(
-      'Selección borrada.'
-    );
-  };
-
-
-  const createNewPuzzle = (
-    selectedDifficulty =
-      difficulty
-  ) => {
-    setPuzzle(
-      generatePuzzle(
-        selectedDifficulty
-      )
-    );
-
-    setFoundWords([]);
-    setSelectedCells([]);
-
-    setMessage(
-      'Seleccioná las letras que forman una palabra. Tocá nuevamente una letra para desmarcarla.'
-    );
-  };
+    };
 
 
   const handleDifficultyChange =
     (event) => {
+
       const newDifficulty =
         event.target.value;
 
@@ -806,44 +1048,60 @@ export default function WordSearch() {
     };
 
 
-  const getCellClassName = (
-    row,
-    col
-  ) => {
-    const key =
-      cellKey(row, col);
+  const getCellClassName =
+    (
+      row,
+      col
+    ) => {
 
-    const selected =
-      selectedCells.some(
-        (cell) =>
-          cellKey(
-            cell.row,
-            cell.col
-          ) === key
-      );
+      const key =
+        cellKey(
+          row,
+          col
+        );
 
-    const found =
-      foundCellKeys.has(key);
+      const selected =
+        selectedCells.some(
+          (cell) =>
+            cellKey(
+              cell.row,
+              cell.col
+            ) === key
+        );
 
-    let className =
-      'word-search-cell';
+      const found =
+        foundCellKeys.has(
+          key
+        );
 
-    if (selected) {
-      className +=
-        ' selected';
-    }
+      let className =
+        'word-search-cell';
 
-    if (found) {
-      className +=
-        ' found-cell';
-    }
+      if (selected) {
+        className +=
+          ' selected';
+      }
 
-    return className;
-  };
+      if (found) {
+        className +=
+          ' found-cell';
+      }
+
+      return className;
+    };
 
 
   return (
     <Box className="word-search-page">
+
+      {successAnimation && (
+
+        <Box className="word-found-effect">
+          ✨ ¡Palabra encontrada! ✨
+        </Box>
+
+      )}
+
 
       <Box className="word-search-topbar">
 
@@ -888,6 +1146,7 @@ export default function WordSearch() {
             Dificultad
           </label>
 
+
           <select
             id="difficulty"
             className="difficulty-select"
@@ -896,6 +1155,7 @@ export default function WordSearch() {
               handleDifficultyChange
             }
           >
+
             <option value="easy">
               Fácil · 3 palabras
             </option>
@@ -907,12 +1167,16 @@ export default function WordSearch() {
             <option value="hard">
               Alta · 9 palabras
             </option>
+
           </select>
 
+
           <Box className="word-search-score">
+
             ⭐ {foundWords.length}
             {' / '}
             {puzzle.words.length}
+
           </Box>
 
         </Box>
@@ -924,10 +1188,14 @@ export default function WordSearch() {
 
         {puzzle.groups.map(
           (group) => (
+
             <Box
-              key={group.id}
+              key={
+                group.id
+              }
               className="word-search-rule-card"
             >
+
               <strong>
                 {group.title}
               </strong>
@@ -935,7 +1203,9 @@ export default function WordSearch() {
               <span>
                 {group.rule}
               </span>
+
             </Box>
+
           )
         )}
 
@@ -967,6 +1237,7 @@ export default function WordSearch() {
                     letter,
                     colIndex
                   ) => (
+
                     <button
                       key={`${rowIndex}-${colIndex}`}
                       type="button"
@@ -983,8 +1254,11 @@ export default function WordSearch() {
                         )
                       }
                     >
+
                       {letter}
+
                     </button>
+
                   )
                 )
             )}
@@ -1005,6 +1279,7 @@ export default function WordSearch() {
 
             {puzzle.words.map(
               (item) => {
+
                 const found =
                   foundWords.some(
                     (word) =>
@@ -1013,6 +1288,7 @@ export default function WordSearch() {
                   );
 
                 return (
+
                   <Box
                     key={
                       item.word
@@ -1026,12 +1302,15 @@ export default function WordSearch() {
                       }
                     `}
                   >
+
                     {found
                       ? '✅'
                       : '🔎'}{' '}
 
                     {item.word}
+
                   </Box>
+
                 );
               }
             )}
@@ -1083,28 +1362,88 @@ export default function WordSearch() {
 
           </Box>
 
-
-          {completed && (
-            <Box className="word-search-complete">
-
-              <Typography className="word-search-complete-title">
-                ⭐⭐⭐
-              </Typography>
-
-              <Typography className="word-search-complete-text">
-                ¡Nivel completado!
-              </Typography>
-
-              <Typography className="word-search-complete-subtitle">
-                ¡Excelente trabajo!
-              </Typography>
-
-            </Box>
-          )}
-
         </Box>
 
       </Box>
+
+
+      {showCompletion && (
+
+        <Box className="level-complete-overlay">
+
+          <Box className="level-complete-card">
+
+            <Typography className="level-complete-celebration">
+              🎉
+            </Typography>
+
+
+            <Typography className="level-complete-title">
+              ¡Nivel completado!
+            </Typography>
+
+
+            <Typography className="level-complete-stars">
+
+              {'⭐'.repeat(
+                stars
+              )}
+
+              {'☆'.repeat(
+                3 - stars
+              )}
+
+            </Typography>
+
+
+            <Typography className="level-complete-description">
+
+              Completaste la Sopa de Letras en dificultad{' '}
+
+              <strong>
+                {
+                  DIFFICULTIES[
+                    difficulty
+                  ].label
+                }
+              </strong>
+
+            </Typography>
+
+
+            <Typography className="level-complete-unlocked">
+              🔓 ¡Desbloqueaste el Nivel 2!
+            </Typography>
+
+
+            <Box className="level-complete-actions">
+
+              <Button
+                variant="contained"
+                onClick={() =>
+                  navigate(
+                    '/juegos/lengua'
+                  )
+                }
+              >
+                Volver al mapa
+              </Button>
+
+
+              <Button
+                variant="outlined"
+                disabled
+              >
+                Nivel 2 · Próximamente
+              </Button>
+
+            </Box>
+
+          </Box>
+
+        </Box>
+
+      )}
 
     </Box>
   );

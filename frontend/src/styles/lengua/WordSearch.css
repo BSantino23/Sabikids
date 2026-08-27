@@ -8,7 +8,10 @@
 
   box-sizing: border-box;
 
-  padding: 18px 22px 30px;
+  padding:
+    18px
+    22px
+    30px;
 
   background-image:
     linear-gradient(
@@ -20,7 +23,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
@@ -34,16 +36,31 @@
 ========================================================= */
 
 .word-search-topbar {
-  width: min(96%, 1500px);
+  width:
+    min(
+      96%,
+      1500px
+    );
 
-  margin: 0 auto 12px;
+  margin:
+    0 auto
+    12px;
 
   display: grid;
 
   grid-template-columns:
-    minmax(180px, 1fr)
-    minmax(340px, 2fr)
-    minmax(220px, 1fr);
+    minmax(
+      180px,
+      1fr
+    )
+    minmax(
+      340px,
+      2fr
+    )
+    minmax(
+      220px,
+      1fr
+    );
 
   align-items: center;
 
@@ -58,13 +75,17 @@
 .word-search-back {
   justify-self: start;
 
-  border-radius: 16px !important;
+  border-radius:
+    16px !important;
 
-  padding: 9px 18px !important;
+  padding:
+    9px 18px !important;
 
-  text-transform: none !important;
+  text-transform:
+    none !important;
 
-  font-weight: 800 !important;
+  font-weight:
+    800 !important;
 }
 
 
@@ -73,29 +94,38 @@
 ========================================================= */
 
 .word-search-heading {
-  padding: 9px 18px;
+  padding:
+    9px 18px;
 
   text-align: center;
 
   border-radius: 22px;
 
-  background: rgba(
-    255,
-    255,
-    255,
-    0.9
-  );
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.9
+    );
 
   box-shadow:
     0 7px 18px
-      rgba(0, 0, 0, 0.14);
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
 
-  backdrop-filter: blur(5px);
+  backdrop-filter:
+    blur(5px);
 }
 
 
 .word-search-title {
-  color: #55417c;
+  color:
+    #55417c;
 
   font-size:
     clamp(
@@ -104,14 +134,17 @@
       2.7rem
     ) !important;
 
-  font-weight: 900 !important;
+  font-weight:
+    900 !important;
 }
 
 
 .word-search-rule {
-  margin-top: 2px !important;
+  margin-top:
+    2px !important;
 
-  color: #64566d;
+  color:
+    #64566d;
 
   font-size:
     clamp(
@@ -120,7 +153,8 @@
       0.95rem
     ) !important;
 
-  font-weight: 600 !important;
+  font-weight:
+    600 !important;
 }
 
 
@@ -142,26 +176,39 @@
 
 
 .difficulty-label {
-  color: #ffffff;
+  color:
+    #ffffff;
 
-  font-size: 0.78rem;
+  font-size:
+    0.78rem;
 
-  font-weight: 900;
+  font-weight:
+    900;
 
   text-shadow:
     0 2px 5px
-      rgba(0, 0, 0, 0.45);
+      rgba(
+        0,
+        0,
+        0,
+        0.45
+      );
 }
 
 
 .difficulty-select {
-  min-width: 190px;
+  min-width:
+    190px;
 
-  padding: 9px 14px;
+  padding:
+    9px 14px;
 
-  border: 3px solid #ffffff;
+  border:
+    3px solid
+    #ffffff;
 
-  border-radius: 15px;
+  border-radius:
+    15px;
 
   outline: none;
 
@@ -172,33 +219,46 @@
       #5e438f
     );
 
-  color: #ffffff;
+  color:
+    #ffffff;
 
-  font-family: inherit;
+  font-family:
+    inherit;
 
-  font-size: 0.9rem;
+  font-size:
+    0.9rem;
 
-  font-weight: 900;
+  font-weight:
+    900;
 
   cursor: pointer;
 
   box-shadow:
     0 5px 12px
-      rgba(0, 0, 0, 0.2);
+      rgba(
+        0,
+        0,
+        0,
+        0.2
+      );
 }
 
 
 .difficulty-select option {
-  background: #ffffff;
+  background:
+    #ffffff;
 
-  color: #55417c;
+  color:
+    #55417c;
 }
 
 
 .word-search-score {
-  padding: 7px 16px;
+  padding:
+    7px 16px;
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
   background:
     rgba(
@@ -208,15 +268,23 @@
       0.94
     );
 
-  color: #55417c;
+  color:
+    #55417c;
 
-  font-size: 0.9rem;
+  font-size:
+    0.9rem;
 
-  font-weight: 900;
+  font-weight:
+    900;
 
   box-shadow:
     0 4px 10px
-      rgba(0, 0, 0, 0.14);
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
 }
 
 
@@ -225,7 +293,11 @@
 ========================================================= */
 
 .word-search-active-rules {
-  width: min(92%, 900px);
+  width:
+    min(
+      92%,
+      900px
+    );
 
   margin:
     0 auto
@@ -242,9 +314,11 @@
 
 
 .word-search-rule-card {
-  max-width: 390px;
+  max-width:
+    390px;
 
-  padding: 8px 14px;
+  padding:
+    8px 14px;
 
   display: flex;
 
@@ -252,7 +326,8 @@
 
   gap: 8px;
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
   background:
     rgba(
@@ -262,20 +337,29 @@
       0.93
     );
 
-  color: #574765;
+  color:
+    #574765;
 
-  font-size: 0.78rem;
+  font-size:
+    0.78rem;
 
   box-shadow:
     0 4px 10px
-      rgba(0, 0, 0, 0.14);
+      rgba(
+        0,
+        0,
+        0,
+        0.14
+      );
 }
 
 
 .word-search-rule-card strong {
-  color: #734e9e;
+  color:
+    #734e9e;
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 }
 
 
@@ -292,13 +376,20 @@
       1450px
     );
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
   display: grid;
 
   grid-template-columns:
-    minmax(500px, 1.7fr)
-    minmax(270px, 0.75fr);
+    minmax(
+      500px,
+      1.7fr
+    )
+    minmax(
+      270px,
+      0.75fr
+    );
 
   align-items: center;
 
@@ -329,22 +420,17 @@
 ========================================================= */
 
 .word-search-grid {
-  /*
-    El tamaño físico es estable.
-
-    La cantidad de letras cambia
-    según dificultad.
-  */
-
   width:
     min(
       44vw,
       650px
     );
 
-  aspect-ratio: 1 / 1;
+  aspect-ratio:
+    1 / 1;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
   padding:
     clamp(
@@ -371,7 +457,8 @@
     solid
     #805935;
 
-  border-radius: 24px;
+  border-radius:
+    24px;
 
   background:
     rgba(
@@ -397,7 +484,8 @@
         0.24
       );
 
-  backdrop-filter: blur(2px);
+  backdrop-filter:
+    blur(2px);
 }
 
 
@@ -407,7 +495,6 @@
 
 .word-search-cell {
   min-width: 0;
-
   min-height: 0;
 
   padding: 0;
@@ -421,9 +508,11 @@
       7px
     );
 
-  background: #fffaf0;
+  background:
+    #fffaf0;
 
-  color: #514264;
+  color:
+    #514264;
 
   font-size:
     clamp(
@@ -432,7 +521,8 @@
       1.08rem
     );
 
-  font-weight: 900;
+  font-weight:
+    900;
 
   line-height: 1;
 
@@ -467,15 +557,13 @@
   transform:
     scale(1.1);
 
-  background: #fff1a8;
+  background:
+    #fff1a8;
 }
 
 
 /* =========================================================
    SELECCIÓN ACTUAL
-
-   Las letras que el usuario está marcando
-   quedan celestes hasta presionar Comprobar.
 ========================================================= */
 
 .word-search-cell.selected {
@@ -483,7 +571,8 @@
 
   z-index: 4;
 
-  transform: scale(1.06);
+  transform:
+    scale(1.06);
 
   background:
     linear-gradient(
@@ -492,16 +581,19 @@
       #69bced
     );
 
-  color: #21485f;
+  color:
+    #21485f;
 
   box-shadow:
-    inset 0 0 0 2px #ffffff,
-    0 0 11px rgba(
-      72,
-      180,
-      238,
-      0.9
-    );
+    inset 0 0 0 2px
+      #ffffff,
+    0 0 11px
+      rgba(
+        72,
+        180,
+        238,
+        0.9
+      );
 
   animation:
     selectedPulse
@@ -512,9 +604,6 @@
 
 /* =========================================================
    PALABRA ENCONTRADA
-
-   Una vez comprobada correctamente,
-   queda DORADA permanentemente.
 ========================================================= */
 
 .word-search-cell.found-cell {
@@ -529,26 +618,21 @@
       #e8a927
     );
 
-  color: #58400b;
+  color:
+    #58400b;
 
   box-shadow:
-    inset 0 0 0 2px #fff6bd,
-    0 0 8px rgba(
-      226,
-      163,
-      35,
-      0.75
-    );
+    inset 0 0 0 2px
+      #fff6bd,
+    0 0 8px
+      rgba(
+        226,
+        163,
+        35,
+        0.75
+      );
 }
 
-
-/*
-   Si una letra que ya forma parte
-   de una palabra encontrada vuelve
-   a ser seleccionada porque otra
-   palabra la cruza, mostramos
-   temporalmente el celeste.
-*/
 
 .word-search-cell.found-cell.selected {
   position: relative;
@@ -562,26 +646,32 @@
       #69bced
     );
 
-  color: #21485f;
+  color:
+    #21485f;
 
   box-shadow:
-    inset 0 0 0 3px #ffffff,
-    0 0 14px rgba(
-      72,
-      180,
-      238,
-      1
-    );
+    inset 0 0 0 3px
+      #ffffff,
+    0 0 14px
+      rgba(
+        72,
+        180,
+        238,
+        1
+      );
 }
 
 
 @keyframes selectedPulse {
+
   0% {
-    transform: scale(0.92);
+    transform:
+      scale(0.92);
   }
 
   100% {
-    transform: scale(1.06);
+    transform:
+      scale(1.06);
   }
 }
 
@@ -591,7 +681,8 @@
 ========================================================= */
 
 .word-search-side-panel {
-  max-height: 74vh;
+  max-height:
+    74vh;
 
   padding:
     clamp(
@@ -602,7 +693,8 @@
 
   overflow-y: auto;
 
-  border-radius: 25px;
+  border-radius:
+    25px;
 
   background:
     rgba(
@@ -628,7 +720,8 @@
         0.19
       );
 
-  backdrop-filter: blur(5px);
+  backdrop-filter:
+    blur(5px);
 }
 
 
@@ -638,7 +731,8 @@
 
   text-align: center;
 
-  color: #55417c;
+  color:
+    #55417c;
 
   font-size:
     clamp(
@@ -647,7 +741,8 @@
       1.55rem
     ) !important;
 
-  font-weight: 900 !important;
+  font-weight:
+    900 !important;
 }
 
 
@@ -672,13 +767,17 @@
 
 
 .word-search-word {
-  padding: 8px 9px;
+  padding:
+    8px 9px;
 
-  border-radius: 12px;
+  border-radius:
+    12px;
 
-  background: #ffffff;
+  background:
+    #ffffff;
 
-  color: #5d5266;
+  color:
+    #5d5266;
 
   font-size:
     clamp(
@@ -687,9 +786,11 @@
       0.88rem
     );
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  text-align: center;
+  text-align:
+    center;
 
   transition:
     transform 0.2s ease,
@@ -717,11 +818,14 @@
 ========================================================= */
 
 .word-search-message {
-  min-height: 45px;
+  min-height:
+    45px;
 
-  margin-top: 14px;
+  margin-top:
+    14px;
 
-  padding: 10px;
+  padding:
+    10px;
 
   display: flex;
 
@@ -729,17 +833,23 @@
 
   align-items: center;
 
-  border-radius: 13px;
+  border-radius:
+    13px;
 
-  background: #f4eaff;
+  background:
+    #f4eaff;
 
-  color: #5b4175;
+  color:
+    #5b4175;
 
-  font-size: 0.85rem;
+  font-size:
+    0.85rem;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  text-align: center;
+  text-align:
+    center;
 }
 
 
@@ -748,7 +858,8 @@
 ========================================================= */
 
 .word-search-actions {
-  margin-top: 14px;
+  margin-top:
+    14px;
 
   display: flex;
 
@@ -805,75 +916,319 @@
 
 
 /* =========================================================
-   NIVEL COMPLETADO
+   EFECTO PALABRA CORRECTA
 ========================================================= */
 
-.word-search-complete {
-  margin-top: 16px;
+.word-found-effect {
+  position: fixed;
 
-  padding: 12px;
+  top: 20%;
+  left: 50%;
 
-  border-radius: 17px;
+  z-index: 1000;
 
-  text-align: center;
+  transform:
+    translateX(-50%);
+
+  padding:
+    14px 28px;
+
+  border-radius:
+    24px;
 
   background:
     linear-gradient(
       145deg,
       #fff4a8,
-      #ffd45c
+      #ffd357
     );
 
-  color: #73561c;
+  color:
+    #705014;
 
-  font-weight: 900;
+  font-size:
+    clamp(
+      1rem,
+      2vw,
+      1.5rem
+    );
+
+  font-weight:
+    900;
+
+  box-shadow:
+    0 8px 25px
+      rgba(
+        0,
+        0,
+        0,
+        0.25
+      );
+
+  pointer-events: none;
 
   animation:
-    completedPop
-    0.45s
+    wordFoundAnimation
+    0.7s
     ease;
 }
 
 
-.word-search-complete-title {
-  font-size:
-    1.65rem !important;
+@keyframes wordFoundAnimation {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      scale(0.6);
+  }
+
+  40% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(1.15);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      translateY(-30px)
+      scale(1);
+  }
 }
 
 
-.word-search-complete-text {
+/* =========================================================
+   NIVEL COMPLETADO
+========================================================= */
+
+.level-complete-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 20px;
+
+  background:
+    rgba(
+      37,
+      27,
+      60,
+      0.58
+    );
+
+  backdrop-filter:
+    blur(6px);
+
+  animation:
+    overlayAppear
+    0.35s
+    ease;
+}
+
+
+.level-complete-card {
+  width:
+    min(
+      90vw,
+      520px
+    );
+
+  padding:
+    35px 30px;
+
+  box-sizing:
+    border-box;
+
+  text-align: center;
+
+  border:
+    5px solid
+    #ffffff;
+
+  border-radius:
+    32px;
+
+  background:
+    linear-gradient(
+      160deg,
+      #fffceb,
+      #ffe698
+    );
+
+  box-shadow:
+    0 18px 50px
+      rgba(
+        0,
+        0,
+        0,
+        0.35
+      );
+
+  animation:
+    levelCardAppear
+    0.5s
+    ease;
+}
+
+
+.level-complete-celebration {
   font-size:
-    1rem !important;
+    3.5rem !important;
+
+  animation:
+    celebrationBounce
+    1s
+    ease
+    infinite;
+}
+
+
+.level-complete-title {
+  margin-top:
+    5px !important;
+
+  color:
+    #59417c;
+
+  font-size:
+    clamp(
+      1.8rem,
+      4vw,
+      2.8rem
+    ) !important;
 
   font-weight:
     900 !important;
 }
 
 
-.word-search-complete-subtitle {
+.level-complete-stars {
+  margin:
+    15px
+    0 !important;
+
   font-size:
-    0.8rem !important;
+    clamp(
+      2rem,
+      5vw,
+      3rem
+    ) !important;
+
+  letter-spacing:
+    5px;
 }
 
 
-@keyframes completedPop {
-  0% {
-    transform:
-      scale(0.85);
+.level-complete-description {
+  color:
+    #62556a;
 
+  font-size:
+    1rem !important;
+}
+
+
+.level-complete-unlocked {
+  margin-top:
+    17px !important;
+
+  padding: 10px;
+
+  border-radius:
+    15px;
+
+  background:
+    #e7f8dc;
+
+  color:
+    #397242;
+
+  font-weight:
+    900 !important;
+}
+
+
+.level-complete-actions {
+  margin-top:
+    23px;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes overlayAppear {
+
+  from {
     opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes levelCardAppear {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.8);
   }
 
   70% {
     transform:
-      scale(1.05);
+      translateY(-6px)
+      scale(1.03);
   }
 
   100% {
-    transform:
-      scale(1);
-
     opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes celebrationBounce {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-10px);
   }
 }
 
@@ -883,28 +1238,35 @@
 ========================================================= */
 
 @media (
-  max-width: 1000px
+  max-width:
+    1000px
 ) {
-  .word-search-topbar {
-    grid-template-columns: 1fr;
 
-    justify-items: center;
+  .word-search-topbar {
+    grid-template-columns:
+      1fr;
+
+    justify-items:
+      center;
   }
 
 
   .word-search-back,
   .word-search-controls {
-    justify-self: center;
+    justify-self:
+      center;
   }
 
 
   .word-search-controls {
-    align-items: center;
+    align-items:
+      center;
   }
 
 
   .word-search-scene {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
   }
 
 
@@ -924,11 +1286,14 @@
         570px
       );
 
-    box-sizing: border-box;
+    box-sizing:
+      border-box;
 
-    justify-self: center;
+    justify-self:
+      center;
 
-    max-height: none;
+    max-height:
+      none;
   }
 }
 
@@ -938,8 +1303,10 @@
 ========================================================= */
 
 @media (
-  max-width: 600px
+  max-width:
+    600px
 ) {
+
   .word-search-page {
     padding:
       10px
@@ -949,11 +1316,14 @@
 
 
   .word-search-grid {
-    width: 94vw;
+    width:
+      94vw;
 
-    padding: 6px;
+    padding:
+      6px;
 
-    gap: 1px;
+    gap:
+      1px;
   }
 
 
@@ -968,24 +1338,31 @@
 
 
   .word-search-side-panel {
-    width: 94vw;
+    width:
+      94vw;
   }
 
 
   .word-search-active-rules {
-    width: 96%;
+    width:
+      96%;
   }
 
 
   .word-search-rule-card {
-    width: 100%;
+    width:
+      100%;
 
-    box-sizing: border-box;
+    box-sizing:
+      border-box;
 
-    flex-direction: column;
+    flex-direction:
+      column;
 
-    gap: 2px;
+    gap:
+      2px;
 
-    text-align: center;
+    text-align:
+      center;
   }
 }
