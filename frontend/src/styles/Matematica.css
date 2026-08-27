@@ -1,0 +1,402 @@
+.math-page {
+  height: calc(100vh - 64px);
+
+  background-image:
+    url('/juegos/matematica/fondo-matematica.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 10px 24px 12px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* -------------------------------- */
+/* ENCABEZADO */
+/* -------------------------------- */
+
+.math-header {
+  width: 100%;
+  max-width: 1450px;
+
+  margin: 0 auto 4px;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  min-height: 78px;
+}
+
+.back-subjects-button {
+  position: absolute !important;
+
+  top: 8px;
+  left: 0;
+
+  background-color: #163b84 !important;
+
+  color: white !important;
+
+  font-weight: 800 !important;
+
+  text-transform: none !important;
+
+  border-radius: 14px !important;
+
+  padding: 8px 16px !important;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.2) !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.back-subjects-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+.math-heading {
+  text-align: center;
+}
+
+.math-title {
+  color: #163b84;
+
+  font-weight: 900 !important;
+
+  font-size: 2.6rem !important;
+
+  margin-bottom: 0 !important;
+
+  line-height: 1 !important;
+
+  text-shadow:
+    2px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+.math-subtitle {
+  color: #163b84;
+
+  font-weight: 700 !important;
+
+  margin-top: 5px !important;
+
+  line-height: 1.1 !important;
+}
+
+
+/* -------------------------------- */
+/* MAPA */
+/* -------------------------------- */
+
+.math-map-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 1380px;
+
+  margin: 0 auto;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.math-map-image {
+  display: block;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 14px 14px rgba(0, 0, 0, 0.15));
+}
+
+
+/* -------------------------------- */
+/* CAPA DE JUEGOS */
+/* -------------------------------- */
+
+.math-games-layer {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+
+/* -------------------------------- */
+/* PUNTOS DE JUEGO */
+/* -------------------------------- */
+
+.game-spot {
+  position: absolute;
+
+  border: none;
+
+  background: transparent;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  pointer-events: auto;
+
+  /* Centra el elemento exactamente en el punto top/left elegido */
+  transform: translate(-50%, -50%);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.game-spot:hover {
+  transform:
+    translate(-50%, -55%)
+    scale(1.05);
+}
+
+.game-spot:focus-visible {
+  outline: 4px solid #f4d92b;
+
+  outline-offset: 7px;
+
+  border-radius: 18px;
+}
+
+
+/* -------------------------------- */
+/* IMAGEN DEL JUEGO */
+/* -------------------------------- */
+
+.game-spot-image {
+  width: 205px;
+
+  height: auto;
+
+  display: block;
+
+  filter:
+    drop-shadow(0 10px 8px rgba(0, 0, 0, 0.22));
+
+  transition:
+    transform 0.25s ease;
+}
+
+.game-spot:hover .game-spot-image {
+  transform: scale(1.06);
+}
+
+
+/* -------------------------------- */
+/* NOMBRE DEL JUEGO */
+/* -------------------------------- */
+
+.game-spot-title {
+  margin-top: -10px;
+
+  padding: 7px 14px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  color: #163b84;
+
+  font-weight: 900 !important;
+
+  font-size: 0.95rem;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* -------------------------------- */
+/* POSICIÓN MEMOTEST (Centrado en el círculo verde) */
+/* -------------------------------- */
+
+.memotest-spot {
+  top: 22%;
+  left: 23%;
+}
+
+
+/* -------------------------------- */
+/* FUTUROS JUEGOS */
+/* -------------------------------- */
+
+.secuencia-spot {
+  top: 34%;
+  left: 42%;
+}
+
+.calculo-spot {
+  top: 18%;
+  right: 7%;
+}
+
+.problemas-spot {
+  bottom: 8%;
+  left: 10%;
+}
+
+.desafio-spot {
+  bottom: 7%;
+  right: 11%;
+}
+
+
+/* -------------------------------- */
+/* TABLET */
+/* -------------------------------- */
+
+@media (max-width: 900px) {
+  .math-page {
+    padding: 8px 12px 10px;
+  }
+
+  .math-header {
+    min-height: 90px;
+  }
+
+  .math-title {
+    font-size: 2.2rem !important;
+  }
+
+  .game-spot-image {
+    width: 145px;
+  }
+
+  .game-spot-title {
+    font-size: 0.8rem;
+
+    padding: 5px 9px;
+
+    margin-top: -6px;
+  }
+
+  .memotest-spot {
+    top: 22%;
+    left: 23%;
+  }
+}
+
+
+/* -------------------------------- */
+/* CELULAR */
+/* -------------------------------- */
+
+@media (max-width: 600px) {
+  .math-page {
+    height: auto;
+    min-height: calc(100vh - 64px);
+
+    padding: 10px 8px 20px;
+
+    overflow-y: auto;
+  }
+
+  .math-header {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    min-height: auto;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+  }
+
+  .back-subjects-button {
+    position: static !important;
+
+    align-self: flex-start;
+
+    font-size: 0.75rem !important;
+
+    padding: 6px 10px !important;
+  }
+
+  .math-title {
+    font-size: 1.9rem !important;
+  }
+
+  .math-subtitle {
+    font-size: 0.85rem !important;
+  }
+
+  .math-map-wrapper {
+    flex: none;
+
+    width: 100%;
+  }
+
+  .math-map-image {
+    width: 100%;
+
+    max-height: none;
+  }
+
+  .game-spot-image {
+    width: 90px;
+  }
+
+  .game-spot-title {
+    font-size: 0.55rem;
+
+    padding: 4px 6px;
+
+    margin-top: -4px;
+  }
+
+  .memotest-spot {
+    top: 22%;
+    left: 23%;
+  }
+}
+
+
+/* -------------------------------- */
+/* ACCESIBILIDAD */
+/* -------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .game-spot,
+  .game-spot-image,
+  .back-subjects-button {
+    transition: none !important;
+  }
+}

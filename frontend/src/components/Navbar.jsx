@@ -6,18 +6,26 @@ import {
   Button,
   Box,
   IconButton,
-  Paper
+  Paper,
+  ToggleButton,
+  ToggleButtonGroup,
+  Tooltip
 } from '@mui/material';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useThemeMode } from '../context/ThemeContext';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { mode, setMode } = useThemeMode();
 
   const [usuario, setUsuario] = useState(() => {
     const usuarioGuardado = localStorage.getItem('usuario');
@@ -51,16 +59,10 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener(
-      'usuarioActualizado',
-      actualizarUsuario
-    );
+    window.addEventListener('usuarioActualizado', actualizarUsuario);
 
     return () => {
-      window.removeEventListener(
-        'usuarioActualizado',
-        actualizarUsuario
-      );
+      window.removeEventListener('usuarioActualizado', actualizarUsuario);
     };
   }, []);
 
@@ -95,6 +97,12 @@ export default function Navbar() {
     window.dispatchEvent(new Event('usuarioActualizado'));
 
     navigate('/');
+  };
+
+  const handleModeChange = (event, newMode) => {
+    if (newMode !== null) {
+      setMode(newMode);
+    }
   };
 
   return (
@@ -207,108 +215,184 @@ export default function Navbar() {
           })}
         </Box>
 
-        {/* Usuario */}
+        {/* Contenedor Derecho (Selector de Modo + Usuario) */}
         <Box
           sx={{
-            position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            gap: 0.5
+            gap: 2
           }}
         >
-
-          {/* Nombre */}
-          {usuario && (
-            <Typography
-              sx={{
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '0.95rem',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              {usuario.nombre} {usuario.apellido}
-            </Typography>
-          )}
-
-          {/* Ícono */}
-          <IconButton
-            color="inherit"
-            title={usuario ? 'Mi cuenta' : 'Ingresar'}
-            onClick={handleUsuarioClick}
+          {/* Selector de Modo (Claro / Oscuro / Daltónico) */}
+          <ToggleButtonGroup
+            value={mode}
+            exclusive
+            onChange={handleModeChange}
+            aria-label="Modo de visualización"
+            size="small"
             sx={{
-              transition: 'transform 0.2s ease',
-
-              '&:hover': {
-                transform: 'scale(1.1)'
-              }
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
+              padding: '2px',
+              border: '1px solid rgba(255, 255, 255, 0.3)'
             }}
           >
-            <AccountCircleIcon sx={{ fontSize: 32 }} />
-          </IconButton>
-
-          {/* Bloque de usuario */}
-          {usuario && menuUsuario && (
-            <Paper
-              elevation={8}
-              sx={{
-                position: 'absolute',
-                top: 'calc(100% + 10px)',
-                right: 0,
-                width: 190,
-                borderRadius: 3,
-                overflow: 'hidden',
-                zIndex: 1000
-              }}
-            >
-              <Box
+            <Tooltip title="Modo Claro">
+              <ToggleButton
+                value="light"
+                aria-label="Modo Claro"
                 sx={{
-                  px: 2,
-                  py: 1.5,
-                  borderBottom: '1px solid #eeeeee'
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  Sesión iniciada como
-                </Typography>
-
-                <Typography
-                  fontWeight="bold"
-                  sx={{
-                    mt: 0.3,
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}
-                >
-                  {usuario.nombre} {usuario.apellido}
-                </Typography>
-              </Box>
-
-              <Button
-                fullWidth
-                onClick={handleLogout}
-                sx={{
-                  justifyContent: 'flex-start',
-                  px: 2,
-                  py: 1.5,
-                  color: '#d32f2f',
-                  textTransform: 'none',
-                  fontWeight: 'bold',
-                  borderRadius: 0,
-
-                  '&:hover': {
-                    backgroundColor: '#ffebee'
+                  color: 'white',
+                  borderRadius: '18px !important',
+                  border: 'none',
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+                    color: '#ffeb3b'
                   }
                 }}
               >
-                Cerrar sesión
-              </Button>
-            </Paper>
-          )}
+                <WbSunnyIcon fontSize="small" />
+              </ToggleButton>
+            </Tooltip>
 
+            <Tooltip title="Modo Oscuro">
+              <ToggleButton
+                value="dark"
+                aria-label="Modo Oscuro"
+                sx={{
+                  color: 'white',
+                  borderRadius: '18px !important',
+                  border: 'none',
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+                    color: '#90caf9'
+                  }
+                }}
+              >
+                <DarkModeIcon fontSize="small" />
+              </ToggleButton>
+            </Tooltip>
+
+            <Tooltip title="Modo Daltónico (Alto Contraste)">
+              <ToggleButton
+                value="colorblind"
+                aria-label="Modo Daltónico"
+                sx={{
+                  color: 'white',
+                  borderRadius: '18px !important',
+                  border: 'none',
+                  '&.Mui-selected': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+                    color: '#ffc107'
+                  }
+                }}
+              >
+                <VisibilityIcon fontSize="small" />
+              </ToggleButton>
+            </Tooltip>
+          </ToggleButtonGroup>
+
+          {/* Usuario */}
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 0.5
+            }}
+          >
+            {/* Nombre */}
+            {usuario && (
+              <Typography
+                sx={{
+                  color: 'white',
+                  fontWeight: 'bold',
+                  fontSize: '0.95rem',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {usuario.nombre} {usuario.apellido}
+              </Typography>
+            )}
+
+            {/* Ícono */}
+            <IconButton
+              color="inherit"
+              title={usuario ? 'Mi cuenta' : 'Ingresar'}
+              onClick={handleUsuarioClick}
+              sx={{
+                transition: 'transform 0.2s ease',
+
+                '&:hover': {
+                  transform: 'scale(1.1)'
+                }
+              }}
+            >
+              <AccountCircleIcon sx={{ fontSize: 32 }} />
+            </IconButton>
+
+            {/* Bloque de usuario */}
+            {usuario && menuUsuario && (
+              <Paper
+                elevation={8}
+                sx={{
+                  position: 'absolute',
+                  top: 'calc(100% + 10px)',
+                  right: 0,
+                  width: 190,
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    px: 2,
+                    py: 1.5,
+                    borderBottom: '1px solid #eeeeee'
+                  }}
+                >
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    Sesión iniciada como
+                  </Typography>
+
+                  <Typography
+                    fontWeight="bold"
+                    sx={{
+                      mt: 0.3,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}
+                  >
+                    {usuario.nombre} {usuario.apellido}
+                  </Typography>
+                </Box>
+
+                <Button
+                  fullWidth
+                  onClick={handleLogout}
+                  sx={{
+                    justifyContent: 'flex-start',
+                    px: 2,
+                    py: 1.5,
+                    color: '#d32f2f',
+                    textTransform: 'none',
+                    fontWeight: 'bold',
+                    borderRadius: 0,
+
+                    '&:hover': {
+                      backgroundColor: '#ffebee'
+                    }
+                  }}
+                >
+                  Cerrar sesión
+                </Button>
+              </Paper>
+            )}
+          </Box>
         </Box>
 
       </Toolbar>

@@ -1,22 +1,17 @@
 import React from 'react';
 
 import {
-  CssBaseline,
-  ThemeProvider,
-  createTheme
-} from '@mui/material';
-
-import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
 
+import { CustomThemeProvider } from './context/ThemeContext';
+
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
 import Games from './pages/Games';
-
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -28,34 +23,40 @@ import Ingles from './pages/subjects/Ingles';
 import Musica from './pages/subjects/Musica';
 import WordSearch from './pages/games/lengua/WordSearch';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2',
-    },
-  },
-});
+import MemoryTables from './pages/games/matematica/MemoryTables';
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-
+    <CustomThemeProvider>
       <Router>
         <Navbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/juegos" element={<Games />} />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/register"
+            element={<Register />}
+          />
 
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/juegos"
+            element={<Games />}
+          />
 
           <Route
             path="/juegos/matematica"
             element={<Matematica />}
+          />
+
+          <Route
+            path="/juegos/matematica/memotest"
+            element={<MemoryTables />}
           />
 
           <Route
@@ -89,6 +90,6 @@ export default function App() {
           />
         </Routes>
       </Router>
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 }
