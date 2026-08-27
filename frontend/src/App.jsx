@@ -24,6 +24,7 @@ import Musica from './pages/subjects/Musica';
 import WordSearch from './pages/games/lengua/WordSearch';
 
 import MemoryTables from './pages/games/matematica/MemoryTables';
+import PianoMagico from './pages/games/musica/PianoMagico';
 
 export default function App() {
   return (
@@ -87,6 +88,12 @@ export default function App() {
           <Route
             path="/juegos/musica"
             element={<Musica />}
+          />
+
+          {/* RUTA AGREGADA PARA EL PIANO MÁGICO */}
+          <Route
+            path="/juegos/musica/piano-magico"
+            element={<PianoMagico />}
           />
         </Routes>
       </Router>
