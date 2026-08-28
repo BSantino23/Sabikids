@@ -28,6 +28,8 @@ import MayorMenorIgual from './pages/games/matematica/MayorMenorIgual';
 import Geometria from './pages/games/matematica/Geometria';
 
 import WordSearch from './pages/games/lengua/WordSearch';
+import Crossword from './pages/games/lengua/Crossword';
+
 import PianoMagico from './pages/games/musica/PianoMagico';
 
 
@@ -105,6 +107,11 @@ export default function App() {
           <Route
             path="/juegos/lengua/sopa-letras"
             element={<WordSearch />}
+          />
+
+          <Route
+            path="/juegos/lengua/crucigrama"
+            element={<Crossword />}
           />
 
 

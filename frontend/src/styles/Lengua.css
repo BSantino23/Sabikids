@@ -1,427 +1,280 @@
-/* =========================
-   PÁGINA PRINCIPAL
-========================= */
+/* =========================================================
+   PÁGINA DE LENGUA
+========================================================= */
 
 .language-page {
-  min-height: 100vh;
   width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: calc(100vh - 80px);
 
-  padding: 24px;
-  box-sizing: border-box;
+  margin: 0;
 
-  background: linear-gradient(
-    180deg,
-    #87ceeb 0%,
-    #bde8f7 55%,
-    #e8f8ff 100%
-  );
+  padding: 0;
 
   overflow-x: hidden;
+
+  background: #8bd4ee;
 }
 
 
-/* =========================
-   ENCABEZADO
-========================= */
+/* =========================================================
+   MAPA
 
-.language-header {
-  width: 100%;
-  max-width: 1400px;
+   La imagen ocupa TODO el ancho.
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   No usamos max-width para evitar el rectángulo azul
+   alrededor del mapa.
 
-  position: relative;
-
-  margin-bottom: 20px;
-}
-
-
-.back-subjects-button {
-  position: absolute !important;
-  left: 0;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  border-radius: 18px !important;
-  font-weight: 700 !important;
-  text-transform: none !important;
-}
-
-
-.language-heading {
-  text-align: center;
-}
-
-
-.language-title {
-  font-weight: 900 !important;
-  color: #ffffff;
-
-  text-shadow:
-    0 3px 0 rgba(48, 74, 123, 0.4),
-    0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-
-.language-subtitle {
-  color: #ffffff;
-  font-weight: 700 !important;
-
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* =========================
-   CONTENEDOR DEL MAPA
-========================= */
+   La altura se calcula automáticamente para conservar
+   la proporción de la imagen y mantener las posiciones
+   de los niveles correctamente alineadas.
+========================================================= */
 
 .language-map-wrapper {
   position: relative;
 
-  width: min(92vw, 1200px);
+  width: 100%;
 
-  margin: 0 auto;
+  margin: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
 }
 
-
-/* =========================
-   IMAGEN PRINCIPAL
-========================= */
 
 .language-map-image {
   display: block;
 
   width: 100%;
+
   height: auto;
 
-  object-fit: contain;
+  margin: 0;
+
+  padding: 0;
 
   user-select: none;
-  pointer-events: none;
 
-  filter:
-    drop-shadow(
-      0 16px 18px
-      rgba(0, 0, 0, 0.2)
-    );
+  pointer-events: none;
 }
 
 
-/* =========================
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.language-back-button {
+  position: absolute !important;
+
+  top: 2.5%;
+
+  left: 2.2%;
+
+  z-index: 20;
+
+  padding:
+    9px 17px !important;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.8) !important;
+
+  border-radius:
+    14px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #76509b 0%,
+      #533471 100%
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  font-weight:
+    900 !important;
+
+  font-size:
+    0.95rem !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 4px 0 #38234d,
+    0 7px 16px
+    rgba(0, 0, 0, 0.28) !important;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease !important;
+}
+
+
+.language-back-button:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    linear-gradient(
+      180deg,
+      #845daf 0%,
+      #604080 100%
+    ) !important;
+
+  box-shadow:
+    0 6px 0 #38234d,
+    0 10px 19px
+    rgba(0, 0, 0, 0.27) !important;
+}
+
+
+/* =========================================================
    CAPA DE NIVELES
-========================= */
+========================================================= */
 
 .language-levels-layer {
   position: absolute;
 
   inset: 0;
 
+  z-index: 10;
+
   width: 100%;
+
   height: 100%;
 
   pointer-events: none;
 }
 
 
-/* =========================
-   BOTÓN GENERAL
-========================= */
+/* =========================================================
+   NIVEL
+========================================================= */
 
 .language-level {
   position: absolute;
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  width: auto;
+
+  margin: 0;
+
+  padding: 0;
 
   border: none;
-  background: transparent;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  outline: none;
+
+  background: transparent;
 
   cursor: pointer;
 
   pointer-events: auto;
 
+  transform:
+    translate(-50%, -50%);
+
   transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
+    transform 0.18s ease,
+    filter 0.18s ease;
 }
 
 
-.language-level:hover {
+.language-level:not(.locked):hover {
   transform:
-    translate(
-      -50%,
-      -50%
-    )
-    translateY(-8px)
-    scale(1.08);
+    translate(-50%, -50%)
+    scale(1.07);
 
   filter:
-    brightness(1.1)
-    drop-shadow(
-      0 8px 8px
-      rgba(
-        255,
-        221,
-        72,
-        0.55
-      )
-    );
+    brightness(1.08);
 }
 
 
-/* =========================
-   CÍRCULO
-========================= */
-
-.language-level-number {
-  width:
-    clamp(
-      46px,
-      5vw,
-      72px
-    );
-
-  height:
-    clamp(
-      46px,
-      5vw,
-      72px
-    );
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffd84d,
-      #ff9f1c
-    );
-
-  border:
-    clamp(
-      3px,
-      0.35vw,
-      5px
-    )
-    solid
-    #ffffff;
-
-  box-shadow:
-    0 6px 0 #c97800,
-    0 9px 14px rgba(0, 0, 0, 0.25);
-
-  color: white;
-
-  font-size:
-    clamp(
-      1.1rem,
-      2vw,
-      1.8rem
-    );
-
-  font-weight: 900;
-}
-
-
-/* =========================
-   NOMBRE DEL JUEGO
-========================= */
-
-.language-level-title {
-  margin-top: 10px;
-
-  padding: 6px 12px;
-
-  border-radius: 14px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.92
-    );
-
-  color: #42416d;
-
-  font-size:
-    clamp(
-      0.65rem,
-      1.2vw,
-      1rem
-    ) !important;
-
-  font-weight:
-    800 !important;
-
-  white-space: nowrap;
-
-  box-shadow:
-    0 4px 8px
-    rgba(0, 0, 0, 0.15);
-}
-
-
-/* =========================
+/* =========================================================
    POSICIONES
-========================= */
 
-.level-1 {
+   NO CAMBIAR:
+   estas posiciones ya fueron calibradas con el mapa.
+========================================================= */
+
+.language-level.level-1 {
   left: 36.9%;
   top: 79.5%;
 }
 
-.level-2 {
+
+.language-level.level-2 {
   left: 38.5%;
   top: 57.7%;
 }
 
-.level-3 {
+
+.language-level.level-3 {
   left: 55.6%;
   top: 49.5%;
 }
 
-.level-4 {
+
+.language-level.level-4 {
   left: 49.5%;
   top: 30.5%;
 }
 
-.level-5 {
+
+.language-level.level-5 {
   left: 62.9%;
   top: 28.3%;
 }
 
 
 /* =========================================================
-   BLOQUEADO
+   CÍRCULO DEL NIVEL
 ========================================================= */
 
-.language-level.locked {
-  cursor: not-allowed;
-
-  filter:
-    grayscale(0.75)
-    brightness(0.75);
-
-  opacity: 0.7;
-}
-
-
-.language-level.locked:hover {
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
-
-  filter:
-    grayscale(0.75)
-    brightness(0.75);
-}
-
-
-.language-level.locked
 .language-level-number {
-  background:
-    linear-gradient(
-      145deg,
-      #9a9a9a,
-      #666666
-    );
-
-  box-shadow:
-    0 6px 0 #555555,
-    0 9px 14px
-    rgba(0, 0, 0, 0.25);
-}
-
-
-/* =========================================================
-   COMPLETADO
-========================================================= */
-
-.language-level.completed
-.language-level-number {
-  background:
-    linear-gradient(
-      145deg,
-      #ffd95a,
-      #eca625
-    );
-
-  box-shadow:
-    0 6px 0 #b87811,
-    0 0 20px
-    rgba(255, 213, 66, 0.85);
-}
-
-
-.language-level-stars {
-  margin-top: 5px;
-
-  white-space: nowrap;
-
-  font-size:
+  width:
     clamp(
-      0.7rem,
-      1.2vw,
-      1rem
+      54px,
+      5vw,
+      84px
     );
 
-  filter:
-    drop-shadow(
-      0 2px 2px
-      rgba(
-        0,
-        0,
-        0,
-        0.25
-      )
+  height:
+    clamp(
+      54px,
+      5vw,
+      84px
     );
-}
 
+  display: flex;
 
-/* =========================================================
-   PRÓXIMAMENTE
-========================================================= */
+  align-items: center;
 
-.language-coming-soon {
-  margin-top: 5px;
+  justify-content: center;
 
-  padding:
-    4px 8px;
+  box-sizing: border-box;
+
+  border:
+    5px solid #ffffff;
 
   border-radius:
-    10px;
+    50%;
 
   background:
-    rgba(
-      83,
-      65,
-      125,
-      0.92
+    linear-gradient(
+      180deg,
+      #ffc942 0%,
+      #ffad22 100%
     );
 
   color:
@@ -429,79 +282,197 @@
 
   font-size:
     clamp(
-      0.55rem,
-      0.8vw,
-      0.72rem
+      1.5rem,
+      2.2vw,
+      2.3rem
     );
 
-  font-weight: 800;
+  font-weight:
+    900;
 
-  white-space: nowrap;
+  line-height: 1;
+
+  box-shadow:
+    0 4px 0 #ce7613,
+    0 7px 16px
+    rgba(0, 0, 0, 0.25);
 }
 
 
-.language-level.coming-soon {
+.language-level-number svg {
+  font-size:
+    clamp(
+      1.7rem,
+      2.2vw,
+      2.5rem
+    );
+}
+
+
+/* =========================================================
+   NOMBRE DEL JUEGO
+========================================================= */
+
+.language-level-title {
+  display: inline-block;
+
+  padding:
+    6px 14px;
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(255, 250, 238, 0.96);
+
+  color:
+    #3f315e;
+
+  font-size:
+    clamp(
+      0.85rem,
+      1.3vw,
+      1.3rem
+    ) !important;
+
+  font-weight:
+    900 !important;
+
+  line-height:
+    1.1 !important;
+
+  white-space:
+    nowrap;
+
+  box-shadow:
+    0 3px 8px
+    rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   PRÓXIMAMENTE
+========================================================= */
+
+.language-level-coming-soon {
+  display: inline-block;
+
+  padding:
+    4px 10px;
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(82, 57, 106, 0.92);
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      0.62rem,
+      0.9vw,
+      0.9rem
+    ) !important;
+
+  font-weight:
+    800 !important;
+
+  line-height:
+    1 !important;
+}
+
+
+/* =========================================================
+   BLOQUEADOS
+========================================================= */
+
+.language-level.locked {
   cursor: default;
+
+  filter:
+    grayscale(0.25);
+
+  opacity:
+    0.63;
 }
 
 
-/* =========================
-   TABLET
-========================= */
+.language-level.locked
+.language-level-number {
+  border-color:
+    rgba(255, 255, 255, 0.75);
 
-@media (max-width: 900px) {
+  background:
+    rgba(83, 72, 65, 0.62);
 
-  .language-page {
-    padding: 16px;
-  }
+  color:
+    rgba(255, 255, 255, 0.85);
 
-
-  .language-header {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-
-  .back-subjects-button {
-    position: static !important;
-
-    transform: none;
-
-    align-self: flex-start;
-  }
-
-
-  .language-map-wrapper {
-    width: 98vw;
-  }
+  box-shadow:
+    0 4px 0
+    rgba(53, 45, 41, 0.55);
 }
 
 
-/* =========================
-   CELULAR
-========================= */
+.language-level.locked
+.language-level-title {
+  background:
+    rgba(236, 226, 199, 0.78);
 
-@media (max-width: 600px) {
+  color:
+    rgba(70, 59, 52, 0.88);
+}
 
-  .language-page {
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .language-back-button {
+    top: 2%;
+    left: 2%;
+
     padding:
-      10px 4px;
-  }
+      7px 12px !important;
 
-
-  .language-title {
     font-size:
-      2.1rem !important;
+      0.78rem !important;
   }
 
+}
 
-  .language-subtitle {
-    font-size:
-      0.95rem !important;
-  }
 
+@media (
+  max-width: 600px
+) {
 
   .language-level-title {
-    display: none;
+    padding:
+      4px 8px;
   }
+
+
+  .language-level-coming-soon {
+    padding:
+      3px 7px;
+  }
+
+
+  .language-back-button {
+    min-width:
+      auto !important;
+
+    padding:
+      6px 9px !important;
+
+    font-size:
+      0.7rem !important;
+  }
+
 }
