@@ -1,0 +1,875 @@
+.geometry-page {
+  height: calc(100vh - 64px);
+
+  background-image:
+    url('/juegos/matematica/fondo-geometria.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 10px 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* HEADER */
+
+.geometry-header {
+  width: 100%;
+  max-width: 1350px;
+
+  margin: 0 auto 8px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+.geometry-heading {
+  text-align: center;
+}
+
+
+.geometry-title {
+  color: #163b84;
+
+  font-size: 2.3rem !important;
+
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+
+  text-shadow:
+    2px 2px 0
+    rgba(255, 255, 255, 0.9);
+}
+
+
+.geometry-subtitle {
+  color: #163b84;
+
+  margin-top: 5px !important;
+
+  font-weight: 700 !important;
+}
+
+
+/* BOTONES HEADER */
+
+.geometry-back-button {
+  justify-self: start;
+
+  background-color:
+    #163b84 !important;
+
+  color:
+    white !important;
+
+  text-transform:
+    none !important;
+
+  font-weight:
+    800 !important;
+
+  border-radius:
+    14px !important;
+
+  padding:
+    6px 12px !important;
+}
+
+
+.geometry-restart-button {
+  justify-self: end;
+
+  background-color:
+    #ff6b2e !important;
+
+  color:
+    white !important;
+
+  text-transform:
+    none !important;
+
+  font-weight:
+    800 !important;
+
+  border-radius:
+    14px !important;
+
+  padding:
+    6px 12px !important;
+}
+
+
+/* CONTROLES */
+
+.geometry-controls {
+  width:
+    min(1150px, 96%);
+
+  margin:
+    0 auto 10px;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  gap: 16px;
+}
+
+
+.geometry-level-control {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    5px 10px;
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    0 4px 12px
+    rgba(0, 0, 0, 0.14);
+}
+
+
+.geometry-level-label {
+  color: #163b84;
+
+  font-weight:
+    900 !important;
+}
+
+
+.geometry-level-select {
+  min-width:
+    230px;
+
+  background:
+    white;
+
+  border-radius:
+    10px;
+}
+
+
+.geometry-stats {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content:
+    flex-end;
+
+  gap: 8px;
+}
+
+
+.geometry-pill {
+  padding:
+    7px 12px;
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  color:
+    #163b84;
+
+  border-radius:
+    16px;
+
+  font-weight:
+    900;
+
+  box-shadow:
+    0 4px 10px
+    rgba(0, 0, 0, 0.13);
+}
+
+
+/* AVISO LOGIN */
+
+.geometry-login-warning {
+  width:
+    fit-content;
+
+  max-width:
+    90%;
+
+  margin:
+    0 auto 8px;
+
+  padding:
+    7px 14px;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  gap: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  color:
+    #163b84;
+
+  border:
+    2px solid #f4d92b;
+
+  border-radius:
+    16px;
+
+  font-weight:
+    800;
+}
+
+
+/* ÁREA DEL JUEGO */
+
+.geometry-game-area {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+.geometry-progress-wrapper {
+  width:
+    min(720px, 92%);
+
+  margin-bottom:
+    12px;
+}
+
+
+.geometry-question-number {
+  margin-bottom:
+    6px !important;
+
+  text-align:
+    center;
+
+  color:
+    #163b84;
+
+  font-weight:
+    900 !important;
+}
+
+
+.geometry-progress {
+  height:
+    12px !important;
+
+  border-radius:
+    20px !important;
+
+  background-color:
+    rgba(255, 255, 255, 0.8) !important;
+}
+
+
+.geometry-progress
+.MuiLinearProgress-bar {
+  border-radius:
+    20px;
+
+  background-color:
+    #1dbb1d !important;
+}
+
+
+/* TARJETA */
+
+.geometry-question-card {
+  width:
+    min(720px, 94%);
+
+  padding:
+    22px 30px;
+
+  text-align:
+    center;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  border:
+    4px solid
+    rgba(255, 255, 255, 0.9);
+
+  border-radius:
+    30px;
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.18);
+}
+
+
+.geometry-level-description {
+  color:
+    #58708c;
+
+  font-weight:
+    800 !important;
+}
+
+
+.geometry-question-text {
+  margin-top:
+    10px !important;
+
+  color:
+    #163b84;
+
+  font-size:
+    1.25rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+/* FIGURAS */
+
+.geometry-visual-area {
+  min-height:
+    180px;
+
+  margin:
+    15px auto;
+
+  display: flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap: 10px;
+}
+
+
+.geometry-shape {
+  width:
+    145px;
+
+  height:
+    145px;
+}
+
+
+/* CÍRCULO */
+
+.geometry-circle {
+  background:
+    #ffb52e;
+
+  border:
+    5px solid #163b84;
+
+  border-radius:
+    50%;
+}
+
+
+/* CUADRADO */
+
+.geometry-square {
+  background:
+    #4caf50;
+
+  border:
+    5px solid #163b84;
+
+  border-radius:
+    12px;
+}
+
+
+/* RECTÁNGULO */
+
+.geometry-rectangle {
+  width:
+    190px;
+
+  height:
+    110px;
+
+  background:
+    #43a5f5;
+
+  border:
+    5px solid #163b84;
+
+  border-radius:
+    12px;
+}
+
+
+/* TRIÁNGULO */
+
+.geometry-triangle {
+  width: 0;
+
+  height: 0;
+
+  border-left:
+    80px solid transparent;
+
+  border-right:
+    80px solid transparent;
+
+  border-bottom:
+    140px solid #ff7043;
+
+  position:
+    relative;
+}
+
+
+/* PENTÁGONO */
+
+.geometry-pentagon {
+  background:
+    #ab70d6;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      100% 38%,
+      82% 100%,
+      18% 100%,
+      0% 38%
+    );
+
+  border:
+    none;
+
+  filter:
+    drop-shadow(
+      0 0 0 #163b84
+    );
+}
+
+
+/* HEXÁGONO */
+
+.geometry-hexagon {
+  background:
+    #f4d92b;
+
+  clip-path:
+    polygon(
+      25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%
+    );
+}
+
+
+.geometry-detail {
+  padding:
+    6px 14px;
+
+  background:
+    #edf6ff;
+
+  color:
+    #163b84;
+
+  border-radius:
+    14px;
+
+  font-weight:
+    900 !important;
+}
+
+
+/* OPCIONES */
+
+.geometry-options {
+  margin-top:
+    10px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(130px, 1fr));
+
+  gap: 12px;
+}
+
+
+.geometry-option {
+  min-height:
+    58px;
+
+  background:
+    #1f8ee9 !important;
+
+  color:
+    white !important;
+
+  font-size:
+    1.15rem !important;
+
+  font-weight:
+    900 !important;
+
+  border:
+    3px solid white !important;
+
+  border-radius:
+    17px !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 5px 0 #0c4f88;
+
+  transition:
+    none !important;
+}
+
+
+.geometry-option:hover {
+  background:
+    #1f8ee9 !important;
+
+  transform:
+    none !important;
+}
+
+
+.geometry-option-correct {
+  background:
+    #1dbb1d !important;
+
+  box-shadow:
+    0 5px 0
+    #087a08 !important;
+}
+
+
+.geometry-option-wrong {
+  background:
+    #d92d20 !important;
+
+  box-shadow:
+    0 5px 0
+    #8f1810 !important;
+
+  opacity:
+    0.8 !important;
+}
+
+
+/* FEEDBACK */
+
+.geometry-feedback {
+  min-height:
+    28px;
+
+  margin-top:
+    12px;
+
+  font-size:
+    1.05rem;
+
+  font-weight:
+    900;
+}
+
+
+.geometry-feedback-correct {
+  color:
+    #087a08;
+}
+
+
+.geometry-feedback-error {
+  color:
+    #b42318;
+}
+
+
+/* FINAL */
+
+.geometry-finished {
+  width:
+    min(600px, 94%);
+
+  margin:
+    auto;
+
+  padding:
+    30px;
+
+  text-align:
+    center;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  color:
+    #163b84;
+
+  border-radius:
+    28px;
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.18);
+}
+
+
+.geometry-finished-title {
+  font-weight:
+    900 !important;
+}
+
+
+.geometry-finished-text {
+  margin-top:
+    8px !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+.geometry-final-score {
+  margin-top:
+    16px !important;
+
+  font-size:
+    1.6rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.geometry-final-errors {
+  margin-top:
+    5px !important;
+
+  font-weight:
+    800 !important;
+}
+
+
+.geometry-finished-actions {
+  margin-top:
+    20px;
+
+  display: flex;
+
+  justify-content:
+    center;
+
+  gap:
+    12px;
+}
+
+
+.geometry-play-again {
+  background-color:
+    #163b84 !important;
+
+  font-weight:
+    800 !important;
+
+  text-transform:
+    none !important;
+
+  border-radius:
+    14px !important;
+}
+
+
+.geometry-next-level {
+  background-color:
+    #1dbb1d !important;
+
+  font-weight:
+    800 !important;
+
+  text-transform:
+    none !important;
+
+  border-radius:
+    14px !important;
+}
+
+
+.geometry-loading {
+  margin:
+    auto !important;
+
+  padding:
+    14px 22px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  color:
+    #163b84;
+
+  border-radius:
+    18px;
+
+  font-weight:
+    900 !important;
+}
+
+
+/* RESPONSIVE */
+
+@media (
+  max-width: 800px
+) {
+
+  .geometry-page {
+    height:
+      auto;
+
+    min-height:
+      calc(100vh - 64px);
+
+    overflow-y:
+      auto;
+  }
+
+
+  .geometry-header {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      8px;
+  }
+
+
+  .geometry-back-button,
+  .geometry-restart-button {
+    justify-self:
+      center;
+  }
+
+
+  .geometry-controls {
+    flex-direction:
+      column;
+  }
+
+
+  .geometry-stats {
+    justify-content:
+      center;
+  }
+}
+
+
+@media (
+  max-width: 500px
+) {
+
+  .geometry-question-card {
+    padding:
+      20px 14px;
+  }
+
+
+  .geometry-options {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .geometry-level-control {
+    width:
+      100%;
+
+    flex-direction:
+      column;
+  }
+
+
+  .geometry-level-select {
+    width:
+      100%;
+
+    min-width:
+      0;
+  }
+
+
+  .geometry-login-warning {
+    flex-direction:
+      column;
+
+    text-align:
+      center;
+  }
+
+
+  .geometry-finished-actions {
+    flex-direction:
+      column;
+  }
+
+
+  .geometry-shape {
+    transform:
+      scale(0.85);
+  }
+}

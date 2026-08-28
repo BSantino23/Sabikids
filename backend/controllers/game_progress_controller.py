@@ -5,7 +5,7 @@ from models.user import User
 from models.game_progress import GameProgress
 
 
-MAX_MEMORY_LEVEL = 4
+MAX_LEVEL = 4
 
 
 def get_game_progress(user_id, game_key):
@@ -16,23 +16,38 @@ def get_game_progress(user_id, game_key):
 
     if not user:
         return jsonify({
-            "error": "Usuario no encontrado"
+            "error":
+                "Usuario no encontrado"
         }), 404
+
 
     progress = GameProgress.query.filter_by(
         user_id=user_id,
         game_key=game_key
     ).first()
 
+
     if not progress:
         return jsonify({
-            "user_id": user_id,
-            "game_key": game_key,
-            "current_level": 1,
-            "max_level": 1,
-            "best_score": 0,
-            "best_moves": None
+            "user_id":
+                user_id,
+
+            "game_key":
+                game_key,
+
+            "current_level":
+                1,
+
+            "max_level":
+                1,
+
+            "best_score":
+                0,
+
+            "best_moves":
+                None
         }), 200
+
 
     return jsonify(
         progress.to_dict()
@@ -41,6 +56,7 @@ def get_game_progress(user_id, game_key):
 
 def save_game_progress():
     data = request.get_json() or {}
+
 
     user_id = data.get(
         "user_id"
@@ -62,6 +78,7 @@ def save_game_progress():
         "moves"
     )
 
+
     if (
         user_id is None
         or not game_key
@@ -70,8 +87,10 @@ def save_game_progress():
         or moves is None
     ):
         return jsonify({
-            "error": "Faltan datos obligatorios"
+            "error":
+                "Faltan datos obligatorios"
         }), 400
+
 
     try:
         user_id = int(
@@ -95,16 +114,18 @@ def save_game_progress():
         ValueError
     ):
         return jsonify({
-            "error": "Los datos numéricos no son válidos"
+            "error":
+                "Los datos numéricos no son válidos"
         }), 400
 
 
     if (
         level < 1
-        or level > MAX_MEMORY_LEVEL
+        or level > MAX_LEVEL
     ):
         return jsonify({
-            "error": "Nivel no válido"
+            "error":
+                "Nivel no válido"
         }), 400
 
 
@@ -113,7 +134,8 @@ def save_game_progress():
         or moves < 1
     ):
         return jsonify({
-            "error": "Los valores enviados no son válidos"
+            "error":
+                "Los valores enviados no son válidos"
         }), 400
 
 
@@ -122,9 +144,11 @@ def save_game_progress():
         user_id
     )
 
+
     if not user:
         return jsonify({
-            "error": "Usuario no encontrado"
+            "error":
+                "Usuario no encontrado"
         }), 404
 
 
@@ -136,11 +160,12 @@ def save_game_progress():
 
     next_level = min(
         level + 1,
-        MAX_MEMORY_LEVEL
+        MAX_LEVEL
     )
 
 
     if not progress:
+
         progress = GameProgress(
             user_id=user_id,
             game_key=game_key,
@@ -155,15 +180,18 @@ def save_game_progress():
         )
 
     else:
+
         progress.current_level = max(
             progress.current_level,
             next_level
         )
 
+
         progress.max_level = max(
             progress.max_level,
             next_level
         )
+
 
         if (
             score >
@@ -172,6 +200,7 @@ def save_game_progress():
             progress.best_score = (
                 score
             )
+
 
         if (
             progress.best_moves is None
