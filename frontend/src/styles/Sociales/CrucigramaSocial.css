@@ -1,0 +1,1117 @@
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.crucigrama-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 25px 35px 50px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #dff7ff 0%,
+      #f5fcff 100%
+    );
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  color: #385866;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.crucigrama-header {
+  max-width: 1250px;
+  margin: 0 auto 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    150px
+    1fr
+    100px;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+.volver-btn {
+  justify-self: start;
+
+  border: none;
+
+  background: white;
+  color: #46798c;
+
+  padding: 11px 17px;
+
+  border-radius: 14px;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(51, 100, 115, .12);
+
+  transition: .2s;
+}
+
+
+.volver-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(51, 100, 115, .18);
+}
+
+
+.titulo-crucigrama {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+
+  text-align: left;
+}
+
+
+.icono-crucigrama {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  font-size: 34px;
+
+  box-shadow:
+    0 6px 15px rgba(51, 100, 115, .12);
+}
+
+
+.titulo-crucigrama span {
+  color: #5aa5bc;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+.titulo-crucigrama h1 {
+  margin: 1px 0;
+
+  color: #2e6174;
+
+  font-size: 31px;
+
+  font-weight: 900;
+}
+
+
+.titulo-crucigrama p {
+  margin: 0;
+
+  color: #78929c;
+
+  font-size: 13px;
+}
+
+
+.nivel-indicador {
+  justify-self: end;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: #5aadc7;
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 6px 15px rgba(58, 131, 153, .2);
+}
+
+
+.nivel-indicador strong {
+  font-size: 25px;
+
+  line-height: 25px;
+}
+
+
+/* =====================================================
+   NIVELES
+===================================================== */
+
+.selector-niveles {
+  max-width: 720px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 8px;
+
+  background: white;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 5px 18px rgba(51, 100, 115, .1);
+}
+
+
+.nivel-btn {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 13px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: transparent;
+
+  color: #78929c;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+
+.nivel-btn span {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eaf5f8;
+}
+
+
+.nivel-btn:hover {
+  background: #f0fafc;
+}
+
+
+.nivel-btn.seleccionado {
+  background: #e4f6fb;
+
+  color: #3c8197;
+}
+
+
+.nivel-btn.seleccionado span {
+  background: #59abc5;
+
+  color: white;
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.crucigrama-contenido {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    340px;
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =====================================================
+   SECCIÓN TABLERO
+===================================================== */
+
+.tablero-seccion {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  box-shadow:
+    0 10px 30px rgba(51, 100, 115, .12);
+
+  /*
+   * Esto evita que el tablero se comprima.
+   */
+  min-width: 0;
+}
+
+
+.tablero-titulo {
+  margin-bottom: 20px;
+
+  text-align: center;
+}
+
+
+.tablero-titulo h2 {
+  margin: 0;
+
+  color: #376f82;
+
+  font-size: 24px;
+
+  font-weight: 900;
+}
+
+
+.tablero-titulo p {
+  margin: 4px 0 0;
+
+  color: #8ba1a8;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   TABLERO REAL
+===================================================== */
+
+.tablero-wrapper {
+  width: 100%;
+
+  /*
+   * El tablero nunca se corta.
+   */
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding:
+    10px
+    10px
+    20px;
+
+  box-sizing: border-box;
+
+  /*
+   * Permite desplazarlo horizontalmente
+   * si la pantalla es pequeña.
+   */
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.tablero {
+  display: grid;
+
+  /*
+   * 46px por casilla.
+   * Es más grande y mucho más fácil
+   * de tocar para niños.
+   */
+  width: max-content;
+  height: max-content;
+
+  margin: 0 auto;
+
+  gap: 2px;
+
+  background: #315f6e;
+
+  border: 5px solid #315f6e;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  /*
+   * Sombra para separar el tablero
+   * del fondo blanco.
+   */
+  box-shadow:
+    0 8px 18px rgba(49, 95, 110, .18);
+}
+
+
+/* =====================================================
+   CASILLAS VACÍAS
+===================================================== */
+
+.casilla-negra {
+  width: 46px;
+  height: 46px;
+
+  background: #315f6e;
+}
+
+
+/* =====================================================
+   CASILLA CON LETRA
+===================================================== */
+
+.celda {
+  position: relative;
+
+  width: 46px;
+  height: 46px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #a7c5cf;
+
+  transition:
+    background .15s,
+    transform .15s;
+}
+
+
+.celda:hover {
+  background: #f0fbfe;
+}
+
+
+.celda.palabra-activa {
+  background: #e0f6fb;
+
+  box-shadow:
+    inset 0 0 0 2px #5aadc7;
+}
+
+
+.celda:focus-within {
+  z-index: 3;
+
+  background: #d5f2f9;
+
+  box-shadow:
+    inset 0 0 0 3px #4a9fb9;
+}
+
+
+/* =====================================================
+   NÚMERO DE PALABRA
+===================================================== */
+
+.numero-celda {
+  position: absolute;
+
+  top: 3px;
+  left: 4px;
+
+  z-index: 2;
+
+  color: #718890;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.celda input {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    7px
+    2px
+    0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #315f6e;
+
+  text-align: center;
+
+  font-family: inherit;
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  cursor: text;
+}
+
+
+.celda input.input-correcto {
+  color: #45a969;
+}
+
+
+/* =====================================================
+   AYUDA
+===================================================== */
+
+.ayuda-box {
+  width: fit-content;
+
+  min-width: 280px;
+
+  margin: 8px auto 18px;
+
+  padding:
+    11px
+    18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border-radius: 14px;
+
+  background: #fff8df;
+
+  border: 2px solid #f3dfa0;
+}
+
+
+.ayuda-icon {
+  font-size: 25px;
+}
+
+
+.ayuda-box div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.ayuda-box span {
+  color: #aa8631;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+.ayuda-box strong {
+  color: #755d25;
+
+  font-size: 19px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.acciones {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+
+.acciones button {
+  border: none;
+
+  border-radius: 12px;
+
+  padding:
+    12px
+    23px;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+
+.acciones button:hover {
+  transform: translateY(-2px);
+}
+
+
+.comprobar-btn {
+  background: #57b879;
+
+  box-shadow:
+    0 4px 10px rgba(87,184,121,.2);
+}
+
+
+.reiniciar-btn {
+  background: #e9a14b;
+
+  box-shadow:
+    0 4px 10px rgba(233,161,75,.2);
+}
+
+
+/* =====================================================
+   PISTAS
+===================================================== */
+
+.pistas-seccion {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(51, 100, 115, .12);
+}
+
+
+.pistas-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding-bottom: 15px;
+
+  border-bottom:
+    2px solid #edf5f7;
+}
+
+
+.bombilla {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #fff5d4;
+
+  font-size: 25px;
+}
+
+
+.pistas-header h2 {
+  margin: 0;
+
+  color: #376f82;
+
+  font-size: 24px;
+
+  font-weight: 900;
+}
+
+
+.pistas-header p {
+  margin: 2px 0 0;
+
+  color: #899ca2;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   PISTAS INDIVIDUALES
+===================================================== */
+
+.pistas-lista {
+  margin-top: 13px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.pista {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  padding: 9px;
+
+  border: 2px solid transparent;
+
+  border-radius: 12px;
+
+  background: #f5fafc;
+
+  color: #526e78;
+
+  text-align: left;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  transition: .15s;
+}
+
+
+.pista:hover {
+  background: #edf9fc;
+}
+
+
+.pista.activa {
+  background: #e2f6fb;
+
+  border-color: #6ab5ca;
+}
+
+
+.numero-pista {
+  flex: 0 0 27px;
+
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #5aadc7;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+.pista-contenido {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+
+  padding-top: 1px;
+}
+
+
+.pista-contenido strong {
+  color: #478ba0;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .5px;
+}
+
+
+.pista-contenido span {
+  color: #536e77;
+
+  font-size: 11px;
+
+  line-height: 1.35;
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.mensaje-ayuda {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  padding: 11px;
+
+  border-radius: 12px;
+
+  background: #f1f8fa;
+}
+
+
+.mensaje-ayuda span {
+  font-size: 21px;
+}
+
+
+.mensaje-ayuda p {
+  margin: 0;
+
+  color: #708991;
+
+  font-size: 10px;
+
+  line-height: 1.35;
+}
+
+
+/* =====================================================
+   VICTORIA
+===================================================== */
+
+.victoria-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(40, 87, 103, .5);
+
+  backdrop-filter: blur(4px);
+}
+
+
+.victoria {
+  width: min(420px, 100%);
+
+  padding: 35px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border-radius: 25px;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.2);
+
+  animation:
+    aparecer .25s ease;
+}
+
+
+.victoria-icon {
+  font-size: 60px;
+}
+
+
+.victoria h2 {
+  margin: 8px 0 3px;
+
+  color: #376f82;
+
+  font-size: 29px;
+}
+
+
+.victoria p {
+  margin: 0 0 20px;
+
+  color: #7b9299;
+
+  font-size: 14px;
+}
+
+
+.siguiente-btn,
+.volver-mapa-btn {
+  width: 100%;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+.siguiente-btn {
+  background: #57b879;
+
+  margin-bottom: 8px;
+}
+
+
+.volver-mapa-btn {
+  background: #5aadc7;
+}
+
+
+.final-text {
+  margin-bottom: 15px;
+
+  color: #e09b3e;
+
+  font-size: 16px;
+
+  font-weight: 900;
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+  .crucigrama-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .pistas-seccion {
+    max-width: 650px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .crucigrama-page {
+    padding:
+      15px
+      10px
+      35px;
+  }
+
+
+  .crucigrama-header {
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+  }
+
+
+  .volver-btn {
+    justify-self: start;
+  }
+
+
+  .titulo-crucigrama {
+    justify-content: flex-start;
+  }
+
+
+  .titulo-crucigrama h1 {
+    font-size: 25px;
+  }
+
+
+  .titulo-crucigrama p {
+    font-size: 11px;
+  }
+
+
+  .nivel-indicador {
+    display: none;
+  }
+
+
+  .selector-niveles {
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+  }
+
+
+  .tablero-seccion {
+    padding: 15px;
+  }
+
+
+  /*
+   * En celular mantenemos las casillas
+   * grandes y permitimos desplazamiento.
+   */
+  .tablero-wrapper {
+    overflow-x: auto;
+
+    padding:
+      10px
+      5px
+      20px;
+  }
+
+
+  .tablero {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .acciones {
+    flex-direction: column;
+  }
+
+
+  .acciones button {
+    width: 100%;
+  }
+
+
+  .ayuda-box {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+  }
+
+}

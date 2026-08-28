@@ -1,0 +1,711 @@
+.provincias-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 25px 35px 45px;
+  background: linear-gradient(
+    180deg,
+    #e1f7ff 0%,
+    #f8fdff 100%
+  );
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #385866;
+}
+
+/* HEADER */
+
+.provincias-header {
+  max-width: 1200px;
+  margin: 0 auto 18px;
+  display: grid;
+  grid-template-columns: 150px 1fr 100px;
+  align-items: center;
+  gap: 20px;
+}
+
+.volver-btn {
+  border: none;
+  background: white;
+  color: #46798c;
+  padding: 11px 17px;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 14px rgba(51, 100, 115, 0.12);
+  transition: 0.2s;
+}
+
+.volver-btn:hover {
+  transform: translateY(-2px);
+}
+
+.titulo-provincias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.icono-mapa {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 18px;
+  font-size: 34px;
+  box-shadow: 0 6px 15px rgba(51, 100, 115, 0.12);
+}
+
+.titulo-provincias span {
+  color: #5aa5bc;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.titulo-provincias h1 {
+  margin: 1px 0;
+  color: #2e6174;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.titulo-provincias p {
+  margin: 0;
+  color: #78929c;
+  font-size: 13px;
+}
+
+.contador-provincias {
+  width: 70px;
+  height: 70px;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #5aadc7;
+  color: white;
+  box-shadow: 0 6px 15px rgba(58, 131, 153, 0.2);
+}
+
+.contador-provincias strong {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.contador-provincias span {
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* NIVELES */
+
+.niveles-provincias {
+  max-width: 650px;
+  margin: 0 auto 20px;
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(51, 100, 115, 0.1);
+}
+
+.nivel-provincia {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  padding: 7px 13px;
+  border-radius: 11px;
+  background: transparent;
+  color: #78929c;
+  font-family: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.nivel-provincia span {
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eaf5f8;
+}
+
+.nivel-provincia:hover {
+  background: #f0fafc;
+}
+
+.nivel-provincia.activo {
+  background: #e1f6fb;
+  color: #3c8197;
+}
+
+.nivel-provincia.activo span {
+  background: #59abc5;
+  color: white;
+}
+
+/* INSTRUCCIÓN */
+
+.instruccion-provincias {
+  max-width: 900px;
+  margin: 0 auto 15px;
+  padding: 12px 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 16px rgba(51, 100, 115, 0.08);
+}
+
+.instruccion-icono {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7f7fb;
+  border-radius: 13px;
+  font-size: 23px;
+}
+
+.instruccion-provincias strong {
+  color: #376f82;
+  font-size: 15px;
+}
+
+.instruccion-provincias p {
+  margin: 2px 0 0;
+  color: #82989f;
+  font-size: 11px;
+}
+
+/* MENSAJES */
+
+.mensaje-provincia {
+  max-width: 800px;
+  margin: 0 auto 14px;
+  padding: 11px 17px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.mensaje-provincia.correcto {
+  background: #e5f8ec;
+  color: #38915a;
+}
+
+.mensaje-provincia.error {
+  background: #fff3e2;
+  color: #b47a2f;
+}
+
+/* JUEGO */
+
+.provincias-juego {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* BANDEJA */
+
+.bandeja-provincias {
+  background: white;
+  border-radius: 23px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(51, 100, 115, 0.12);
+}
+
+.bandeja-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #edf5f7;
+}
+
+.bandeja-icono {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5d7;
+  border-radius: 13px;
+  font-size: 23px;
+}
+
+.bandeja-header h2 {
+  margin: 0;
+  color: #376f82;
+  font-size: 21px;
+}
+
+.bandeja-header p {
+  margin: 2px 0 0;
+  color: #8b9da3;
+  font-size: 10px;
+}
+
+.tarjetas-provincias {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
+.tarjeta-provincia {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  background: #f3fafc;
+  border: 2px solid #e4f1f4;
+  border-radius: 12px;
+  color: #426d7b;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: grab;
+  transition: 0.2s;
+}
+
+.tarjeta-provincia:hover {
+  transform: translateX(3px);
+  border-color: #70b8ca;
+  background: #ebf9fc;
+}
+
+.tarjeta-provincia:active {
+  cursor: grabbing;
+}
+
+.arrastre {
+  color: #90aeb6;
+  font-size: 16px;
+  letter-spacing: -4px;
+}
+
+.bandeja-completa {
+  margin-top: 20px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #edf9f2;
+  border-radius: 15px;
+  color: #499565;
+}
+
+.bandeja-completa:first-letter {
+  font-size: 30px;
+}
+
+.bandeja-completa strong {
+  font-size: 15px;
+}
+
+.bandeja-completa span {
+  font-size: 11px;
+}
+
+/* ARGENTINA */
+
+.argentina-juego {
+  min-width: 0;
+  background: white;
+  border-radius: 23px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(51, 100, 115, 0.12);
+}
+
+.mapa-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mapa-titulo > span {
+  font-size: 30px;
+}
+
+.mapa-titulo h2 {
+  margin: 0;
+  color: #376f82;
+  font-size: 22px;
+}
+
+.mapa-titulo p {
+  margin: 2px 0 0;
+  color: #8a9da3;
+  font-size: 10px;
+}
+
+/* FORMA */
+
+.argentina-forma {
+  position: relative;
+  max-width: 650px;
+  min-height: 640px;
+  margin: 0 auto;
+  padding: 25px 45px 35px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    #eaf9fc,
+    #f7fcfd
+  );
+  border-radius: 38% 38% 48% 48% / 13% 13% 7% 7%;
+  border: 5px solid #ccebf2;
+  overflow: hidden;
+}
+
+.argentina-forma::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  bottom: 15px;
+  width: 5px;
+  transform: translateX(-50%);
+  background: #d9eef3;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+/* REGIONES */
+
+.region {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto 15px;
+  padding: 14px;
+  box-sizing: border-box;
+  border: 3px dashed #b7dce5;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  transition: 0.2s;
+}
+
+.region-norte {
+  width: 90%;
+}
+
+.region-centro {
+  width: 96%;
+}
+
+.region-sur {
+  width: 75%;
+}
+
+.region.preparada {
+  border-color: #5aadc7;
+  background: #eefbfe;
+  box-shadow: 0 0 0 4px rgba(90, 173, 199, 0.1);
+}
+
+.region-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.region-titulo > span {
+  font-size: 23px;
+}
+
+.region-titulo div {
+  display: flex;
+  flex-direction: column;
+}
+
+.region-titulo strong {
+  color: #376f82;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.region-titulo small {
+  color: #8aa0a7;
+  font-size: 9px;
+}
+
+.espacios-region {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.espacio-provincia {
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 2px dashed #c8dfe5;
+  background: #f8fcfd;
+  color: #a0b1b6;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.espacio-provincia.colocada {
+  border: 2px solid #65b77d;
+  background: #e8f8ed;
+  color: #3c9160;
+  font-size: 10px;
+  animation: colocar 0.25s ease;
+}
+
+.punta-argentina {
+  position: relative;
+  z-index: 3;
+  width: 60px;
+  height: 60px;
+  margin: -4px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #ccebf2;
+  font-size: 27px;
+}
+
+/* ACCIONES */
+
+.acciones-provincias {
+  max-width: 1200px;
+  margin: 15px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.reiniciar-provincias {
+  border: none;
+  padding: 10px 19px;
+  border-radius: 12px;
+  background: #e8a04d;
+  color: white;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(233, 161, 75, 0.2);
+  transition: 0.2s;
+}
+
+.reiniciar-provincias:hover {
+  transform: translateY(-2px);
+}
+
+/* VICTORIA */
+
+.victoria-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(40, 87, 103, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.victoria-provincias {
+  width: min(430px, 100%);
+  box-sizing: border-box;
+  padding: 32px;
+  background: white;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: aparecer 0.25s ease;
+}
+
+.victoria-bandera {
+  font-size: 55px;
+}
+
+.victoria-confeti {
+  font-size: 35px;
+}
+
+.victoria-provincias h2 {
+  margin: 5px 0;
+  color: #376f82;
+  font-size: 28px;
+}
+
+.victoria-provincias p {
+  margin: 0 0 20px;
+  color: #7b9299;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.siguiente-nivel-btn,
+.volver-mapa-btn,
+.jugar-nuevo-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.siguiente-nivel-btn {
+  margin-bottom: 8px;
+  background: #57b879;
+}
+
+.volver-mapa-btn {
+  margin-bottom: 8px;
+  background: #5aadc7;
+}
+
+.jugar-nuevo-btn {
+  background: #e9a14b;
+}
+
+.nivel-final {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff6df;
+  color: #a87b2d;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+@keyframes colocar {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .provincias-juego {
+    grid-template-columns: 1fr;
+  }
+
+  .bandeja-provincias {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .tarjetas-provincias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-height: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .provincias-page {
+    padding: 15px 10px 30px;
+  }
+
+  .provincias-header {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo-provincias {
+    justify-content: flex-start;
+  }
+
+  .titulo-provincias h1 {
+    font-size: 24px;
+  }
+
+  .contador-provincias {
+    display: none;
+  }
+
+  .niveles-provincias {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .tarjetas-provincias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .argentina-forma {
+    min-height: auto;
+    padding: 15px 10px 25px;
+    border-radius: 25px;
+  }
+
+  .argentina-forma::before {
+    display: none;
+  }
+
+  .region-norte,
+  .region-centro,
+  .region-sur {
+    width: 100%;
+  }
+
+  .espacios-region {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .espacio-provincia {
+    min-height: 48px;
+  }
+}
