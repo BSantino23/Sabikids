@@ -21,9 +21,15 @@ import Sociales from './pages/subjects/Sociales';
 import Naturales from './pages/subjects/Naturales';
 import Ingles from './pages/subjects/Ingles';
 import Musica from './pages/subjects/Musica';
+
 import WordSearch from './pages/games/lengua/WordSearch';
 
 import MemoryTables from './pages/games/matematica/MemoryTables';
+import FraccionesVisuales from './pages/games/matematica/FraccionesVisuales';
+import Geometria from './pages/games/matematica/Geometria';
+import MayorMenorIgual from './pages/games/matematica/MayorMenorIgual';
+import SumasRestas from './pages/games/matematica/SumasRestas';
+
 import PianoMagico from './pages/games/musica/PianoMagico';
 
 import ComidaSaludable from './pages/games/naturales/ComidaSaludable';
@@ -64,6 +70,26 @@ export default function App() {
           <Route
             path="/juegos/matematica/memotest"
             element={<MemoryTables />}
+          />
+
+          <Route
+            path="/juegos/matematica/fracciones-visuales"
+            element={<FraccionesVisuales />}
+          />
+
+          <Route
+            path="/juegos/matematica/geometria"
+            element={<Geometria />}
+          />
+
+          <Route
+            path="/juegos/matematica/mayor-menor-igual"
+            element={<MayorMenorIgual />}
+          />
+
+          <Route
+            path="/juegos/matematica/sumas-restas"
+            element={<SumasRestas />}
           />
 
           <Route
@@ -121,7 +147,6 @@ export default function App() {
             element={<Musica />}
           />
 
-          {/* RUTA AGREGADA PARA EL PIANO MÁGICO */}
           <Route
             path="/juegos/musica/piano-magico"
             element={<PianoMagico />}
