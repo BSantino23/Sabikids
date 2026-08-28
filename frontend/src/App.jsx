@@ -22,6 +22,7 @@ import Naturales from './pages/subjects/Naturales';
 import Ingles from './pages/subjects/Ingles';
 import Musica from './pages/subjects/Musica';
 import WordSearch from './pages/games/lengua/WordSearch';
+import Crossword from './pages/games/lengua/Crossword';
 
 import MemoryTables from './pages/games/matematica/MemoryTables';
 
@@ -67,6 +68,11 @@ export default function App() {
           <Route
             path="/juegos/lengua/sopa-letras"
             element={<WordSearch />}
+          />
+
+          <Route
+            path="/juegos/lengua/crucigrama"
+            element={<Crossword />}
           />
 
           <Route
