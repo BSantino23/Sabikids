@@ -26,6 +26,12 @@ import WordSearch from './pages/games/lengua/WordSearch';
 import MemoryTables from './pages/games/matematica/MemoryTables';
 import PianoMagico from './pages/games/musica/PianoMagico';
 
+import ComidaSaludable from './pages/games/naturales/ComidaSaludable';
+import Habitats from './pages/games/naturales/Habitats';
+import QueComen from './pages/games/naturales/QueComen';
+import Sentidos from './pages/games/naturales/Sentidos';
+import CicloAgua from './pages/games/naturales/CicloAgua';
+
 export default function App() {
   return (
     <CustomThemeProvider>
@@ -78,6 +84,31 @@ export default function App() {
           <Route
             path="/juegos/naturales"
             element={<Naturales />}
+          />
+
+          <Route
+            path="/juegos/naturales/comida-saludable"
+            element={<ComidaSaludable />}
+          />
+
+          <Route
+            path="/juegos/naturales/habitats"
+            element={<Habitats />}
+          />
+
+          <Route
+            path="/juegos/naturales/que-comen"
+            element={<QueComen />}
+          />
+
+          <Route
+            path="/juegos/naturales/sentidos"
+            element={<Sentidos />}
+          />
+
+          <Route
+            path="/juegos/naturales/ciclo-agua"
+            element={<CicloAgua />}
           />
 
           <Route
