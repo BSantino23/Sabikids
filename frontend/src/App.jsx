@@ -39,6 +39,12 @@ import QueComen from './pages/games/naturales/QueComen';
 import Sentidos from './pages/games/naturales/Sentidos';
 import CicloAgua from './pages/games/naturales/CicloAgua';
 
+import VocabularioIngles from './pages/games/ingles/VocabularioIngles';
+import AnimalesIngles from './pages/games/ingles/AnimalesIngles';
+import ColoresIngles from './pages/games/ingles/ColoresIngles';
+import DeportesIngles from './pages/games/ingles/DeportesIngles';
+import RutinasIngles from './pages/games/ingles/RutinasIngles';
+
 export default function App() {
   return (
     <CustomThemeProvider>
@@ -146,6 +152,31 @@ export default function App() {
           <Route
             path="/juegos/ingles"
             element={<Ingles />}
+          />
+
+          <Route
+            path="/juegos/ingles/vocabulario"
+            element={<VocabularioIngles />}
+          />
+
+          <Route
+            path="/juegos/ingles/animales"
+            element={<AnimalesIngles />}
+          />
+
+          <Route
+            path="/juegos/ingles/colores"
+            element={<ColoresIngles />}
+          />
+
+          <Route
+            path="/juegos/ingles/deportes"
+            element={<DeportesIngles />}
+          />
+
+          <Route
+            path="/juegos/ingles/rutinas"
+            element={<RutinasIngles />}
           />
 
           <Route
