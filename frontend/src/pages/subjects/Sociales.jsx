@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+
 import '../../styles/Sociales.css';
 
 const juegos = [
@@ -24,20 +26,6 @@ const juegos = [
     imagen: '/juegos/Sociales/juego3-mundo.png',
     ruta: '/juegos/sociales/donde-pertenece',
     clase: 'juego-3',
-  },
-  {
-    id: 4,
-    nombre: 'Ubicá las provincias de Argentina',
-    imagen: '/juegos/Sociales/juego4-argentina.png',
-    ruta: '/juegos/sociales/provincias',
-    clase: 'juego-4',
-  },
-  {
-    id: 5,
-    nombre: 'Rompecabezas',
-    imagen: '/juegos/Sociales/juego5-rompecabezas.png',
-    ruta: '/juegos/sociales/rompecabezas',
-    clase: 'juego-5',
   },
 ];
 
@@ -64,6 +52,16 @@ export default function Sociales() {
         alt=""
         className="tablero-sociales"
       />
+
+      {/* VOLVER A MATERIAS */}
+      <button
+        type="button"
+        className="sociales-volver-btn"
+        onClick={() => navigate('/juegos')}
+      >
+        <ArrowBackRoundedIcon fontSize="small" />
+        Volver a materias
+      </button>
 
       {/* TÍTULO */}
       <header className="sociales-titulo">

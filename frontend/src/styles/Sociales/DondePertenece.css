@@ -1031,3 +1031,81 @@
   }
 
 }
+
+/* =====================================
+   MATERIAL UI ICONS
+===================================== */
+
+.dp-volver,
+.dp-siguiente,
+.dp-siguiente-nivel,
+.dp-reiniciar,
+.dp-volver-mapa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.dp-mensaje,
+.dp-todos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dp-icono,
+.dp-instruccion > span,
+.dp-info-icon,
+.dp-recordatorio > span,
+.dp-victoria-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dp-icono svg {
+  width: 34px;
+  height: 34px;
+}
+
+.dp-instruccion > span svg {
+  width: 30px;
+  height: 30px;
+}
+
+.dp-info-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.dp-recordatorio > span svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dp-mensaje svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
+
+.dp-victoria-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+.dp-todos svg {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.dp-volver svg,
+.dp-siguiente svg,
+.dp-siguiente-nivel svg,
+.dp-reiniciar svg,
+.dp-volver-mapa svg {
+  flex-shrink: 0;
+}

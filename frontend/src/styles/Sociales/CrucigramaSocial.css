@@ -1115,3 +1115,71 @@
   }
 
 }
+
+/* =====================================
+   MATERIAL UI ICONS
+===================================== */
+
+.volver-btn,
+.comprobar-btn,
+.reiniciar-btn,
+.siguiente-btn,
+.volver-mapa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.final-text,
+.mensaje-ayuda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icono-crucigrama,
+.ayuda-icon,
+.bombilla,
+.victoria-icon,
+.mensaje-ayuda > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icono-crucigrama svg {
+  width: 34px;
+  height: 34px;
+}
+
+.ayuda-icon svg,
+.bombilla svg {
+  width: 27px;
+  height: 27px;
+}
+
+.mensaje-ayuda > span svg {
+  width: 23px;
+  height: 23px;
+}
+
+.victoria-icon svg {
+  width: 58px;
+  height: 58px;
+}
+
+.final-text svg {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.volver-btn svg,
+.comprobar-btn svg,
+.reiniciar-btn svg,
+.siguiente-btn svg,
+.volver-mapa-btn svg {
+  flex-shrink: 0;
+}

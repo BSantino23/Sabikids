@@ -1,5 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import PublicRoundedIcon from "@mui/icons-material/PublicRounded";
+import ExploreRoundedIcon from "@mui/icons-material/ExploreRounded";
+import LightbulbRoundedIcon from "@mui/icons-material/LightbulbRounded";
+import PsychologyRoundedIcon from "@mui/icons-material/PsychologyRounded";
+import CelebrationRoundedIcon from "@mui/icons-material/CelebrationRounded";
+import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
+import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+
 import "../../../styles/Sociales/DondePertenece.css";
 
 const niveles = [
@@ -23,7 +34,11 @@ const niveles = [
       {
         imagen: "/juegos/Sociales/DondePertenece/patagonia.png",
         nombre: "Patagonia",
-        opciones: ["Sur de Argentina", "Norte de Argentina", "Europa"],
+        opciones: [
+          "Sur de Argentina",
+          "Norte de Argentina",
+          "Europa",
+        ],
         correcta: "Sur de Argentina",
       },
     ],
@@ -49,7 +64,11 @@ const niveles = [
       {
         imagen: "/juegos/Sociales/DondePertenece/gaucho.png",
         nombre: "Gaucho",
-        opciones: ["Cultura argentina", "Cultura japonesa", "Cultura egipcia"],
+        opciones: [
+          "Cultura argentina",
+          "Cultura japonesa",
+          "Cultura egipcia",
+        ],
         correcta: "Cultura argentina",
       },
       {
@@ -75,7 +94,11 @@ const niveles = [
       {
         imagen: "/juegos/Sociales/DondePertenece/casa.png",
         nombre: "Casa",
-        opciones: ["Lugar donde viven personas", "Río", "Montaña"],
+        opciones: [
+          "Lugar donde viven personas",
+          "Río",
+          "Montaña",
+        ],
         correcta: "Lugar donde viven personas",
       },
       {
@@ -121,11 +144,11 @@ export default function DondePertenece() {
 
     if (respuesta === pregunta.correcta) {
       setEstado("correcta");
-      setMensaje("¡Muy bien! 🎉");
+      setMensaje("¡Muy bien!");
       setCorrectas((prev) => prev + 1);
     } else {
       setEstado("incorrecta");
-      setMensaje("Casi... ¡Probá otra vez! 💪");
+      setMensaje("Casi... ¡Probá otra vez!");
     }
   };
 
@@ -168,21 +191,20 @@ export default function DondePertenece() {
   return (
     <div className="donde-pertenece-page">
 
-      {/* HEADER */}
-
       <header className="dp-header">
 
         <button
           className="dp-volver"
           onClick={volverAlMapa}
         >
-          ← Volver
+          <ArrowBackRoundedIcon fontSize="small" />
+          Volver
         </button>
 
         <div className="dp-titulo">
 
           <div className="dp-icono">
-            🌎
+            <PublicRoundedIcon />
           </div>
 
           <div>
@@ -206,13 +228,9 @@ export default function DondePertenece() {
 
       </header>
 
-
-      {/* NIVELES */}
-
       <div className="dp-niveles">
 
         {niveles.map((item, index) => (
-
           <button
             key={item.id}
             className={
@@ -222,21 +240,12 @@ export default function DondePertenece() {
             }
             onClick={() => cambiarNivel(index)}
           >
-
-            <span>
-              {item.id}
-            </span>
-
+            <span>{item.id}</span>
             Nivel {item.id}
-
           </button>
-
         ))}
 
       </div>
-
-
-      {/* CONTENIDO */}
 
       <main className="dp-contenido">
 
@@ -245,15 +254,11 @@ export default function DondePertenece() {
           <div className="dp-progreso">
 
             <div>
-
-              <span>
-                PROGRESO
-              </span>
+              <span>PROGRESO</span>
 
               <strong>
                 {preguntaActual + 1} / {nivel.preguntas.length}
               </strong>
-
             </div>
 
             <div className="dp-barra">
@@ -270,27 +275,18 @@ export default function DondePertenece() {
 
           </div>
 
-
           <div className="dp-instruccion">
 
             <span>
-              🧭
+              <ExploreRoundedIcon />
             </span>
 
             <div>
-              <h2>
-                {nivel.nombre}
-              </h2>
-
-              <p>
-                {nivel.descripcion}
-              </p>
+              <h2>{nivel.nombre}</h2>
+              <p>{nivel.descripcion}</p>
             </div>
 
           </div>
-
-
-          {/* TARJETA */}
 
           <div className="dp-pregunta">
 
@@ -311,9 +307,6 @@ export default function DondePertenece() {
             <p className="dp-elemento">
               {pregunta.nombre}
             </p>
-
-
-            {/* OPCIONES */}
 
             <div className="dp-opciones">
 
@@ -358,9 +351,6 @@ export default function DondePertenece() {
 
             </div>
 
-
-            {/* MENSAJE */}
-
             {mensaje && (
 
               <div
@@ -370,13 +360,16 @@ export default function DondePertenece() {
                     : "dp-mensaje incorrecto"
                 }
               >
+                {estado === "correcta" ? (
+                  <CelebrationRoundedIcon fontSize="small" />
+                ) : (
+                  <PsychologyRoundedIcon fontSize="small" />
+                )}
+
                 {mensaje}
               </div>
 
             )}
-
-
-            {/* SIGUIENTE */}
 
             {estado === "correcta" && (
 
@@ -384,10 +377,19 @@ export default function DondePertenece() {
                 className="dp-siguiente"
                 onClick={siguientePregunta}
               >
+
                 {preguntaActual ===
                 nivel.preguntas.length - 1
-                  ? "Terminar nivel 🎉"
-                  : "Siguiente →"}
+                  ? "Terminar nivel"
+                  : "Siguiente"}
+
+                {preguntaActual ===
+                nivel.preguntas.length - 1 ? (
+                  <CelebrationRoundedIcon fontSize="small" />
+                ) : (
+                  <ArrowForwardRoundedIcon fontSize="small" />
+                )}
+
               </button>
 
             )}
@@ -396,13 +398,10 @@ export default function DondePertenece() {
 
         </section>
 
-
-        {/* PANEL DERECHO */}
-
         <aside className="dp-info">
 
           <div className="dp-info-icon">
-            💡
+            <LightbulbRoundedIcon />
           </div>
 
           <h2>
@@ -414,37 +413,29 @@ export default function DondePertenece() {
             la opción que corresponda.
           </p>
 
-
           <div className="dp-pasos">
 
             <div>
               <span>1</span>
-              <p>
-                Observá el elemento.
-              </p>
+              <p>Observá el elemento.</p>
             </div>
 
             <div>
               <span>2</span>
-              <p>
-                Pensá dónde pertenece.
-              </p>
+              <p>Pensá dónde pertenece.</p>
             </div>
 
             <div>
               <span>3</span>
-              <p>
-                Elegí la respuesta.
-              </p>
+              <p>Elegí la respuesta.</p>
             </div>
 
           </div>
 
-
           <div className="dp-recordatorio">
 
             <span>
-              🧠
+              <PsychologyRoundedIcon />
             </span>
 
             <p>
@@ -458,9 +449,6 @@ export default function DondePertenece() {
 
       </main>
 
-
-      {/* VICTORIA */}
-
       {finalizado && (
 
         <div className="dp-overlay">
@@ -468,7 +456,7 @@ export default function DondePertenece() {
           <div className="dp-victoria">
 
             <div className="dp-victoria-icon">
-              🎉
+              <CelebrationRoundedIcon />
             </div>
 
             <h2>
@@ -491,7 +479,6 @@ export default function DondePertenece() {
 
             </div>
 
-
             {nivelActual < niveles.length - 1 ? (
 
               <button
@@ -500,23 +487,25 @@ export default function DondePertenece() {
                   cambiarNivel(nivelActual + 1)
                 }
               >
-                Siguiente nivel →
+                Siguiente nivel
+                <ArrowForwardRoundedIcon fontSize="small" />
               </button>
 
             ) : (
 
               <div className="dp-todos">
-                🏆 ¡Completaste todos los niveles!
+                <EmojiEventsRoundedIcon />
+                ¡Completaste todos los niveles!
               </div>
 
             )}
-
 
             <button
               className="dp-reiniciar"
               onClick={reiniciar}
             >
-              ↻ Jugar nuevamente
+              <RestartAltRoundedIcon fontSize="small" />
+              Jugar nuevamente
             </button>
 
             <button

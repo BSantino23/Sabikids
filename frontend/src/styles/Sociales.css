@@ -61,6 +61,75 @@
 
 
 /* =========================================
+   BOTÓN VOLVER A MATERIAS
+========================================= */
+
+.sociales-volver-btn {
+  position: absolute;
+
+  top: 18px;
+  left: 26px;
+
+  z-index: 30;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 8px 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background-color: #163b84;
+
+  color: #ffffff;
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: none;
+
+  transform: none;
+
+  transition: none;
+}
+
+
+.sociales-volver-btn:hover {
+  background-color: #163b84;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+.sociales-volver-btn:active {
+  background-color: #163b84;
+
+  transform: none;
+}
+
+
+.sociales-volver-btn svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================
    TÍTULO
 ========================================= */
 
@@ -81,6 +150,7 @@
   pointer-events: none;
 }
 
+
 .sociales-titulo h1 {
   margin: 0;
 
@@ -100,6 +170,7 @@
     0 4px 0 rgba(53, 122, 150, 0.5),
     0 7px 14px rgba(0, 0, 0, 0.2);
 }
+
 
 .sociales-titulo p {
   margin: 4px 0 0;
@@ -151,11 +222,13 @@
   margin: 0;
 
   border: none;
+
   background: transparent;
 
   cursor: pointer;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -214,6 +287,7 @@
     sans-serif;
 
   font-size: 14px;
+
   font-weight: 900;
 
   line-height: 1.15;
@@ -222,9 +296,11 @@
 
   color: #ffffff;
 
-  background: rgba(37, 117, 163, 0.92);
+  background:
+    rgba(37, 117, 163, 0.92);
 
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  border:
+    2px solid rgba(255, 255, 255, 0.95);
 
   border-radius: 18px;
 
@@ -240,7 +316,7 @@
 
 
 /* =========================================
-   HOVER
+   HOVER DE LOS JUEGOS
 ========================================= */
 
 .sociales-juego:hover {
@@ -281,18 +357,8 @@
 
 
 /* =========================================
-   POSICIÓN DE LOS 5 JUEGOS
+   POSICIONES DE LOS 3 JUEGOS
 ========================================= */
-
-/*
-              JUEGO 1
-                    JUEGO 2
-                              JUEGO 3
-
-
-                  JUEGO 4
-                              JUEGO 5
-*/
 
 
 /* =========================================
@@ -312,7 +378,7 @@
 ========================================= */
 
 .juego-2 {
-  left: 47%;
+  left: 48%;
   top: 35%;
 }
 
@@ -323,30 +389,8 @@
 ========================================= */
 
 .juego-3 {
-  left: 65%;
-  top: 34%;
-}
-
-
-/* =========================================
-   JUEGO 4
-   PROVINCIAS DE ARGENTINA
-========================================= */
-
-.juego-4 {
-  left: 45%;
-  top: 63%;
-}
-
-
-/* =========================================
-   JUEGO 5
-   ROMPECABEZAS
-========================================= */
-
-.juego-5 {
   left: 66%;
-  top: 62%;
+  top: 34%;
 }
 
 
@@ -361,14 +405,17 @@
     height: 90%;
   }
 
+
   .sociales-juego {
     width: 165px;
   }
+
 
   .sociales-juego img {
     width: 145px;
     height: 145px;
   }
+
 
   .sociales-juego-nombre {
     max-width: 165px;
@@ -378,29 +425,22 @@
     padding: 5px 10px;
   }
 
+
   .juego-1 {
     left: 30.5%;
     top: 34%;
   }
 
+
   .juego-2 {
-    left: 47%;
+    left: 48%;
     top: 35%;
   }
 
+
   .juego-3 {
-    left: 66%;
-    top: 34%;
-  }
-
-  .juego-4 {
-    left: 44%;
-    top: 63%;
-  }
-
-  .juego-5 {
     left: 67%;
-    top: 62%;
+    top: 34%;
   }
 }
 
@@ -417,19 +457,33 @@
     min-height: 650px;
   }
 
+
+  .sociales-volver-btn {
+    top: 14px;
+    left: 14px;
+
+    padding: 7px 11px;
+
+    font-size: 12px;
+  }
+
+
   .tablero-sociales {
     width: 105%;
     height: 85%;
   }
 
+
   .sociales-juego {
     width: 135px;
   }
+
 
   .sociales-juego img {
     width: 120px;
     height: 120px;
   }
+
 
   .sociales-juego-nombre {
     max-width: 135px;
@@ -443,29 +497,22 @@
     border-width: 1px;
   }
 
+
   .juego-1 {
     left: 27%;
     top: 34%;
   }
 
+
   .juego-2 {
-    left: 47%;
+    left: 48%;
     top: 35%;
   }
+
 
   .juego-3 {
     left: 70%;
     top: 34%;
-  }
-
-  .juego-4 {
-    left: 42%;
-    top: 62%;
-  }
-
-  .juego-5 {
-    left: 70%;
-    top: 61%;
   }
 }
 
@@ -484,33 +531,52 @@
     overflow-y: auto;
   }
 
-  .sociales-titulo {
-    top: 15px;
+
+  .sociales-volver-btn {
+    top: 10px;
+    left: 10px;
+
+    padding: 6px 9px;
+
+    font-size: 11px;
+
+    border-radius: 11px;
   }
+
+
+  .sociales-titulo {
+    top: 55px;
+  }
+
 
   .sociales-titulo h1 {
     font-size: 30px;
   }
 
+
   .sociales-titulo p {
     font-size: 13px;
   }
+
 
   .tablero-sociales {
     width: 130%;
     height: 85%;
 
-    top: 52%;
+    top: 55%;
   }
+
 
   .sociales-juego {
     width: 105px;
   }
 
+
   .sociales-juego img {
     width: 95px;
     height: 95px;
   }
+
 
   .sociales-juego-nombre {
     max-width: 105px;
@@ -526,28 +592,21 @@
     border-radius: 12px;
   }
 
+
   .juego-1 {
     left: 20%;
-    top: 34%;
+    top: 38%;
   }
 
+
   .juego-2 {
-    left: 48%;
-    top: 35%;
+    left: 50%;
+    top: 38%;
   }
+
 
   .juego-3 {
     left: 80%;
-    top: 34%;
-  }
-
-  .juego-4 {
-    left: 40%;
-    top: 62%;
-  }
-
-  .juego-5 {
-    left: 79%;
-    top: 61%;
+    top: 38%;
   }
 }

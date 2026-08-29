@@ -25,7 +25,6 @@ import MemoryTables from './pages/games/matematica/MemoryTables';
 import CrucigramaSocial from './pages/games/Sociales/CrucigramaSocial';
 import Banderas from './pages/games/Sociales/Banderas';
 import DondePertenece from './pages/games/Sociales/DondePertenece';
-import ProvinciasArgentina from './pages/games/Sociales/ProvinciasArgentina';
 
 export default function App() {
   return (
@@ -81,43 +80,24 @@ export default function App() {
               CIENCIAS SOCIALES
           ===================================== */}
 
-          {/* Menú principal de Ciencias Sociales */}
-
           <Route
             path="/juegos/sociales"
             element={<Sociales />}
           />
-
-
-          {/* Juego 1 - Crucigrama Social */}
 
           <Route
             path="/juegos/sociales/crucigrama"
             element={<CrucigramaSocial />}
           />
 
-
-          {/* Juego 2 - Reconocé las Banderas */}
-
           <Route
             path="/juegos/sociales/banderas"
             element={<Banderas />}
           />
 
-
-          {/* Juego 3 - ¿Dónde pertenece? */}
-
           <Route
             path="/juegos/sociales/donde-pertenece"
             element={<DondePertenece />}
-          />
-
-
-          {/* Juego 4 - Ubicá las provincias de Argentina */}
-
-          <Route
-            path="/juegos/sociales/provincias"
-            element={<ProvinciasArgentina />}
           />
 
 

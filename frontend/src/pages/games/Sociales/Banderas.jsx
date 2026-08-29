@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../../styles/Sociales/banderas.css";
+
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import PublicRoundedIcon from "@mui/icons-material/PublicRounded";
+import CelebrationRoundedIcon from "@mui/icons-material/CelebrationRounded";
+import PsychologyRoundedIcon from "@mui/icons-material/PsychologyRounded";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import LightbulbRoundedIcon from "@mui/icons-material/LightbulbRounded";
+import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
+import MapRoundedIcon from "@mui/icons-material/MapRounded";
+import FlagRoundedIcon from "@mui/icons-material/FlagRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+
+import "../../../styles/Sociales/Banderas.css";
 
 const niveles = [
   {
@@ -29,7 +45,6 @@ const niveles = [
       },
     ],
   },
-
   {
     id: 2,
     nombre: "Gran explorador",
@@ -61,7 +76,6 @@ const niveles = [
       },
     ],
   },
-
   {
     id: 3,
     nombre: "Experto en banderas",
@@ -158,31 +172,26 @@ export default function Banderas() {
   return (
     <div className="banderas-page">
 
-      {/* HEADER */}
-
       <header className="banderas-header">
 
         <button
           className="volver-btn"
           onClick={() => navigate("/juegos/sociales")}
         >
-          ← Volver
+          <ArrowBackRoundedIcon fontSize="small" />
+          Volver
         </button>
 
         <div className="titulo-banderas">
 
           <div className="icono-banderas">
-            🌎
+            <PublicRoundedIcon />
           </div>
 
           <div>
             <span>CIENCIAS SOCIALES</span>
-
             <h1>Reconocé las banderas</h1>
-
-            <p>
-              Mirá la bandera y descubrí de qué país es
-            </p>
+            <p>Mirá la bandera y descubrí de qué país es</p>
           </div>
 
         </div>
@@ -194,13 +203,9 @@ export default function Banderas() {
 
       </header>
 
-
-      {/* SELECTOR DE NIVELES */}
-
       <div className="selector-niveles">
 
         {niveles.map((item, index) => (
-
           <button
             key={item.id}
             className={
@@ -210,25 +215,16 @@ export default function Banderas() {
             }
             onClick={() => seleccionarNivel(index)}
           >
-
             <span>{item.id}</span>
-
             Nivel {item.id}
-
           </button>
-
         ))}
 
       </div>
 
-
-      {/* CONTENIDO */}
-
       <main className="bandera-contenido">
 
         <section className="juego-banderas">
-
-          {/* PROGRESO */}
 
           <div className="progreso">
 
@@ -255,62 +251,43 @@ export default function Banderas() {
 
           </div>
 
-
-          {/* TÍTULO */}
-
           <div className="pregunta-titulo">
 
-            <span>🌎</span>
+            <span>
+              <PublicRoundedIcon />
+            </span>
 
             <div>
-              <h2>
-                ¿De qué país es esta bandera?
-              </h2>
-
-              <p>
-                Elegí la respuesta correcta
-              </p>
+              <h2>¿De qué país es esta bandera?</h2>
+              <p>Elegí la respuesta correcta</p>
             </div>
 
           </div>
-
-
-          {/* BANDERA */}
 
           <div className="bandera-contenedor">
 
             <div className="bandera-marco">
-
               <img
                 src={`/juegos/Sociales/banderas/${pregunta.bandera}.png`}
                 alt={`Bandera de ${pregunta.pais}`}
               />
-
             </div>
 
           </div>
 
-
-          {/* MENSAJE */}
-
           {correcta === true && (
-
             <div className="mensaje resultado-correcto">
-              🎉 ¡Muy bien! ¡Es {pregunta.pais}!
+              <CelebrationRoundedIcon fontSize="small" />
+              ¡Muy bien! ¡Es {pregunta.pais}!
             </div>
-
           )}
 
           {correcta === false && (
-
             <div className="mensaje resultado-error">
-              💭 Casi... probá con otra respuesta.
+              <PsychologyRoundedIcon fontSize="small" />
+              Casi... probá con otra respuesta.
             </div>
-
           )}
-
-
-          {/* OPCIONES */}
 
           <div className="opciones">
 
@@ -333,41 +310,35 @@ export default function Banderas() {
               }
 
               return (
-
                 <button
                   key={opcion}
                   className={clase}
-                  onClick={() =>
-                    seleccionarRespuesta(opcion)
-                  }
+                  onClick={() => seleccionarRespuesta(opcion)}
                   disabled={correcta === true}
                 >
 
                   <span className="opcion-icono">
-                    {esCorrecta && correcta === true
-                      ? "✓"
-                      : esSeleccionada && correcta === false
-                      ? "✕"
-                      : "🌎"}
+                    {esCorrecta && correcta === true ? (
+                      <CheckRoundedIcon />
+                    ) : esSeleccionada && correcta === false ? (
+                      <CloseRoundedIcon />
+                    ) : (
+                      <PublicRoundedIcon />
+                    )}
                   </span>
 
                   <span>{opcion}</span>
 
                 </button>
-
               );
-
             })}
 
           </div>
 
-
-          {/* AYUDA */}
-
           <div className="ayuda-banderas">
 
             <div className="ayuda-icono">
-              💡
+              <LightbulbRoundedIcon />
             </div>
 
             <div>
@@ -381,30 +352,23 @@ export default function Banderas() {
 
           </div>
 
-
-          {/* REINICIAR */}
-
           <button
             className="reiniciar-btn"
             onClick={reiniciar}
           >
-            ↻ Reiniciar pregunta
+            <RestartAltRoundedIcon fontSize="small" />
+            Reiniciar pregunta
           </button>
 
         </section>
 
-
-        {/* PANEL LATERAL */}
-
         <aside className="info-banderas">
 
           <div className="info-icono">
-            🗺️
+            <MapRoundedIcon />
           </div>
 
-          <h2>
-            Explorá el mundo
-          </h2>
+          <h2>Explorá el mundo</h2>
 
           <p>
             Las banderas son símbolos que
@@ -413,44 +377,38 @@ export default function Banderas() {
 
           <div className="dato">
 
-            <span>🏳️</span>
+            <span>
+              <FlagRoundedIcon />
+            </span>
 
             <div>
-              <strong>
-                Observá
-              </strong>
-
-              <p>
-                Mirá atentamente los colores.
-              </p>
+              <strong>Observá</strong>
+              <p>Mirá atentamente los colores.</p>
             </div>
 
           </div>
 
           <div className="dato">
 
-            <span>🔎</span>
+            <span>
+              <SearchRoundedIcon />
+            </span>
 
             <div>
-              <strong>
-                Pensá
-              </strong>
-
-              <p>
-                Compará las opciones.
-              </p>
+              <strong>Pensá</strong>
+              <p>Compará las opciones.</p>
             </div>
 
           </div>
 
           <div className="dato">
 
-            <span>⭐</span>
+            <span>
+              <StarRoundedIcon />
+            </span>
 
             <div>
-              <strong>
-                Aprendé
-              </strong>
+              <strong>Aprendé</strong>
 
               <p>
                 Cada respuesta te ayuda a conocer
@@ -464,9 +422,6 @@ export default function Banderas() {
 
       </main>
 
-
-      {/* VICTORIA */}
-
       {completado && (
 
         <div className="victoria-overlay">
@@ -474,12 +429,10 @@ export default function Banderas() {
           <div className="victoria">
 
             <div className="victoria-icon">
-              🎉
+              <CelebrationRoundedIcon />
             </div>
 
-            <h2>
-              ¡Excelente trabajo!
-            </h2>
+            <h2>¡Excelente trabajo!</h2>
 
             <p>
               Completaste todas las banderas
@@ -492,22 +445,22 @@ export default function Banderas() {
                 className="siguiente-btn"
                 onClick={siguienteNivel}
               >
-                Siguiente nivel →
+                Siguiente nivel
+                <ArrowForwardRoundedIcon fontSize="small" />
               </button>
 
             ) : (
 
               <div className="final-text">
-                🏆 ¡Completaste todos los niveles!
+                <EmojiEventsRoundedIcon />
+                ¡Completaste todos los niveles!
               </div>
 
             )}
 
             <button
               className="volver-mapa-btn"
-              onClick={() =>
-                navigate("/juegos/sociales")
-              }
+              onClick={() => navigate("/juegos/sociales")}
             >
               Volver al mapa
             </button>

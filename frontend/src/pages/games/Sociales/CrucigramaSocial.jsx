@@ -1,5 +1,16 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import ExtensionRoundedIcon from "@mui/icons-material/ExtensionRounded";
+import LightbulbRoundedIcon from "@mui/icons-material/LightbulbRounded";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
+import PsychologyRoundedIcon from "@mui/icons-material/PsychologyRounded";
+import CelebrationRoundedIcon from "@mui/icons-material/CelebrationRounded";
+import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+
 import "../../../styles/Sociales/CrucigramaSocial.css";
 
 const niveles = [
@@ -7,9 +18,6 @@ const niveles = [
     id: 1,
     nombre: "Explorador inicial",
     ayuda: "ARGENTINA",
-
-    // IMPORTANTE:
-    // Ahora hay espacio suficiente para BANDERA completa.
     filas: 11,
     columnas: 11,
 
@@ -69,7 +77,6 @@ const niveles = [
     id: 2,
     nombre: "Explorador",
     ayuda: "ARGENTINA",
-
     filas: 12,
     columnas: 13,
 
@@ -145,8 +152,6 @@ const niveles = [
     id: 3,
     nombre: "Gran explorador",
     ayuda: "ARGENTINA",
-
-    // Aumentamos el espacio para evitar cortes.
     filas: 15,
     columnas: 15,
 
@@ -235,10 +240,6 @@ const niveles = [
   },
 ];
 
-/* =====================================================
-   CONSTRUIR TABLERO
-===================================================== */
-
 function construirTablero(nivel) {
   const tablero = {};
 
@@ -268,10 +269,6 @@ function construirTablero(nivel) {
         };
       }
 
-      /*
-       * Si una palabra cruza otra,
-       * la letra debe ser la misma.
-       */
       if (tablero[key].letra === letra) {
         tablero[key].palabras.push(item.id);
       } else if (tablero[key].palabras.length === 0) {
@@ -288,10 +285,6 @@ function construirTablero(nivel) {
   return tablero;
 }
 
-/* =====================================================
-   COMPONENTE
-===================================================== */
-
 export default function CrucigramaSocial() {
   const navigate = useNavigate();
 
@@ -307,20 +300,12 @@ export default function CrucigramaSocial() {
     [nivel]
   );
 
-  /* =====================================================
-     CAMBIAR NIVEL
-  ===================================================== */
-
   const seleccionarNivel = (index) => {
     setNivelActual(index);
     setRespuestas({});
     setPalabraActiva(null);
     setCompletado(false);
   };
-
-  /* =====================================================
-     ESCRIBIR LETRA
-  ===================================================== */
 
   const escribirLetra = (key, valor) => {
     const letra = valor
@@ -333,10 +318,6 @@ export default function CrucigramaSocial() {
       [key]: letra,
     }));
   };
-
-  /* =====================================================
-     COMPROBAR
-  ===================================================== */
 
   const comprobar = () => {
     const todasCorrectas = Object.entries(tablero).every(
@@ -355,19 +336,11 @@ export default function CrucigramaSocial() {
     }
   };
 
-  /* =====================================================
-     REINICIAR
-  ===================================================== */
-
   const reiniciar = () => {
     setRespuestas({});
     setPalabraActiva(null);
     setCompletado(false);
   };
-
-  /* =====================================================
-     CLASE DE CELDA
-  ===================================================== */
 
   const obtenerClaseCelda = (celda, key) => {
     let clase = "celda";
@@ -392,32 +365,24 @@ export default function CrucigramaSocial() {
   return (
     <div className="crucigrama-page">
 
-      {/* =================================================
-          HEADER
-      ================================================= */}
-
       <header className="crucigrama-header">
 
         <button
           className="volver-btn"
-          onClick={() =>
-            navigate("/juegos/sociales")
-          }
+          onClick={() => navigate("/juegos/sociales")}
         >
-          ← Volver
+          <ArrowBackRoundedIcon fontSize="small" />
+          Volver
         </button>
 
         <div className="titulo-crucigrama">
 
           <div className="icono-crucigrama">
-            🧩
+            <ExtensionRoundedIcon />
           </div>
 
           <div>
-
-            <span>
-              CIENCIAS SOCIALES
-            </span>
+            <span>CIENCIAS SOCIALES</span>
 
             <h1>
               El Crucigrama Social
@@ -426,31 +391,20 @@ export default function CrucigramaSocial() {
             <p>
               Descubrí las palabras y aprendé jugando
             </p>
-
           </div>
 
         </div>
 
         <div className="nivel-indicador">
-
           NIVEL
-
-          <strong>
-            {nivel.id}
-          </strong>
-
+          <strong>{nivel.id}</strong>
         </div>
 
       </header>
 
-      {/* =================================================
-          SELECTOR DE NIVELES
-      ================================================= */}
-
       <div className="selector-niveles">
 
         {niveles.map((item, index) => (
-
           <button
             key={item.id}
             className={
@@ -458,45 +412,22 @@ export default function CrucigramaSocial() {
                 ? "nivel-btn seleccionado"
                 : "nivel-btn"
             }
-            onClick={() =>
-              seleccionarNivel(index)
-            }
+            onClick={() => seleccionarNivel(index)}
           >
-
-            <span>
-              {item.id}
-            </span>
-
+            <span>{item.id}</span>
             Nivel {item.id}
-
           </button>
-
         ))}
 
       </div>
 
-      {/* =================================================
-          CONTENIDO
-      ================================================= */}
-
       <main className="crucigrama-contenido">
-
-        {/* =================================================
-            TABLERO
-        ================================================= */}
 
         <section className="tablero-seccion">
 
           <div className="tablero-titulo">
-
-            <h2>
-              {nivel.nombre}
-            </h2>
-
-            <p>
-              Completá las casillas con las respuestas.
-            </p>
-
+            <h2>{nivel.nombre}</h2>
+            <p>Completá las casillas con las respuestas.</p>
           </div>
 
           <div className="tablero-wrapper">
@@ -506,7 +437,6 @@ export default function CrucigramaSocial() {
               style={{
                 gridTemplateColumns:
                   `repeat(${nivel.columnas}, 46px)`,
-
                 gridTemplateRows:
                   `repeat(${nivel.filas}, 46px)`,
               }}
@@ -532,24 +462,19 @@ export default function CrucigramaSocial() {
                 const celda =
                   tablero[key];
 
-                /* Casilla vacía */
-
                 if (!celda) {
-
                   return (
                     <div
                       key={key}
                       className="casilla-negra"
                     />
                   );
-
                 }
 
                 const esCorrecta =
                   respuestas[key] === celda.letra;
 
                 return (
-
                   <div
                     key={key}
                     className={obtenerClaseCelda(
@@ -558,17 +483,11 @@ export default function CrucigramaSocial() {
                     )}
                   >
 
-                    {/* Número */}
-
                     {celda.numero && (
-
                       <span className="numero-celda">
                         {celda.numero}
                       </span>
-
                     )}
-
-                    {/* Letra */}
 
                     <input
                       type="text"
@@ -577,17 +496,13 @@ export default function CrucigramaSocial() {
                         respuestas[key] || ""
                       }
                       onFocus={() => {
-
                         if (
                           celda.palabras.length
                         ) {
-
                           setPalabraActiva(
                             celda.palabras[0]
                           );
-
                         }
-
                       }}
                       onChange={(e) =>
                         escribirLetra(
@@ -604,42 +519,25 @@ export default function CrucigramaSocial() {
                     />
 
                   </div>
-
                 );
-
               })}
 
             </div>
 
           </div>
 
-          {/* =================================================
-              AYUDA
-          ================================================= */}
-
           <div className="ayuda-box">
 
             <div className="ayuda-icon">
-              💡
+              <LightbulbRoundedIcon />
             </div>
 
             <div>
-
-              <span>
-                PALABRA DE AYUDA
-              </span>
-
-              <strong>
-                {nivel.ayuda}
-              </strong>
-
+              <span>PALABRA DE AYUDA</span>
+              <strong>{nivel.ayuda}</strong>
             </div>
 
           </div>
-
-          {/* =================================================
-              BOTONES
-          ================================================= */}
 
           <div className="acciones">
 
@@ -647,42 +545,33 @@ export default function CrucigramaSocial() {
               className="comprobar-btn"
               onClick={comprobar}
             >
-              ✓ Comprobar
+              <CheckRoundedIcon fontSize="small" />
+              Comprobar
             </button>
 
             <button
               className="reiniciar-btn"
               onClick={reiniciar}
             >
-              ↻ Reiniciar
+              <RestartAltRoundedIcon fontSize="small" />
+              Reiniciar
             </button>
 
           </div>
 
         </section>
 
-        {/* =================================================
-            PISTAS
-        ================================================= */}
-
         <aside className="pistas-seccion">
 
           <div className="pistas-header">
 
             <div className="bombilla">
-              💡
+              <LightbulbRoundedIcon />
             </div>
 
             <div>
-
-              <h2>
-                Pistas
-              </h2>
-
-              <p>
-                Leé y descubrí la respuesta
-              </p>
-
+              <h2>Pistas</h2>
+              <p>Leé y descubrí la respuesta</p>
             </div>
 
           </div>
@@ -690,7 +579,6 @@ export default function CrucigramaSocial() {
           <div className="pistas-lista">
 
             {nivel.palabras.map((item) => (
-
               <button
                 key={item.id}
                 className={
@@ -711,8 +599,8 @@ export default function CrucigramaSocial() {
 
                   <strong>
                     {item.direccion === "H"
-                      ? "→ Horizontal"
-                      : "↓ Vertical"}
+                      ? "Horizontal"
+                      : "Vertical"}
                   </strong>
 
                   <span>
@@ -722,7 +610,6 @@ export default function CrucigramaSocial() {
                 </span>
 
               </button>
-
             ))}
 
           </div>
@@ -730,7 +617,7 @@ export default function CrucigramaSocial() {
           <div className="mensaje-ayuda">
 
             <span>
-              🧠
+              <PsychologyRoundedIcon />
             </span>
 
             <p>
@@ -744,10 +631,6 @@ export default function CrucigramaSocial() {
 
       </main>
 
-      {/* =================================================
-          VICTORIA
-      ================================================= */}
-
       {completado && (
 
         <div className="victoria-overlay">
@@ -755,7 +638,7 @@ export default function CrucigramaSocial() {
           <div className="victoria">
 
             <div className="victoria-icon">
-              🎉
+              <CelebrationRoundedIcon />
             </div>
 
             <h2>
@@ -778,14 +661,15 @@ export default function CrucigramaSocial() {
                   )
                 }
               >
-                Siguiente nivel →
+                Siguiente nivel
+                <ArrowForwardRoundedIcon fontSize="small" />
               </button>
 
             ) : (
 
               <div className="final-text">
-                🏆 ¡Completaste todos
-                los niveles!
+                <EmojiEventsRoundedIcon />
+                ¡Completaste todos los niveles!
               </div>
 
             )}

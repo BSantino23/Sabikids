@@ -1022,3 +1022,91 @@
   }
 
 }
+
+/* =====================================
+   MATERIAL UI ICONS
+===================================== */
+
+.volver-btn,
+.reiniciar-btn,
+.siguiente-btn,
+.volver-mapa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.mensaje,
+.final-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icono-banderas,
+.info-icono,
+.ayuda-icono,
+.victoria-icon,
+.pregunta-titulo > span,
+.dato > span,
+.opcion-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icono-banderas svg {
+  width: 34px;
+  height: 34px;
+}
+
+.pregunta-titulo > span svg {
+  width: 29px;
+  height: 29px;
+}
+
+.opcion-icono svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ayuda-icono svg {
+  width: 25px;
+  height: 25px;
+}
+
+.info-icono svg {
+  width: 30px;
+  height: 30px;
+}
+
+.dato > span svg {
+  width: 21px;
+  height: 21px;
+}
+
+.mensaje svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.victoria-icon svg {
+  width: 58px;
+  height: 58px;
+}
+
+.final-text svg {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.volver-btn svg,
+.reiniciar-btn svg,
+.siguiente-btn svg,
+.volver-mapa-btn svg {
+  flex-shrink: 0;
+}
