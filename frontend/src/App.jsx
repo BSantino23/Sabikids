@@ -9,11 +9,16 @@ import {
 import { CustomThemeProvider } from './context/ThemeContext';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Games from './pages/Games';
 import Login from './pages/Login';
 import Register from './pages/Register';
+
+import AvisoLegal from './pages/AvisoLegal';
+import PoliticaCookies from './pages/PoliticaCookies';
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 
 import Matematica from './pages/subjects/Matematica';
 import Lengua from './pages/subjects/Lengua';
@@ -80,6 +85,24 @@ export default function App() {
           <Route
             path="/juegos"
             element={<Games />}
+          />
+
+
+          {/* PÁGINAS LEGALES */}
+
+          <Route
+            path="/aviso-legal"
+            element={<AvisoLegal />}
+          />
+
+          <Route
+            path="/politica-cookies"
+            element={<PoliticaCookies />}
+          />
+
+          <Route
+            path="/politica-privacidad"
+            element={<PoliticaPrivacidad />}
           />
 
 
@@ -236,6 +259,8 @@ export default function App() {
           />
 
         </Routes>
+
+        <Footer />
 
       </Router>
 
