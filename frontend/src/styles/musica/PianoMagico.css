@@ -1,5 +1,5 @@
 /* =========================================
-   PÁGINA PIANO MÁGICO (EDICIÓN ARCADE INFANTIL)
+   PÁGINA PIANO MÁGICO (EDICIÓN PROFESIONAL)
 ========================================= */
 
 .piano-page {
@@ -55,7 +55,7 @@
 
 .piano-title {
   font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif !important;
-  font-size: clamp(26px, 3.2vw, 42px) !important;
+  font-size: clamp(24px, 2.8vw, 38px) !important;
   font-weight: 900 !important;
   color: #1a4c9d;
   text-shadow: 0 3px 0 rgba(255, 255, 255, 0.9), 0 5px 12px rgba(0, 79, 150, 0.3);
@@ -65,22 +65,28 @@
 
 .piano-stats-container {
   display: flex;
-  gap: 15px;
+  gap: 12px;
 }
 
+/* TARJETAS DE ESTADÍSTICAS CON TEXTO BLANCO */
 .piano-score-card {
   display: flex;
   align-items: center;
-  padding: 6px 16px;
+  gap: 6px;
+  padding: 6px 14px;
   border-radius: 20px !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  color: #1a4c9d;
+  background: rgba(26, 76, 157, 0.85) !important; /* Fondo azul oscuro translúcido */
+  color: #ffffff !important;
   border: 3px solid #ffffff;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
-.piano-score-card strong {
-  font-size: 1.1rem;
+.piano-score-card * {
+  color: #ffffff !important; /* Forzamos texto e íconos en blanco */
+}
+
+.piano-score-card .stat-icon {
+  font-size: 1.2rem !important;
 }
 
 /* CONTENEDOR DEL JUEGO CON EFECTO FESTEJO */
@@ -113,7 +119,7 @@
 
 .piano-message {
   font-family: "Trebuchet MS", Arial, sans-serif !important;
-  font-size: 1.25rem !important;
+  font-size: 1.15rem !important;
   font-weight: 800 !important;
   color: #153d87;
   text-align: center;
@@ -128,8 +134,8 @@
   color: #1a365d !important;
   font-family: "Arial Rounded MT Bold", sans-serif !important;
   font-weight: 900 !important;
-  font-size: 1.1rem !important;
-  padding: 12px 28px !important;
+  font-size: 1rem !important;
+  padding: 10px 24px !important;
   border-radius: 24px !important;
   border: 4px solid #ffffff !important;
   box-shadow: 0 6px 0 #d99b00, 0 10px 20px rgba(0, 0, 0, 0.25) !important;
@@ -148,7 +154,6 @@
   gap: 14px;
   justify-content: center;
   width: 100%;
-  flex-wrap: wrap;
 }
 
 .piano-key {
