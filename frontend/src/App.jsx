@@ -9,11 +9,16 @@ import {
 import { CustomThemeProvider } from './context/ThemeContext';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Games from './pages/Games';
 import Login from './pages/Login';
 import Register from './pages/Register';
+
+import AvisoLegal from './pages/AvisoLegal';
+import PoliticaCookies from './pages/PoliticaCookies';
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 
 import Matematica from './pages/subjects/Matematica';
 import Lengua from './pages/subjects/Lengua';
@@ -45,14 +50,27 @@ import ColoresIngles from './pages/games/ingles/ColoresIngles';
 import DeportesIngles from './pages/games/ingles/DeportesIngles';
 import RutinasIngles from './pages/games/ingles/RutinasIngles';
 
+import CrucigramaSocial from './pages/games/Sociales/CrucigramaSocial';
+import Banderas from './pages/games/Sociales/Banderas';
+import DondePertenece from './pages/games/Sociales/DondePertenece';
+
+
 export default function App() {
   return (
     <CustomThemeProvider>
+
       <Router>
+
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+
+          {/* PRINCIPALES */}
+
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
           <Route
             path="/login"
@@ -68,6 +86,27 @@ export default function App() {
             path="/juegos"
             element={<Games />}
           />
+
+
+          {/* PÁGINAS LEGALES */}
+
+          <Route
+            path="/aviso-legal"
+            element={<AvisoLegal />}
+          />
+
+          <Route
+            path="/politica-cookies"
+            element={<PoliticaCookies />}
+          />
+
+          <Route
+            path="/politica-privacidad"
+            element={<PoliticaPrivacidad />}
+          />
+
+
+          {/* MATEMÁTICA */}
 
           <Route
             path="/juegos/matematica"
@@ -99,6 +138,9 @@ export default function App() {
             element={<SumasRestas />}
           />
 
+
+          {/* LENGUA */}
+
           <Route
             path="/juegos/lengua"
             element={<Lengua />}
@@ -114,10 +156,31 @@ export default function App() {
             element={<Crossword />}
           />
 
+
+          {/* CIENCIAS SOCIALES */}
+
           <Route
             path="/juegos/sociales"
             element={<Sociales />}
           />
+
+          <Route
+            path="/juegos/sociales/crucigrama"
+            element={<CrucigramaSocial />}
+          />
+
+          <Route
+            path="/juegos/sociales/banderas"
+            element={<Banderas />}
+          />
+
+          <Route
+            path="/juegos/sociales/donde-pertenece"
+            element={<DondePertenece />}
+          />
+
+
+          {/* CIENCIAS NATURALES */}
 
           <Route
             path="/juegos/naturales"
@@ -149,6 +212,9 @@ export default function App() {
             element={<CicloAgua />}
           />
 
+
+          {/* INGLÉS */}
+
           <Route
             path="/juegos/ingles"
             element={<Ingles />}
@@ -179,6 +245,9 @@ export default function App() {
             element={<RutinasIngles />}
           />
 
+
+          {/* MÚSICA */}
+
           <Route
             path="/juegos/musica"
             element={<Musica />}
@@ -188,8 +257,13 @@ export default function App() {
             path="/juegos/musica/piano-magico"
             element={<PianoMagico />}
           />
+
         </Routes>
+
+        <Footer />
+
       </Router>
+
     </CustomThemeProvider>
   );
 }

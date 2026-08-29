@@ -1,0 +1,1111 @@
+.donde-pertenece-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 25px 35px 50px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #dff7ff 0%,
+      #f7fcff 100%
+    );
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  color: #385866;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.dp-header {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    150px
+    1fr
+    100px;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.dp-volver {
+  justify-self: start;
+
+  border: none;
+
+  background: white;
+  color: #46798c;
+
+  padding: 11px 17px;
+
+  border-radius: 14px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(51, 100, 115, .12);
+
+  transition: .2s;
+}
+
+.dp-volver:hover {
+  transform: translateY(-2px);
+}
+
+
+.dp-titulo {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  text-align: left;
+}
+
+.dp-icono {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: white;
+
+  font-size: 34px;
+
+  box-shadow:
+    0 6px 15px rgba(51, 100, 115, .12);
+}
+
+.dp-titulo span {
+  color: #5aa5bc;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.dp-titulo h1 {
+  margin: 1px 0;
+
+  color: #2e6174;
+
+  font-size: 31px;
+
+  font-weight: 900;
+}
+
+.dp-titulo p {
+  margin: 0;
+
+  color: #78929c;
+
+  font-size: 13px;
+}
+
+
+.dp-nivel {
+  justify-self: end;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  background: #5aadc7;
+
+  color: white;
+
+  box-shadow:
+    0 6px 15px rgba(58, 131, 153, .2);
+}
+
+.dp-nivel small {
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.dp-nivel strong {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+
+/* =========================================
+   NIVELES
+========================================= */
+
+.dp-niveles {
+  max-width: 720px;
+
+  margin: 0 auto 25px;
+
+  padding: 8px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  background: white;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 5px 18px rgba(51, 100, 115, .1);
+}
+
+.dp-nivel-btn {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 13px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: transparent;
+
+  color: #78929c;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.dp-nivel-btn span {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eaf5f8;
+}
+
+.dp-nivel-btn:hover {
+  background: #f0fafc;
+}
+
+.dp-nivel-btn.activo {
+  background: #e4f6fb;
+
+  color: #3c8197;
+}
+
+.dp-nivel-btn.activo span {
+  background: #59abc5;
+
+  color: white;
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.dp-contenido {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    330px;
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   JUEGO
+========================================= */
+
+.dp-juego {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(51, 100, 115, .12);
+}
+
+
+/* =========================================
+   PROGRESO
+========================================= */
+
+.dp-progreso {
+  margin-bottom: 20px;
+}
+
+.dp-progreso > div:first-child {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+}
+
+.dp-progreso span {
+  color: #78a0ac;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.dp-progreso strong {
+  color: #478ba0;
+
+  font-size: 13px;
+}
+
+.dp-barra {
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #e8f3f6;
+}
+
+.dp-barra div {
+  height: 100%;
+
+  border-radius: 10px;
+
+  background: #59abc5;
+
+  transition: width .3s ease;
+}
+
+
+/* =========================================
+   INSTRUCCIÓN
+========================================= */
+
+.dp-instruccion {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+
+  padding: 13px 15px;
+
+  border-radius: 15px;
+
+  background: #f1f9fb;
+}
+
+.dp-instruccion > span {
+  font-size: 30px;
+}
+
+.dp-instruccion h2 {
+  margin: 0;
+
+  color: #376f82;
+
+  font-size: 19px;
+
+  font-weight: 900;
+}
+
+.dp-instruccion p {
+  margin: 2px 0 0;
+
+  color: #80979f;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   PREGUNTA
+========================================= */
+
+.dp-pregunta {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.dp-imagen-container {
+  width: 100%;
+  height: 260px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  margin-bottom: 18px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf8fb,
+      #f8fcfd
+    );
+
+  border: 3px solid #e2f0f3;
+}
+
+.dp-imagen {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+}
+
+
+.dp-pregunta h2 {
+  margin: 5px 0 2px;
+
+  color: #376f82;
+
+  font-size: 22px;
+
+  font-weight: 900;
+}
+
+.dp-elemento {
+  margin: 0 0 18px;
+
+  color: #5aa5bc;
+
+  font-size: 16px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================
+   OPCIONES
+========================================= */
+
+.dp-opciones {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.dp-opcion {
+  min-height: 65px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border: 2px solid #e2eef1;
+
+  border-radius: 15px;
+
+  background: white;
+
+  color: #4e6d77;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.dp-opcion:hover {
+  transform: translateY(-3px);
+
+  border-color: #70b8ca;
+
+  background: #f2fbfd;
+
+  box-shadow:
+    0 6px 15px rgba(64, 143, 163, .12);
+}
+
+.dp-opcion-numero {
+  flex: 0 0 30px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eaf5f8;
+
+  color: #5599ad;
+
+  font-size: 12px;
+}
+
+.dp-opcion.correcta {
+  border-color: #62bd83;
+
+  background: #eaf9ef;
+
+  color: #398255;
+}
+
+.dp-opcion.correcta .dp-opcion-numero {
+  background: #62bd83;
+
+  color: white;
+}
+
+.dp-opcion.incorrecta {
+  border-color: #e5a2a2;
+
+  background: #fff1f1;
+
+  color: #ad5757;
+
+  animation: sacudir .3s ease;
+}
+
+.dp-opcion.incorrecta .dp-opcion-numero {
+  background: #dd8585;
+
+  color: white;
+}
+
+
+/* =========================================
+   MENSAJE
+========================================= */
+
+.dp-mensaje {
+  margin-top: 16px;
+
+  padding: 11px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+
+  font-weight: 900;
+}
+
+.dp-mensaje.correcto {
+  background: #e9f8ed;
+
+  color: #40905b;
+}
+
+.dp-mensaje.incorrecto {
+  background: #fff0f0;
+
+  color: #b45d5d;
+}
+
+
+/* =========================================
+   SIGUIENTE
+========================================= */
+
+.dp-siguiente {
+  margin-top: 15px;
+
+  width: 100%;
+
+  border: none;
+
+  border-radius: 13px;
+
+  padding: 13px;
+
+  background: #57b879;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 12px rgba(87,184,121,.18);
+
+  transition: .2s;
+}
+
+.dp-siguiente:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   PANEL INFO
+========================================= */
+
+.dp-info {
+  padding: 25px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 30px rgba(51, 100, 115, .12);
+}
+
+.dp-info-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #fff5d5;
+
+  font-size: 27px;
+}
+
+.dp-info h2 {
+  margin: 14px 0 4px;
+
+  color: #376f82;
+
+  font-size: 22px;
+}
+
+.dp-info > p {
+  margin: 0 0 20px;
+
+  color: #7d949c;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   PASOS
+========================================= */
+
+.dp-pasos {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.dp-pasos > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px;
+
+  border-radius: 12px;
+
+  background: #f5fafc;
+}
+
+.dp-pasos span {
+  width: 28px;
+  height: 28px;
+
+  flex: 0 0 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #5aadc7;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+.dp-pasos p {
+  margin: 0;
+
+  color: #617b84;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   RECORDATORIO
+========================================= */
+
+.dp-recordatorio {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 18px;
+
+  padding: 12px;
+
+  border-radius: 13px;
+
+  background: #f1f8fa;
+}
+
+.dp-recordatorio span {
+  font-size: 22px;
+}
+
+.dp-recordatorio p {
+  margin: 0;
+
+  color: #728a92;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   VICTORIA
+========================================= */
+
+.dp-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(40, 87, 103, .52);
+
+  backdrop-filter: blur(5px);
+}
+
+.dp-victoria {
+  width: min(430px, 100%);
+
+  padding: 35px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border-radius: 25px;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.2);
+
+  animation:
+    dp-aparecer .25s ease;
+}
+
+.dp-victoria-icon {
+  font-size: 62px;
+}
+
+.dp-victoria h2 {
+  margin: 8px 0 3px;
+
+  color: #376f82;
+
+  font-size: 29px;
+}
+
+.dp-victoria > p {
+  margin: 0 0 15px;
+
+  color: #7b9299;
+
+  font-size: 14px;
+}
+
+.dp-resultado {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  margin: 10px 0 20px;
+
+  padding: 14px;
+
+  border-radius: 15px;
+
+  background: #f1f9fb;
+}
+
+.dp-resultado strong {
+  color: #4d9bb2;
+
+  font-size: 35px;
+}
+
+.dp-resultado span {
+  color: #7b9299;
+
+  font-size: 11px;
+}
+
+.dp-siguiente-nivel,
+.dp-reiniciar,
+.dp-volver-mapa {
+  width: 100%;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.dp-siguiente-nivel {
+  margin-bottom: 8px;
+
+  background: #57b879;
+}
+
+.dp-reiniciar {
+  margin-bottom: 8px;
+
+  background: #e9a14b;
+}
+
+.dp-volver-mapa {
+  background: #5aadc7;
+}
+
+.dp-todos {
+  margin-bottom: 15px;
+
+  color: #e09b3e;
+
+  font-size: 15px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes dp-aparecer {
+  from {
+    opacity: 0;
+
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes sacudir {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+  .dp-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-info {
+    max-width: 650px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+  .donde-pertenece-page {
+    padding: 15px 10px 35px;
+  }
+
+  .dp-header {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .dp-volver {
+    justify-self: start;
+  }
+
+  .dp-titulo {
+    justify-content: flex-start;
+  }
+
+  .dp-titulo h1 {
+    font-size: 25px;
+  }
+
+  .dp-titulo p {
+    font-size: 11px;
+  }
+
+  .dp-nivel {
+    display: none;
+  }
+
+  .dp-niveles {
+    overflow-x: auto;
+
+    justify-content: flex-start;
+  }
+
+  .dp-juego {
+    padding: 15px;
+  }
+
+  .dp-imagen-container {
+    height: 220px;
+  }
+
+  .dp-opciones {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-opcion {
+    min-height: 55px;
+  }
+
+}
+
+/* =====================================
+   MATERIAL UI ICONS
+===================================== */
+
+.dp-volver,
+.dp-siguiente,
+.dp-siguiente-nivel,
+.dp-reiniciar,
+.dp-volver-mapa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.dp-mensaje,
+.dp-todos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dp-icono,
+.dp-instruccion > span,
+.dp-info-icon,
+.dp-recordatorio > span,
+.dp-victoria-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dp-icono svg {
+  width: 34px;
+  height: 34px;
+}
+
+.dp-instruccion > span svg {
+  width: 30px;
+  height: 30px;
+}
+
+.dp-info-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.dp-recordatorio > span svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dp-mensaje svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
+
+.dp-victoria-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+.dp-todos svg {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.dp-volver svg,
+.dp-siguiente svg,
+.dp-siguiente-nivel svg,
+.dp-reiniciar svg,
+.dp-volver-mapa svg {
+  flex-shrink: 0;
+}

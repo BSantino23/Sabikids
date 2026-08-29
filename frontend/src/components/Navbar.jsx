@@ -14,7 +14,6 @@ import {
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -71,11 +70,6 @@ export default function Navbar() {
       label: 'Juegos',
       icon: <SportsEsportsIcon />,
       path: '/juegos'
-    },
-    {
-      label: 'Recursos',
-      icon: <MenuBookIcon />,
-      path: '/recursos'
     },
   ];
 
@@ -215,7 +209,7 @@ export default function Navbar() {
           })}
         </Box>
 
-        {/* Contenedor Derecho (Selector de Modo + Usuario) */}
+        {/* Contenedor Derecho */}
         <Box
           sx={{
             display: 'flex',
@@ -223,7 +217,6 @@ export default function Navbar() {
             gap: 2
           }}
         >
-          {/* Selector de Modo (Claro / Oscuro / Daltónico) */}
           <ToggleButtonGroup
             value={mode}
             exclusive
@@ -245,6 +238,7 @@ export default function Navbar() {
                   color: 'white',
                   borderRadius: '18px !important',
                   border: 'none',
+
                   '&.Mui-selected': {
                     backgroundColor: 'rgba(255, 255, 255, 0.35)',
                     color: '#ffeb3b'
@@ -263,6 +257,7 @@ export default function Navbar() {
                   color: 'white',
                   borderRadius: '18px !important',
                   border: 'none',
+
                   '&.Mui-selected': {
                     backgroundColor: 'rgba(255, 255, 255, 0.35)',
                     color: '#90caf9'
@@ -281,6 +276,7 @@ export default function Navbar() {
                   color: 'white',
                   borderRadius: '18px !important',
                   border: 'none',
+
                   '&.Mui-selected': {
                     backgroundColor: 'rgba(255, 255, 255, 0.35)',
                     color: '#ffc107'
@@ -301,7 +297,6 @@ export default function Navbar() {
               gap: 0.5
             }}
           >
-            {/* Nombre */}
             {usuario && (
               <Typography
                 sx={{
@@ -315,7 +310,6 @@ export default function Navbar() {
               </Typography>
             )}
 
-            {/* Ícono */}
             <IconButton
               color="inherit"
               title={usuario ? 'Mi cuenta' : 'Ingresar'}
@@ -331,7 +325,6 @@ export default function Navbar() {
               <AccountCircleIcon sx={{ fontSize: 32 }} />
             </IconButton>
 
-            {/* Bloque de usuario */}
             {usuario && menuUsuario && (
               <Paper
                 elevation={8}
