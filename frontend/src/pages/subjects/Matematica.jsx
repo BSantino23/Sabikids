@@ -16,7 +16,6 @@ import '../../styles/Matematica.css';
 export default function Matematica() {
   const navigate = useNavigate();
 
-
   const games = [
     {
       name: 'Memotest de Tablas',
@@ -35,7 +34,10 @@ export default function Matematica() {
     {
       name: 'Fracciones Visuales',
       image: '/juegos/matematica/fracciones-visuales.png',
-      path: '/juegos/matematica/fracciones',
+
+      // CORREGIDO
+      path: '/juegos/matematica/fracciones-visuales',
+
       className: 'game-spot fracciones-spot',
     },
 
@@ -54,7 +56,6 @@ export default function Matematica() {
     },
   ];
 
-
   return (
     <Box className="math-page">
 
@@ -63,14 +64,11 @@ export default function Matematica() {
         <Button
           variant="contained"
           startIcon={<ArrowBackIcon />}
-          onClick={() =>
-            navigate('/juegos')
-          }
+          onClick={() => navigate('/juegos')}
           className="back-subjects-button"
         >
           Volver a materias
         </Button>
-
 
         <Box className="math-heading">
 
@@ -105,7 +103,6 @@ export default function Matematica() {
             className="math-map-image"
           />
 
-
           <Box className="math-games-layer">
 
             {games.map((game) => (
@@ -114,9 +111,7 @@ export default function Matematica() {
                 component="button"
                 type="button"
                 className={game.className}
-                onClick={() =>
-                  navigate(game.path)
-                }
+                onClick={() => navigate(game.path)}
                 aria-label={`Jugar ${game.name}`}
               >
 
