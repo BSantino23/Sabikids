@@ -1,0 +1,1668 @@
+/* =========================================================
+   PÁGINA GENERAL
+========================================================= */
+
+.crossword-page {
+  --crossword-cell-size: 52px;
+
+  min-height: calc(100vh - 80px);
+  position: relative;
+  box-sizing: border-box;
+
+  padding: 24px 28px 40px;
+
+  overflow-x: hidden;
+
+  background-image:
+    url("/juegos/lengua/fondo-crucigrama.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.crossword-overlay {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    rgba(45, 20, 8, 0.08);
+}
+
+
+.crossword-interface {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1450px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.crossword-toolbar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-bottom: 16px;
+}
+
+
+.crossword-back-button {
+  border-radius: 12px !important;
+
+  border:
+    2px solid #b681d7 !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #714790 0%,
+      #4d2c6d 100%
+    ) !important;
+
+  color: #ffffff !important;
+
+  font-weight: 900 !important;
+
+  text-transform: none !important;
+
+  box-shadow:
+    0 4px 0 #321b47,
+    0 8px 16px rgba(0, 0, 0, 0.24) !important;
+}
+
+
+.crossword-back-button:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #8154a1 0%,
+      #583478 100%
+    ) !important;
+}
+
+
+/* =========================================================
+   DIFICULTADES
+========================================================= */
+
+.crossword-difficulties {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  padding: 7px;
+
+  border:
+    2px solid rgba(108, 61, 24, 0.8);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 232, 183, 0.92);
+
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.22);
+}
+
+
+.crossword-difficulty {
+  min-width: 78px !important;
+
+  padding:
+    7px 13px !important;
+
+  border-radius:
+    9px !important;
+
+  color:
+    #5c3219 !important;
+
+  font-weight:
+    900 !important;
+
+  text-transform:
+    none !important;
+}
+
+
+.crossword-difficulty:hover {
+  background:
+    rgba(105, 61, 23, 0.13) !important;
+}
+
+
+.crossword-difficulty.active {
+  color:
+    #ffffff !important;
+
+  background:
+    #68408a !important;
+
+  box-shadow:
+    inset
+    0 0 0 1px
+    rgba(255, 255, 255, 0.2);
+}
+
+
+.crossword-difficulty.active:hover {
+  background:
+    #563373 !important;
+}
+
+
+/* =========================================================
+   NUEVO DESAFÍO
+========================================================= */
+
+.crossword-new-button {
+  border:
+    2px solid #ffd06a !important;
+
+  border-radius:
+    11px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #e6a135 0%,
+      #c57b17 100%
+    ) !important;
+
+  color: #ffffff !important;
+
+  font-weight: 900 !important;
+
+  text-transform: none !important;
+
+  box-shadow:
+    0 4px 0 #8b5010,
+    0 7px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+.crossword-new-button:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #f0ae42 0%,
+      #d1871b 100%
+    ) !important;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.crossword-heading {
+  margin-bottom: 16px;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 2px
+    rgba(255, 217, 137, 0.75);
+}
+
+
+.crossword-title {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    clamp(
+      2.8rem,
+      6vw,
+      4.5rem
+    ) !important;
+
+  line-height: 1 !important;
+
+  color:
+    #4d240e !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.crossword-subtitle {
+  margin-top:
+    8px !important;
+
+  color:
+    #512b16 !important;
+
+  font-size:
+    1.15rem !important;
+
+  font-weight:
+    800 !important;
+}
+
+
+/* =========================================================
+   DISTRIBUCIÓN GENERAL
+========================================================= */
+
+.crossword-game-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(320px, 0.75fr);
+
+  gap: 32px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   PANEL DEL TABLERO
+========================================================= */
+
+.crossword-board-panel {
+  min-width: 0;
+
+  padding:
+    22px;
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(255, 226, 168, 0.15);
+}
+
+
+/* =========================================================
+   CABECERA DE APRENDIZAJE
+========================================================= */
+
+.crossword-learning-header {
+  width:
+    min(
+      100%,
+      860px
+    );
+
+  margin:
+    0 auto 16px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(150px, 0.35fr)
+    minmax(0, 1.65fr);
+
+  gap: 12px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+.crossword-progress-box {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 118px;
+
+  box-sizing: border-box;
+
+  padding:
+    14px 15px;
+
+  border:
+    2px solid
+    rgba(112, 64, 28, 0.75);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(95, 48, 21, 0.95),
+      rgba(64, 31, 15, 0.95)
+    );
+
+  color:
+    #ffefc7;
+
+  box-shadow:
+    0 6px 14px
+    rgba(0, 0, 0, 0.23);
+
+  text-align: center;
+}
+
+
+.crossword-progress-label {
+  font-size:
+    0.83rem !important;
+
+  font-weight:
+    800 !important;
+
+  opacity:
+    0.92;
+}
+
+
+.crossword-progress-value {
+  margin-top:
+    2px !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    2rem !important;
+
+  line-height:
+    1.1 !important;
+
+  font-weight:
+    900 !important;
+
+  color:
+    #ffd875 !important;
+}
+
+
+.crossword-progress-difficulty {
+  margin-top:
+    5px !important;
+
+  padding:
+    3px 9px;
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(255, 226, 157, 0.12);
+
+  color:
+    #ffeab4 !important;
+
+  font-size:
+    0.78rem !important;
+
+  font-weight:
+    800 !important;
+}
+
+
+/* =========================================================
+   BLOQUE DE APRENDIZAJE
+========================================================= */
+
+.crossword-learning-box {
+  min-width: 0;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    12px 14px 14px;
+
+  border:
+    2px solid
+    rgba(126, 70, 27, 0.72);
+
+  border-radius:
+    15px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 239, 199, 0.96),
+      rgba(245, 210, 148, 0.96)
+    );
+
+  box-shadow:
+    0 6px 14px
+    rgba(0, 0, 0, 0.19);
+}
+
+
+.crossword-learning-title {
+  margin-bottom:
+    9px !important;
+
+  color:
+    #542a12 !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    1rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.crossword-learning-rules {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.crossword-learning-rule {
+  flex:
+    1 1 190px;
+
+  min-width:
+    0;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    9px 10px;
+
+  border-radius:
+    10px;
+
+  border:
+    1px solid
+    rgba(107, 60, 25, 0.37);
+
+  background:
+    rgba(255, 247, 221, 0.8);
+
+  box-shadow:
+    inset
+    0 1px 0
+    rgba(255, 255, 255, 0.55);
+}
+
+
+.crossword-learning-rule-title {
+  margin-bottom:
+    3px !important;
+
+  color:
+    #603314 !important;
+
+  font-size:
+    0.88rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.crossword-learning-rule-short {
+  color:
+    #4b2a18 !important;
+
+  font-size:
+    0.79rem !important;
+
+  line-height:
+    1.25 !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+.crossword-learning-rule-examples {
+  margin-top:
+    5px !important;
+
+  color:
+    #6a4b32 !important;
+
+  font-size:
+    0.7rem !important;
+
+  line-height:
+    1.25 !important;
+
+  font-style:
+    italic;
+}
+
+
+/* =========================================================
+   COLOR POR FAMILIA ORTOGRÁFICA
+========================================================= */
+
+.crossword-learning-rule.rule-cion {
+  border-left:
+    5px solid
+    #8b55ae;
+}
+
+
+.crossword-learning-rule.rule-bilidad {
+  border-left:
+    5px solid
+    #d89219;
+}
+
+
+.crossword-learning-rule.rule-sub {
+  border-left:
+    5px solid
+    #4d8b55;
+}
+
+
+/* =========================================================
+   TABLERO
+========================================================= */
+
+.crossword-board {
+  width:
+    max-content;
+
+  max-width:
+    100%;
+
+  margin:
+    0 auto;
+
+  display:
+    grid;
+
+  grid-auto-rows:
+    var(--crossword-cell-size);
+
+  gap:
+    2px;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    4px;
+
+  border:
+    3px solid
+    rgba(72, 38, 78, 0.9);
+
+  border-radius:
+    10px;
+
+  background:
+    rgba(64, 34, 70, 0.94);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.3);
+
+  overflow:
+    hidden;
+}
+
+
+/* =========================================================
+   CELDAS VACÍAS
+========================================================= */
+
+.crossword-empty-cell {
+  width:
+    var(--crossword-cell-size);
+
+  height:
+    var(--crossword-cell-size);
+
+  box-sizing:
+    border-box;
+
+  background:
+    rgba(66, 35, 73, 0.96);
+
+  border:
+    1px solid
+    rgba(131, 91, 135, 0.32);
+}
+
+
+/* =========================================================
+   CELDAS CON LETRA
+========================================================= */
+
+.crossword-letter-cell {
+  width:
+    var(--crossword-cell-size);
+
+  height:
+    var(--crossword-cell-size);
+
+  position:
+    relative;
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(94, 47, 25, 0.8);
+
+  background:
+    rgba(255, 242, 208, 0.98);
+
+  box-shadow:
+    inset
+    0 0 0 1px
+    rgba(255, 255, 255, 0.4);
+
+  transition:
+    transform 0.12s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.crossword-letter-cell:hover {
+  z-index: 3;
+
+  transform:
+    scale(1.04);
+
+  box-shadow:
+    0 0 0 2px
+    rgba(111, 66, 139, 0.45);
+}
+
+
+.crossword-letter-cell:focus-within {
+  z-index: 4;
+
+  transform:
+    scale(1.05);
+
+  background:
+    #fff3bf;
+
+  box-shadow:
+    0 0 0 3px
+    #e0a52c;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.crossword-letter-cell.correct {
+  background:
+    #c9efb7;
+}
+
+
+.crossword-letter-cell.incorrect {
+  background:
+    #f4b8ae;
+}
+
+
+/* =========================================================
+   PISTA REVELADA
+========================================================= */
+
+.crossword-letter-cell.hinted {
+  background:
+    linear-gradient(
+      180deg,
+      #fff4a8 0%,
+      #f3c750 100%
+    );
+
+  border:
+    2px solid
+    #bc7b0d;
+
+  box-shadow:
+    inset
+    0 0 0 2px
+    rgba(255, 255, 255, 0.45),
+    0 0 10px
+    rgba(255, 195, 49, 0.65);
+}
+
+
+.crossword-letter-cell.hinted:hover,
+.crossword-letter-cell.hinted:focus-within {
+  transform:
+    none;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff4a8 0%,
+      #f3c750 100%
+    );
+
+  box-shadow:
+    inset
+    0 0 0 2px
+    rgba(255, 255, 255, 0.45),
+    0 0 10px
+    rgba(255, 195, 49, 0.65);
+}
+
+
+.crossword-letter-cell.hinted input {
+  color:
+    #6b3c07;
+
+  cursor:
+    default;
+
+  caret-color:
+    transparent;
+
+  text-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   NÚMERO DE PISTA
+========================================================= */
+
+.crossword-cell-number {
+  position:
+    absolute;
+
+  top:
+    2px;
+
+  left:
+    4px;
+
+  z-index:
+    2;
+
+  color:
+    #793b13;
+
+  font-size:
+    0.66rem;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.crossword-letter-cell input {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  box-sizing:
+    border-box;
+
+  margin:
+    0;
+
+  padding:
+    5px 0 0;
+
+  border:
+    none;
+
+  outline:
+    none;
+
+  background:
+    transparent;
+
+  color:
+    #3c1e0c;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    1.6rem;
+
+  font-weight:
+    900;
+
+  text-align:
+    center;
+
+  text-transform:
+    uppercase;
+
+  caret-color:
+    #6b438a;
+}
+
+
+/* =========================================================
+   PANEL DE PISTAS
+========================================================= */
+
+.crossword-clues-panel {
+  min-width: 0;
+
+  max-height:
+    710px;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    21px;
+
+  overflow-y:
+    auto;
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(255, 225, 165, 0.18);
+
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    #704488
+    rgba(255, 230, 180, 0.35);
+}
+
+
+.crossword-clues-panel::-webkit-scrollbar {
+  width: 7px;
+}
+
+
+.crossword-clues-panel::-webkit-scrollbar-track {
+  border-radius:
+    10px;
+
+  background:
+    rgba(255, 230, 180, 0.35);
+}
+
+
+.crossword-clues-panel::-webkit-scrollbar-thumb {
+  border-radius:
+    10px;
+
+  background:
+    #704488;
+}
+
+
+/* =========================================================
+   TÍTULO PISTAS
+========================================================= */
+
+.crossword-clues-title {
+  margin-bottom:
+    15px !important;
+
+  color:
+    #542a12 !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    2rem !important;
+
+  font-weight:
+    900 !important;
+
+  text-align:
+    center;
+}
+
+
+/* =========================================================
+   LISTA DE PISTAS
+========================================================= */
+
+.crossword-clues-list {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    10px;
+}
+
+
+.crossword-clue {
+  padding:
+    12px;
+
+  border:
+    1px solid
+    rgba(126, 70, 25, 0.54);
+
+  border-radius:
+    11px;
+
+  background:
+    rgba(255, 237, 197, 0.91);
+
+  box-shadow:
+    0 3px 7px
+    rgba(75, 34, 8, 0.12);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.crossword-clue:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 5px 11px
+    rgba(75, 34, 8, 0.18);
+}
+
+
+.crossword-clue-header {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  margin-bottom:
+    6px;
+}
+
+
+.crossword-clue-number {
+  width:
+    31px;
+
+  height:
+    31px;
+
+  flex-shrink:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    2px solid
+    #a66415;
+
+  border-radius:
+    50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #efad34,
+      #d58a17
+    );
+
+  color:
+    #ffffff;
+
+  font-weight:
+    900;
+
+  box-shadow:
+    0 2px 4px
+    rgba(73, 35, 5, 0.28);
+}
+
+
+.crossword-clue-direction {
+  color:
+    #552c14 !important;
+
+  font-size:
+    0.95rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.crossword-clue-length {
+  margin-left:
+    auto;
+
+  padding:
+    3px 7px;
+
+  border-radius:
+    7px;
+
+  background:
+    #654087;
+
+  color:
+    #ffffff;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
+}
+
+
+.crossword-clue-text {
+  color:
+    #4b2917 !important;
+
+  font-size:
+    0.92rem !important;
+
+  line-height:
+    1.35 !important;
+}
+
+
+/* =========================================================
+   MENSAJE
+========================================================= */
+
+.crossword-message {
+  margin-top:
+    15px;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    12px 14px;
+
+  border:
+    1px solid
+    rgba(106, 60, 23, 0.48);
+
+  border-radius:
+    10px;
+
+  background:
+    rgba(255, 241, 206, 0.94);
+
+  color:
+    #4d2a16;
+
+  font-weight:
+    800;
+
+  text-align:
+    center;
+}
+
+
+.crossword-message.success {
+  border-color:
+    #668f3b;
+
+  background:
+    rgba(204, 237, 177, 0.96);
+
+  color:
+    #34551e;
+}
+
+
+/* =========================================================
+   BOTÓN DE PISTA
+========================================================= */
+
+.crossword-hint-button {
+  margin-top:
+    12px !important;
+
+  border-radius:
+    10px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #794b99 0%,
+      #5a3374 100%
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  font-weight:
+    900 !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 4px 0
+    #3e2152 !important;
+}
+
+
+.crossword-hint-button:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #8757a6 0%,
+      #643b7e 100%
+    ) !important;
+}
+
+
+.crossword-hint-button.Mui-disabled {
+  background:
+    #7f707f !important;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    ) !important;
+
+  box-shadow:
+    none !important;
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.crossword-actions {
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    9px;
+
+  margin-top:
+    11px;
+}
+
+
+.crossword-check-button {
+  border-radius:
+    10px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #5e9739 0%,
+      #417224 100%
+    ) !important;
+
+  font-weight:
+    900 !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 4px 0
+    #31551d !important;
+}
+
+
+.crossword-check-button:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #6ca848 0%,
+      #4b812b 100%
+    ) !important;
+}
+
+
+.crossword-clear-button {
+  border-radius:
+    10px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #70468d 0%,
+      #503066 100%
+    ) !important;
+
+  font-weight:
+    900 !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 4px 0
+    #382046 !important;
+}
+
+
+.crossword-clear-button:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #80519e 0%,
+      #5c3972 100%
+    ) !important;
+}
+
+
+/* =========================================================
+   MODAL FINAL
+========================================================= */
+
+.crossword-complete-overlay {
+  position:
+    fixed;
+
+  inset: 0;
+
+  z-index:
+    1000;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    20px;
+
+  background:
+    rgba(31, 13, 5, 0.75);
+
+  backdrop-filter:
+    blur(3px);
+}
+
+
+.crossword-complete-card {
+  width:
+    100%;
+
+  max-width:
+    520px;
+
+  box-sizing:
+    border-box;
+
+  padding:
+    35px;
+
+  border:
+    5px solid
+    #754018;
+
+  border-radius:
+    24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffe8b1 0%,
+      #e8bb68 100%
+    );
+
+  box-shadow:
+    0 20px 70px
+    rgba(0, 0, 0, 0.58);
+
+  text-align:
+    center;
+}
+
+
+.crossword-complete-icon {
+  font-size:
+    4rem !important;
+}
+
+
+.crossword-complete-title {
+  color:
+    #54280d !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    2.2rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.crossword-complete-text {
+  margin-top:
+    10px !important;
+
+  color:
+    #63371c !important;
+
+  font-size:
+    1.05rem !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+.crossword-complete-learning {
+  margin-top:
+    10px !important;
+
+  padding:
+    9px 12px;
+
+  border-radius:
+    10px;
+
+  background:
+    rgba(255, 244, 205, 0.7);
+
+  color:
+    #6b3d1b !important;
+
+  font-size:
+    0.9rem !important;
+
+  font-weight:
+    800 !important;
+}
+
+
+.crossword-complete-actions {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    12px;
+
+  margin-top:
+    25px;
+}
+
+
+.crossword-complete-actions button {
+  border-radius:
+    10px !important;
+
+  background:
+    #684087 !important;
+
+  font-weight:
+    900 !important;
+
+  text-transform:
+    none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 1150px
+) {
+
+  .crossword-page {
+    --crossword-cell-size:
+      48px;
+  }
+
+
+  .crossword-game-layout {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .crossword-clues-panel {
+    max-height:
+      none;
+  }
+
+}
+
+
+@media (
+  max-width: 900px
+) {
+
+  .crossword-learning-header {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .crossword-progress-box {
+    min-height:
+      auto;
+  }
+
+}
+
+
+@media (
+  max-width: 768px
+) {
+
+  .crossword-page {
+    --crossword-cell-size:
+      41px;
+
+    padding:
+      16px;
+  }
+
+
+  .crossword-toolbar {
+    justify-content:
+      center;
+  }
+
+
+  .crossword-heading {
+    margin-top:
+      10px;
+  }
+
+
+  .crossword-subtitle {
+    font-size:
+      1rem !important;
+  }
+
+
+  .crossword-board-panel {
+    padding:
+      14px;
+  }
+
+
+  .crossword-learning-rule {
+    flex:
+      1 1 100%;
+  }
+
+
+  .crossword-letter-cell input {
+    font-size:
+      1.25rem;
+  }
+
+
+  .crossword-cell-number {
+    font-size:
+      0.55rem;
+  }
+
+}
+
+
+@media (
+  max-width: 520px
+) {
+
+  .crossword-page {
+    --crossword-cell-size:
+      34px;
+
+    padding:
+      12px;
+  }
+
+
+  .crossword-board-panel {
+    overflow-x:
+      auto;
+  }
+
+
+  .crossword-board {
+    margin:
+      0;
+  }
+
+
+  .crossword-difficulties {
+    width:
+      100%;
+  }
+
+
+  .crossword-difficulty {
+    flex:
+      1;
+  }
+
+
+  .crossword-new-button,
+  .crossword-back-button {
+    width:
+      100%;
+  }
+
+
+  .crossword-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .crossword-clue-header {
+    flex-wrap:
+      wrap;
+  }
+
+
+  .crossword-clue-length {
+    margin-left:
+      39px;
+  }
+
+}

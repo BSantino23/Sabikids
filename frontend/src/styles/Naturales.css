@@ -1,0 +1,355 @@
+.naturales-page {
+  height: calc(100vh - 64px);
+
+  background-image: url("/juegos/naturales/naturales-fondo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 10px 24px 12px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.naturales-header {
+  width: 100%;
+  max-width: 1450px;
+
+  margin: 0 auto 4px;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  min-height: 78px;
+}
+
+/* BOTÓN VOLVER */
+
+.naturales-back-button {
+  position: absolute !important;
+
+  top: 8px;
+  left: 0;
+
+  background-color: #163b84 !important;
+  color: white !important;
+
+  font-weight: 800 !important;
+  text-transform: none !important;
+
+  border-radius: 14px !important;
+  padding: 8px 16px !important;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.naturales-back-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* TÍTULO */
+
+.naturales-heading {
+  text-align: center;
+}
+
+.naturales-title {
+  color: #163b84;
+
+  font-weight: 900 !important;
+
+  font-size: 2.6rem !important;
+
+  margin-bottom: 0 !important;
+
+  line-height: 1 !important;
+
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+.naturales-subtitle {
+  color: #163b84;
+
+  font-weight: 700 !important;
+
+  margin-top: 5px !important;
+
+  line-height: 1.1 !important;
+}
+
+/* MAPA / ISLA */
+
+.naturales-map-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 1380px;
+
+  margin: 0 auto;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.naturales-map-image {
+  display: block;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 14px 14px rgba(0, 0, 0, 0.15));
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* CAPA DE ESTACIONES */
+
+.naturales-games-layer {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+/* ESTACIONES VISUALES */
+
+.naturales-station {
+  position: absolute;
+  z-index: 5;
+
+  pointer-events: auto;
+
+  width: 215px;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.naturales-station:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  filter: brightness(1.05);
+}
+
+.naturales-station:focus {
+  outline: 4px solid #f4d92b;
+  outline-offset: 6px;
+  border-radius: 24px;
+}
+
+.naturales-station-image {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  filter: drop-shadow(0 12px 16px rgba(22, 59, 132, 0.24));
+
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.naturales-station-label {
+  margin-top: -8px;
+
+  background: #fffef8;
+  color: #163b84;
+
+  border-radius: 999px;
+
+  padding: 8px 16px;
+
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow: 0 7px 16px rgba(22, 59, 132, 0.2);
+
+  white-space: nowrap;
+}
+
+/* POSICIONES SOBRE LA ISLA */
+
+.naturales-station-habitats {
+  top: 30%;
+  left: 25%;
+}
+
+.naturales-station-que-comen {
+  top: 35%;
+  left: 49%;
+}
+
+.naturales-station-plato {
+  top: 29%;
+  left: 74%;
+}
+
+.naturales-station-sentidos {
+  top: 68%;
+  left: 31%;
+}
+
+.naturales-station-ciclo {
+  top: 67%;
+  left: 69%;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .naturales-page {
+    padding: 8px 12px 10px;
+  }
+
+  .naturales-header {
+    min-height: 90px;
+  }
+
+  .naturales-title {
+    font-size: 2.2rem !important;
+  }
+
+  .naturales-station {
+    width: 155px;
+  }
+
+  .naturales-station-label {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .naturales-station-habitats {
+    top: 31%;
+    left: 24%;
+  }
+
+  .naturales-station-que-comen {
+    top: 36%;
+    left: 49%;
+  }
+
+  .naturales-station-plato {
+    top: 30%;
+    left: 75%;
+  }
+
+  .naturales-station-sentidos {
+    top: 68%;
+    left: 30%;
+  }
+
+  .naturales-station-ciclo {
+    top: 68%;
+    left: 70%;
+  }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+  .naturales-page {
+    height: auto;
+    min-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+
+  .naturales-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .naturales-back-button {
+    position: static !important;
+    align-self: flex-start;
+  }
+
+  .naturales-title {
+    font-size: 2rem !important;
+  }
+
+  .naturales-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .naturales-map-wrapper {
+    margin-top: 20px;
+    min-height: 520px;
+  }
+
+  .naturales-map-image {
+    max-height: none;
+  }
+
+  .naturales-station {
+    width: 120px;
+  }
+
+  .naturales-station-label {
+    font-size: 0.62rem;
+    padding: 5px 8px;
+  }
+
+  .naturales-station-habitats {
+    top: 30%;
+    left: 23%;
+  }
+
+  .naturales-station-que-comen {
+    top: 36%;
+    left: 49%;
+  }
+
+  .naturales-station-plato {
+    top: 30%;
+    left: 76%;
+  }
+
+  .naturales-station-sentidos {
+    top: 68%;
+    left: 30%;
+  }
+
+  .naturales-station-ciclo {
+    top: 68%;
+    left: 71%;
+  }
+}
