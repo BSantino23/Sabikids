@@ -1,0 +1,697 @@
+.compare-page {
+  height: calc(100vh - 64px);
+
+  background-image:
+    url('/juegos/matematica/fondo-mayor-menor-igual.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 10px 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+.compare-header {
+  width: 100%;
+  max-width: 1350px;
+
+  margin: 0 auto 8px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+.compare-heading {
+  text-align: center;
+}
+
+
+.compare-title {
+  color: #163b84;
+
+  font-size: 2.3rem !important;
+
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+
+  text-shadow:
+    2px 2px 0
+    rgba(255, 255, 255, 0.9);
+}
+
+
+.compare-subtitle {
+  color: #163b84;
+
+  margin-top: 5px !important;
+
+  font-weight: 700 !important;
+}
+
+
+.compare-back-button {
+  justify-self: start;
+
+  background-color:
+    #163b84 !important;
+
+  color: white !important;
+
+  text-transform: none !important;
+
+  font-weight: 800 !important;
+
+  border-radius: 14px !important;
+
+  padding:
+    6px 12px !important;
+}
+
+
+.compare-restart-button {
+  justify-self: end;
+
+  background-color:
+    #ff6b2e !important;
+
+  color: white !important;
+
+  text-transform: none !important;
+
+  font-weight: 800 !important;
+
+  border-radius: 14px !important;
+
+  padding:
+    6px 12px !important;
+}
+
+
+.compare-controls {
+  width:
+    min(1150px, 96%);
+
+  margin:
+    0 auto 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+.compare-level-control {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    5px 10px;
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 12px
+    rgba(0, 0, 0, 0.14);
+}
+
+
+.compare-level-label {
+  color: #163b84;
+
+  font-weight:
+    900 !important;
+}
+
+
+.compare-level-select {
+  min-width: 220px;
+
+  background: white;
+
+  border-radius: 10px;
+}
+
+
+.compare-stats {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+}
+
+
+.compare-pill {
+  padding:
+    7px 12px;
+
+  background:
+    rgba(255, 255, 255, 0.95);
+
+  color: #163b84;
+
+  border-radius: 16px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 4px 10px
+    rgba(0, 0, 0, 0.13);
+}
+
+
+.compare-login-warning {
+  width: fit-content;
+
+  max-width: 90%;
+
+  margin:
+    0 auto 8px;
+
+  padding:
+    7px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  color: #163b84;
+
+  border:
+    2px solid #f4d92b;
+
+  border-radius: 16px;
+
+  font-weight: 800;
+}
+
+
+.compare-game-area {
+  width: 100%;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.compare-progress-wrapper {
+  width:
+    min(720px, 92%);
+
+  margin-bottom: 12px;
+}
+
+
+.compare-question-number {
+  margin-bottom:
+    6px !important;
+
+  text-align: center;
+
+  color: #163b84;
+
+  font-weight:
+    900 !important;
+}
+
+
+.compare-progress {
+  height:
+    12px !important;
+
+  border-radius:
+    20px !important;
+
+  background-color:
+    rgba(255, 255, 255, 0.8) !important;
+}
+
+
+.compare-progress
+.MuiLinearProgress-bar {
+  border-radius: 20px;
+
+  background-color:
+    #1dbb1d !important;
+}
+
+
+.compare-question-card {
+  width:
+    min(720px, 94%);
+
+  padding:
+    28px 32px;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  border-radius: 30px;
+
+  border:
+    4px solid
+    rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.18);
+}
+
+
+.compare-level-description {
+  color: #58708c;
+
+  font-weight:
+    800 !important;
+}
+
+
+.compare-question-text {
+  margin-top:
+    8px !important;
+
+  color: #58708c;
+
+  font-size:
+    1.1rem !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+.compare-values {
+  margin:
+    25px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 80px 1fr;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.compare-value-card {
+  min-height: 120px;
+
+  padding:
+    15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    #f5f9ff;
+
+  color: #163b84;
+
+  border:
+    4px solid #8cc8ff;
+
+  border-radius: 24px;
+
+  font-size: 2.2rem;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 6px 12px
+    rgba(0, 0, 0, 0.10);
+}
+
+
+.compare-question-mark {
+  color: #ff8b22;
+
+  font-size: 3.5rem;
+
+  font-weight: 900;
+}
+
+
+.compare-options {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+
+.compare-option {
+  min-height: 75px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1f8ee9,
+      #1769aa
+    ) !important;
+
+  color: white !important;
+
+  font-size:
+    2.5rem !important;
+
+  font-weight:
+    900 !important;
+
+  border-radius:
+    18px !important;
+
+  border:
+    3px solid white !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 5px 0 #0c4f88;
+}
+
+
+.compare-option:hover {
+  filter:
+    brightness(1.08);
+}
+
+
+.compare-option-correct {
+  background:
+    #1dbb1d !important;
+
+  box-shadow:
+    0 5px 0 #087a08 !important;
+}
+
+
+.compare-option-wrong {
+  background:
+    #d92d20 !important;
+
+  box-shadow:
+    0 5px 0 #8f1810 !important;
+
+  opacity:
+    0.8 !important;
+}
+
+
+.compare-feedback {
+  min-height: 30px;
+
+  margin-top: 15px;
+
+  font-size: 1.05rem;
+
+  font-weight: 900;
+}
+
+
+.compare-feedback-correct {
+  color: #087a08;
+}
+
+
+.compare-feedback-error {
+  color: #b42318;
+}
+
+
+.compare-finished {
+  width:
+    min(600px, 94%);
+
+  margin: auto;
+
+  padding: 30px;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  color: #163b84;
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 12px 28px
+    rgba(0, 0, 0, 0.18);
+}
+
+
+.compare-finished-title {
+  font-weight:
+    900 !important;
+}
+
+
+.compare-finished-text {
+  margin-top:
+    8px !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+.compare-final-score {
+  margin-top:
+    16px !important;
+
+  font-size:
+    1.6rem !important;
+
+  font-weight:
+    900 !important;
+}
+
+
+.compare-final-errors {
+  margin-top:
+    5px !important;
+
+  font-weight:
+    800 !important;
+}
+
+
+.compare-finished-actions {
+  margin-top: 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+
+.compare-play-again {
+  background-color:
+    #163b84 !important;
+
+  font-weight:
+    800 !important;
+
+  text-transform:
+    none !important;
+
+  border-radius:
+    14px !important;
+}
+
+
+.compare-next-level {
+  background-color:
+    #1dbb1d !important;
+
+  font-weight:
+    800 !important;
+
+  text-transform:
+    none !important;
+
+  border-radius:
+    14px !important;
+}
+
+
+.compare-loading {
+  margin:
+    auto !important;
+
+  padding:
+    14px 22px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  color: #163b84;
+
+  border-radius: 18px;
+
+  font-weight:
+    900 !important;
+}
+
+
+@media (max-width: 800px) {
+
+  .compare-page {
+    height: auto;
+
+    min-height:
+      calc(100vh - 64px);
+
+    overflow-y: auto;
+  }
+
+
+  .compare-header {
+    grid-template-columns:
+      1fr;
+
+    gap: 8px;
+  }
+
+
+  .compare-back-button,
+  .compare-restart-button {
+    justify-self: center;
+  }
+
+
+  .compare-controls {
+    flex-direction: column;
+  }
+
+
+  .compare-stats {
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .compare-question-card {
+    padding:
+      22px 14px;
+  }
+
+
+  .compare-values {
+    grid-template-columns:
+      1fr;
+
+    gap: 8px;
+  }
+
+
+  .compare-question-mark {
+    font-size:
+      2.5rem;
+  }
+
+
+  .compare-value-card {
+    min-height: 90px;
+
+    font-size:
+      1.8rem;
+  }
+
+
+  .compare-options {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+
+  .compare-option {
+    min-height: 60px;
+
+    font-size:
+      2rem !important;
+  }
+
+
+  .compare-level-control {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+
+  .compare-level-select {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+
+  .compare-login-warning {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+
+  .compare-finished-actions {
+    flex-direction: column;
+  }
+
+}

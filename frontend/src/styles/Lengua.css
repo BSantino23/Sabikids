@@ -1,0 +1,478 @@
+/* =========================================================
+   PÁGINA DE LENGUA
+========================================================= */
+
+.language-page {
+  width: 100%;
+
+  min-height: calc(100vh - 80px);
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow-x: hidden;
+
+  background: #8bd4ee;
+}
+
+
+/* =========================================================
+   MAPA
+
+   La imagen ocupa TODO el ancho.
+
+   No usamos max-width para evitar el rectángulo azul
+   alrededor del mapa.
+
+   La altura se calcula automáticamente para conservar
+   la proporción de la imagen y mantener las posiciones
+   de los niveles correctamente alineadas.
+========================================================= */
+
+.language-map-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.language-map-image {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  margin: 0;
+
+  padding: 0;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.language-back-button {
+  position: absolute !important;
+
+  top: 2.5%;
+
+  left: 2.2%;
+
+  z-index: 20;
+
+  padding:
+    9px 17px !important;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.8) !important;
+
+  border-radius:
+    14px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #76509b 0%,
+      #533471 100%
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  font-weight:
+    900 !important;
+
+  font-size:
+    0.95rem !important;
+
+  text-transform:
+    none !important;
+
+  box-shadow:
+    0 4px 0 #38234d,
+    0 7px 16px
+    rgba(0, 0, 0, 0.28) !important;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease !important;
+}
+
+
+.language-back-button:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    linear-gradient(
+      180deg,
+      #845daf 0%,
+      #604080 100%
+    ) !important;
+
+  box-shadow:
+    0 6px 0 #38234d,
+    0 10px 19px
+    rgba(0, 0, 0, 0.27) !important;
+}
+
+
+/* =========================================================
+   CAPA DE NIVELES
+========================================================= */
+
+.language-levels-layer {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 10;
+
+  width: 100%;
+
+  height: 100%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   NIVEL
+========================================================= */
+
+.language-level {
+  position: absolute;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  width: auto;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+
+.language-level:not(.locked):hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.07);
+
+  filter:
+    brightness(1.08);
+}
+
+
+/* =========================================================
+   POSICIONES
+
+   NO CAMBIAR:
+   estas posiciones ya fueron calibradas con el mapa.
+========================================================= */
+
+.language-level.level-1 {
+  left: 36.9%;
+  top: 79.5%;
+}
+
+
+.language-level.level-2 {
+  left: 38.5%;
+  top: 57.7%;
+}
+
+
+.language-level.level-3 {
+  left: 55.6%;
+  top: 49.5%;
+}
+
+
+.language-level.level-4 {
+  left: 49.5%;
+  top: 30.5%;
+}
+
+
+.language-level.level-5 {
+  left: 62.9%;
+  top: 28.3%;
+}
+
+
+/* =========================================================
+   CÍRCULO DEL NIVEL
+========================================================= */
+
+.language-level-number {
+  width:
+    clamp(
+      54px,
+      5vw,
+      84px
+    );
+
+  height:
+    clamp(
+      54px,
+      5vw,
+      84px
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border:
+    5px solid #ffffff;
+
+  border-radius:
+    50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffc942 0%,
+      #ffad22 100%
+    );
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      1.5rem,
+      2.2vw,
+      2.3rem
+    );
+
+  font-weight:
+    900;
+
+  line-height: 1;
+
+  box-shadow:
+    0 4px 0 #ce7613,
+    0 7px 16px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+.language-level-number svg {
+  font-size:
+    clamp(
+      1.7rem,
+      2.2vw,
+      2.5rem
+    );
+}
+
+
+/* =========================================================
+   NOMBRE DEL JUEGO
+========================================================= */
+
+.language-level-title {
+  display: inline-block;
+
+  padding:
+    6px 14px;
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(255, 250, 238, 0.96);
+
+  color:
+    #3f315e;
+
+  font-size:
+    clamp(
+      0.85rem,
+      1.3vw,
+      1.3rem
+    ) !important;
+
+  font-weight:
+    900 !important;
+
+  line-height:
+    1.1 !important;
+
+  white-space:
+    nowrap;
+
+  box-shadow:
+    0 3px 8px
+    rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   PRÓXIMAMENTE
+========================================================= */
+
+.language-level-coming-soon {
+  display: inline-block;
+
+  padding:
+    4px 10px;
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(82, 57, 106, 0.92);
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      0.62rem,
+      0.9vw,
+      0.9rem
+    ) !important;
+
+  font-weight:
+    800 !important;
+
+  line-height:
+    1 !important;
+}
+
+
+/* =========================================================
+   BLOQUEADOS
+========================================================= */
+
+.language-level.locked {
+  cursor: default;
+
+  filter:
+    grayscale(0.25);
+
+  opacity:
+    0.63;
+}
+
+
+.language-level.locked
+.language-level-number {
+  border-color:
+    rgba(255, 255, 255, 0.75);
+
+  background:
+    rgba(83, 72, 65, 0.62);
+
+  color:
+    rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 4px 0
+    rgba(53, 45, 41, 0.55);
+}
+
+
+.language-level.locked
+.language-level-title {
+  background:
+    rgba(236, 226, 199, 0.78);
+
+  color:
+    rgba(70, 59, 52, 0.88);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+
+  .language-back-button {
+    top: 2%;
+    left: 2%;
+
+    padding:
+      7px 12px !important;
+
+    font-size:
+      0.78rem !important;
+  }
+
+}
+
+
+@media (
+  max-width: 600px
+) {
+
+  .language-level-title {
+    padding:
+      4px 8px;
+  }
+
+
+  .language-level-coming-soon {
+    padding:
+      3px 7px;
+  }
+
+
+  .language-back-button {
+    min-width:
+      auto !important;
+
+    padding:
+      6px 9px !important;
+
+    font-size:
+      0.7rem !important;
+  }
+
+}

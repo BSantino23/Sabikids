@@ -1,6 +1,5 @@
 # SABIKIDS
-
-
+Sábikids es una plataforma web de refuerzo escolar diseñada para transformar el aprendizaje de materias curriculares primordiales en una experiencia de juego interactivo para estudiantes de educación primaria.
 
 
 # Integrantes
@@ -37,8 +36,17 @@
 
 ## Funcionalidades principales
 
-- 
-
+- Registro e inicio de sesión de usuarios.
+- Selección de materias y juegos educativos.
+- Sistema de niveles con desbloqueo progresivo.
+- Guardado del progreso y mejores puntajes por usuario.
+- Juegos interactivos de Matemática, Lengua, Ciencias Sociales, Ciencias Naturales, Inglés y Música.
+- Seguimiento de aciertos, errores y movimientos.
+- Modos de visualización claro, oscuro y accesible para daltonismo.
+- Diseño responsive para distintos dispositivos.
+- Navegación con React Router.
+- API REST desarrollada con Flask.
+- Persistencia de datos mediante MySQL.
 
 
 ## Instalación
@@ -124,21 +132,6 @@ MYSQL_DB=nombre_de_la_base_de_datos
 python app.py
 ```
 
-#### 2.6. Cargar datos iniciales
-
-- En otra terminal, entrar al backend y activar el entorno virtual:
-
-```sh
-cd backend
-<nombre_del_entorno>\Scripts\activate
-```
-
-- Ejecutar:
-
-```sh
-python -m utils.seed_estadios
-python -m utils.seed_hoteles
-```
 
 ### 3. Instalación del frontend
 
@@ -153,7 +146,7 @@ cd frontend
 ```sh
 npm install
 npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
-npm install react-leaflet leaflet
+npm install react-router-dom
 ```
 
 #### 3.2. Ejecutar el frontend

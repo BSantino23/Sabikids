@@ -1,0 +1,357 @@
+.ingles-page {
+  height: calc(100vh - 64px);
+
+  background-image: url("/juegos/ingles/ingles-fondo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 10px 24px 12px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.ingles-header {
+  width: 100%;
+  max-width: 1450px;
+
+  margin: 0 auto 4px;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  min-height: 78px;
+}
+
+/* BOTÓN VOLVER */
+
+.ingles-back-button {
+  position: absolute !important;
+
+  top: 8px;
+  left: 0;
+
+  background-color: #163b84 !important;
+  color: white !important;
+
+  font-weight: 800 !important;
+  text-transform: none !important;
+
+  border-radius: 14px !important;
+  padding: 8px 16px !important;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.ingles-back-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* TÍTULO */
+
+.ingles-heading {
+  text-align: center;
+}
+
+.ingles-title {
+  color: #163b84;
+
+  font-weight: 900 !important;
+
+  font-size: 2.6rem !important;
+
+  margin-bottom: 0 !important;
+
+  line-height: 1 !important;
+
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+.ingles-subtitle {
+  color: #163b84;
+
+  font-weight: 700 !important;
+
+  margin-top: 5px !important;
+
+  line-height: 1.1 !important;
+}
+
+/* MAPA / ISLA */
+
+.ingles-map-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 1380px;
+
+  margin: 0 auto;
+
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ingles-map-image {
+  display: block;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 14px 14px rgba(0, 0, 0, 0.15));
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* CAPA DE ESTACIONES */
+
+.ingles-games-layer {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+/* ESTACIONES VISUALES */
+
+.ingles-station {
+  position: absolute;
+  z-index: 5;
+
+  pointer-events: auto;
+
+  width: 210px;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.ingles-station:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  filter: brightness(1.04);
+}
+
+.ingles-station:focus {
+  outline: 4px solid #f4d92b;
+  outline-offset: 6px;
+  border-radius: 24px;
+}
+
+.ingles-station-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  display: block;
+  object-fit: contain;
+
+  filter: drop-shadow(0 12px 16px rgba(22, 59, 132, 0.24));
+
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.ingles-station-label {
+  margin-top: 6px;
+
+  background: #fffef8;
+  color: #163b84;
+
+  border-radius: 999px;
+
+  padding: 8px 16px;
+
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow: 0 7px 16px rgba(22, 59, 132, 0.2);
+
+  white-space: nowrap;
+}
+
+/* POSICIONES SOBRE LOS CÍRCULOS DE TIERRA */
+
+.ingles-station-vocabulario {
+  top: 41%;
+  left: 51%;
+}
+
+.ingles-station-animales {
+  top: 56%;
+  left: 31%;
+}
+
+.ingles-station-colores {
+  top: 71%;
+  left: 45%;
+}
+
+.ingles-station-rutinas {
+  top: 71%;
+  left: 60%;
+}
+
+.ingles-station-deportes {
+  top: 52%;
+  left: 71%;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .ingles-page {
+    padding: 8px 12px 10px;
+  }
+
+  .ingles-header {
+    min-height: 90px;
+  }
+
+  .ingles-title {
+    font-size: 2.2rem !important;
+  }
+
+  .ingles-station {
+    width: 150px;
+  }
+
+  .ingles-station-label {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  .ingles-station-vocabulario {
+    top: 41%;
+    left: 51%;
+  }
+
+  .ingles-station-animales {
+    top: 56%;
+    left: 31%;
+  }
+
+  .ingles-station-colores {
+    top: 71%;
+    left: 45%;
+  }
+
+  .ingles-station-rutinas {
+    top: 71%;
+    left: 60%;
+  }
+
+  .ingles-station-deportes {
+    top: 52%;
+    left: 71%;
+  }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+  .ingles-page {
+    height: auto;
+    min-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+
+  .ingles-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ingles-back-button {
+    position: static !important;
+    align-self: flex-start;
+  }
+
+  .ingles-title {
+    font-size: 2rem !important;
+  }
+
+  .ingles-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .ingles-map-wrapper {
+    margin-top: 20px;
+    min-height: 520px;
+  }
+
+  .ingles-map-image {
+    max-height: none;
+  }
+
+  .ingles-station {
+    width: 115px;
+  }
+
+  .ingles-station-label {
+    font-size: 0.62rem;
+    padding: 5px 8px;
+  }
+
+  .ingles-station-vocabulario {
+    top: 41%;
+    left: 51%;
+  }
+
+  .ingles-station-animales {
+    top: 56%;
+    left: 31%;
+  }
+
+  .ingles-station-colores {
+    top: 71%;
+    left: 45%;
+  }
+
+  .ingles-station-rutinas {
+    top: 71%;
+    left: 60%;
+  }
+
+  .ingles-station-deportes {
+    top: 52%;
+    left: 71%;
+  }
+}

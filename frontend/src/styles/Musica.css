@@ -1,0 +1,213 @@
+/* =========================================
+   RESET
+========================================= */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: #88d9f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   PÁGINA DE MÚSICA
+========================================= */
+
+.music-page {
+  position: absolute !important;
+  top: 64px;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+
+  height: calc(100vh - 64px);
+  min-height: 600px;
+
+  overflow: hidden;
+
+  background: #88d9f7;
+  background-image: url('/juegos/musica/musica_fondo.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* =========================================
+   FONDO COMPLETO (LA ISLA PRINCIPAL)
+========================================= */
+
+.music-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.85);
+  object-position: center center;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================
+   CONTENEDOR INTERACTIVO DE LA ISLA PEQUEÑA
+========================================= */
+
+.music-island-container {
+  position: absolute;
+  /* Subida un poco más arriba y hacia el círculo negro que marcaste */
+  top: 17%;
+  left: 17%;
+  z-index: 15;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.music-island-container:hover {
+  transform: translateY(-6px) scale(1.03);
+  filter: drop-shadow(0 16px 16px rgba(0, 0, 0, 0.3));
+}
+
+.music-island-container .music-memotest-island {
+  position: relative;
+  width: 210px; /* Un poco más proporcionada para que se luzca */
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.music-island-container .music-memotest-spot {
+  position: absolute !important;
+  bottom: 15% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  pointer-events: auto !important;
+
+  /* Cartelito mucho más pequeño y delicado */
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  padding: 4px 10px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%) !important;
+  color: #1a4c9d !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 0 #cbd5e1, 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+  white-space: nowrap;
+}
+
+.music-island-container .music-memotest-spot:hover {
+  filter: brightness(1.06);
+}
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.music-heading {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(650px, 70%);
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.music-title {
+  margin: 0 !important;
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif !important;
+  font-size: clamp(34px, 3.7vw, 52px) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  color: #1a4c9d;
+  text-shadow: 0 3px 0 rgba(255, 255, 255, 0.9), 0 5px 10px rgba(0, 79, 150, 0.2);
+}
+
+.music-subtitle {
+  margin: 7px 0 0 !important;
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+  font-size: clamp(14px, 1.4vw, 18px) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  color: #214b8f;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================
+   BOTÓN VOLVER
+========================================= */
+
+.back-subjects-button {
+  position: absolute !important;
+  top: 24px;
+  left: 32px;
+  z-index: 30;
+  background: linear-gradient(180deg, #275ab0 0%, #153d87 100%) !important;
+  color: white !important;
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 0.9rem !important;
+  text-transform: none !important;
+  padding: 9px 17px !important;
+  border-radius: 18px !important;
+  border: 2px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 4px 0 #0f316f, 0 8px 14px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+}
+
+.back-subjects-button:hover {
+  transform: translateY(-3px) !important;
+  filter: brightness(1.08);
+  box-shadow: 0 6px 0 #0f316f, 0 11px 18px rgba(0, 0, 0, 0.24) !important;
+}
+
+.back-subjects-button:active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 2px 0 #0f316f, 0 5px 9px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .music-island-container {
+    width: 190px;
+    top: 19%;
+    left: 15%;
+  }
+  .music-island-container .music-memotest-island {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .music-island-container {
+    width: 130px;
+    top: 20% !important;
+    left: 12% !important;
+  }
+  .music-island-container .music-memotest-spot {
+    font-size: 9px !important;
+    padding: 3px 6px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-island-container,
+  .back-subjects-button {
+    transition: none !important;
+  }
+}
