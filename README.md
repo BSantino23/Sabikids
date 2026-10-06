@@ -1,38 +1,8 @@
-# SABIKIDS
-Sábikids es una plataforma web de refuerzo escolar diseñada para transformar el aprendizaje de materias curriculares primordiales en una experiencia de juego interactivo para estudiantes de educación primaria.
+# SabiKids
 
+SabiKids es una plataforma web de refuerzo escolar orientada a estudiantes de educación primaria. El proyecto transforma contenidos de distintas materias en experiencias interactivas con juegos, niveles, puntajes y seguimiento del progreso.
 
-# Integrantes
-
-- Francisco Iglesias
-- Franco Orellano
-- Lautaro Lluebero
-- Maximo Mercau
-- Santino Barrionuevo
-
-
-## Tecnologías utilizadas
-
-### Frontend
-
-- React JS
-- Vite
-- JavaScript
-- HTML
-- CSS
-- Consumo de API REST mediante Fetch
-
-### Backend
-
-- Python
-- Flask
-- Flask-SQLAlchemy
-- Flask-CORS
-- PyMySQL
-- python-dotenv
-- Base de datos MySQL 
-- API REST
-
+Es un proyecto académico desarrollado en equipo con una arquitectura separada entre frontend y backend.
 
 ## Funcionalidades principales
 
@@ -40,149 +10,148 @@ Sábikids es una plataforma web de refuerzo escolar diseñada para transformar e
 - Selección de materias y juegos educativos.
 - Sistema de niveles con desbloqueo progresivo.
 - Guardado del progreso y mejores puntajes por usuario.
-- Juegos interactivos de Matemática, Lengua, Ciencias Sociales, Ciencias Naturales, Inglés y Música.
 - Seguimiento de aciertos, errores y movimientos.
+- Juegos de Matemática, Lengua, Ciencias Sociales, Ciencias Naturales, Inglés y Música.
 - Modos de visualización claro, oscuro y accesible para daltonismo.
 - Diseño responsive para distintos dispositivos.
-- Navegación con React Router.
+- Navegación mediante React Router.
 - API REST desarrollada con Flask.
 - Persistencia de datos mediante MySQL.
 
+## Tecnologías utilizadas
 
-## Instalación
+### Frontend
+
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
+- Material UI
+- React Router
+- Fetch API
+
+### Backend
+
+- Python
+- Flask
+- Flask-SQLAlchemy
+- Flask-CORS
+- SQLAlchemy
+- PyMySQL
+- python-dotenv
+- MySQL
+- API REST
+
+## Estructura del proyecto
+
+```text
+Sabikids/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── app.py
+│   ├── requirements.txt
+│   └── .env.example
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   └── styles/
+│   ├── package.json
+│   └── vite.config.js
+└── README.md
+```
+
+## Instalación y ejecución
 
 ### 1. Clonar el repositorio
 
-```sh
-git clone <url_del_repositorio>
-cd <nombre_del_proyecto>
+```bash
+git clone https://github.com/BSantino23/Sabikids.git
+cd Sabikids
 ```
 
-### 2. Instalación del backend
+### 2. Configurar el backend
 
-- Entrar a la carpeta del backend:
+Entrar a la carpeta del backend:
 
-```sh
+```bash
 cd backend
 ```
 
-#### 2.1. Crear un entorno virtual
+Crear un entorno virtual:
 
-- En Linux / macOS:
-
-```sh
-python3 -m venv <nombre_del_entorno>
+```bash
+python -m venv venv
 ```
 
-- En Windows:
+Activarlo en Windows:
 
-```sh
-python -m venv <nombre_del_entorno>
+```bash
+venv\Scripts\activate
 ```
 
-#### 2.2. Activar el entorno virtual
+En Linux o macOS:
 
-- En Linux / macOS:
-
-```sh
-source <nombre_del_entorno>/bin/activate
+```bash
+source venv/bin/activate
 ```
 
-- En Windows:
+Instalar las dependencias:
 
-```sh
-<nombre_del_entorno>\Scripts\activate
-```
-
-#### 2.3. Instalar dependencias
-
-```sh
-python -m pip install Flask Flask-SQLAlchemy PyMySQL python-dotenv flask-cors
-```
-
-o
-
-```sh
+```bash
 pip install -r requirements.txt
 ```
 
-#### 2.4. Configuración de la base de datos
-
-- Crear una base de datos en MySQL:
+Crear una base de datos en MySQL:
 
 ```sql
-CREATE DATABASE nombre_de_la_base_de_datos;
+CREATE DATABASE sabikids;
 ```
 
-- Crear el archivo .env dentro de la carpeta backend:
+Crear un archivo `.env` dentro de `backend/` tomando como referencia `.env.example`:
 
-```sh
+```env
 MYSQL_USER=tu_usuario
 MYSQL_PASSWORD=tu_password
-MYSQL_HOST=host_de_mysql
-MYSQL_PORT=port_de_mysql
-MYSQL_DB=nombre_de_la_base_de_datos
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_DB=sabikids
 ```
 
-#### 2.5. Ejecutar el backend
+Ejecutar el backend:
 
-- Desde la carpeta backend, con el entorno virtual activado:
-
-```sh
+```bash
 python app.py
 ```
 
+### 3. Configurar el frontend
 
-### 3. Instalación del frontend
+Desde otra terminal:
 
-- En otra terminal, entrar a la carpeta del frontend:
-
-```sh
+```bash
 cd frontend
-```
-
-#### 3.1 Instalar dependencias:
-
-```sh
 npm install
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
-npm install react-router-dom
-```
-
-#### 3.2. Ejecutar el frontend
-
-```sh
 npm run dev
 ```
 
+## Seguridad y configuración
 
-## Comandos útiles
-- Activar entorno virtual
+Las credenciales de la base de datos no se almacenan en el repositorio. Los archivos `.env` están excluidos mediante `.gitignore` y se incluye `.env.example` únicamente como referencia de configuración.
 
-```sh
-<nombre_del_entorno>\Scripts\activate
-```
+## Equipo
 
-- Salir del entorno virtual
+- Francisco Iglesias
+- Franco Orellano
+- Lautaro Lluebero
+- Máximo Mercau
+- Santino Barrionuevo
 
-```sh
-deactivate
-```
+## Sobre el proyecto
 
-- Guardar dependencias
-
-```sh
-python -m pip freeze > requirements.txt
-```
-
--Ejecutar backend
-
-```sh
-python app.py
-```
-
-- Ejecutar frontend
-
-```sh
-npm run dev
-```
+SabiKids permite demostrar trabajo con desarrollo web full stack, consumo y creación de APIs REST, persistencia de datos, navegación con React, diseño responsive, accesibilidad visual y trabajo colaborativo con Git y GitHub.
