@@ -1,0 +1,19 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type GameProgressType {
+  best_moves: Int
+  best_score: Int!
+  current_level: Int!
+  game_key: String!
+  id_progress: ID
+  max_level: Int!
+  updated_at: String
+  user_id: Int!
+}
+
+type Query {
+  """Consulta el progreso real de un juego para un usuario."""
+  gameProgress(gameKey: String!, userId: Int!): GameProgressType!
+}
